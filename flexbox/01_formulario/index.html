@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title></title>
+    <script defer src="https://kit.fontawesome.com/ddf77a6345.js" crossorigin="anonymous"></script>
+    <title>Flexbox | Formulario</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="container__left">
+            <div class="address">
+                <div class="address__title">
+                    <span class="address__icon fa-solid fa-location-dot"></span><span>address</span>
+                </div>
+                <span class="address__text">321,Street, Name, Country</span>
+            </div>
+            <div class="email">
+                <div class="email__title">
+                    <span class="email__icon fa-regular fa-envelope"></span><span>email</span>
+                </div>
+                <span class="email__text">example@domain.com</span>
+            </div>
+        </div>
+        <div class="container__right">
+            <form action="#" class="form">
+                <h2 class="form__title">Get in Touch</h2>
+                <input type="text" class="form__input" placeholder="Enter Your name">
+                <input type="text" class="form__input" placeholder="Enter Your email">
+                <input type="text" class="form__input" placeholder="Enter Your Query">
+                <input type="submit" value="SEND">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
