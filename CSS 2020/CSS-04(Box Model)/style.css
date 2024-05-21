@@ -1,0 +1,153 @@
+/*----------------------------*/
+body{font-size:2.5em;}h1{background:yellow;}
+/*----------------------------*/
+/*4.2*/
+h2 {
+	background: gray;
+	width: 200px;
+	display: inline;
+}
+/*Nota: Un consejo es que cuando se este maquetando coloquemos un fondo a los elementos para poder distinguirlos*/
+.relleno1 {
+	background-color: pink;
+	display: inline;
+}
+
+span {
+	background: yellow;
+	display: inline-block;
+	width: 40px;
+	height: 100px;
+}
+
+/*Notamos que los titulos son elementos de bloque porque ocupan toda su fila horizontal y el "span" es un elemento inline por que se acomoda a su papá que en este caso es el parrafo "p"*/
+
+/*4.3*/
+
+.box {
+	background-color: yellow;
+	background-clip: content-box;
+
+	/*border Modal(Modelo de cajita uwu)*/
+		width: 500px;
+		height: 300px;
+		padding: 50px;
+		border: 30px solid black;
+		margin: 50px; /*el margin es externo*/
+	/*---------------------------------*/
+}
+
+/*La caja amarrila es la caja de contenido, la caja blanca con todo lo de adentro es la caja del padding y la caja con el borde negro incluyendo con todo lo de adentro es la caja del borde. La caja del margin es invisible y los pixeles que le asignamos son de separacion no de altura ni de ancho. */
+/*El tamaño total del elemento es la suma de sus medidad de sus cajas*/
+
+
+.box2 {
+	background-color: yellow;
+
+	/*border Modal(Modelo de cajita uwu)*/
+		/*width: 500px;
+		height: 300px;*/
+		/*padding: 50px;*/
+		/*border: 30px solid black;*/
+		margin: 50px; /*el margin es externo*/
+
+	/*---------------------------------*/
+}
+
+/*Este por ejemplo solo a pesar de ser solo el margin se extiende a pesar de no especificar la anchura esto es por el margin que menciona que hay 50px de separacion de derecha a izquierda y 50 de arriba y abajo y como sabemos las cajas se extienden todo lo que pueden en el eje horizontal.*/
+
+/*4.4*/
+
+[class^="box-"] {
+	background: lime;
+	padding: 50px;
+	width: 300px;
+	float:right; /*sirve para flotar elementos de un lado de otro*/
+}
+
+
+.box-1 {
+	/*margin-top: 50px;
+	margin-right: 100px;
+	margin-bottom: 200px;
+	margin-left: 30px;*/
+	margin: 50px 100px 200px 30px; /*esto es lo mismo que lo anterior y se denomina shorthand*/ 
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/*de esta manera nos aseguramos que el padding ni el borde van a modificar la caja en sus porcentajes*/
+
+.p2 {
+	clear: both;
+	display: block;
+	background: orange;
+}
+
+.box-3 {
+	float:none;
+	background: red;
+	padding: 50px;
+	width: 50%;
+	margin-left: 50%;
+}
+/*Hay que tomar en cuenta que el 50% del ancho se le suma el 50px del padding el cual aria que no tenfriamos el 50%(que seria la mitad el papá que seria el body) si no mas de ese 50 exacto. Para evitar esto usamos el box-sizing:border-box*/
+
+.container {
+	width: 600px;
+	background: lime;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*si tiene un ancho definido y es un elemento de bloque(display block) se puede centrar con margin: auto; pero no es lo correcto ya que con otros modulos se puede alterar, lo mejor es usar margin-left:auto; con margin-right:auto; sin meterno con el alto y bajo.*/
+
+.item {
+	margin-left: -10px;
+	margin-right: -10px;
+	border: 1px solid red;
+}
+
+/*lo que esto crea es que como tenemos que el margin del contenedor del item sea automatico este al momento de añadirle margen negativo dentro de su item ara que atomaticamente este se redusca visualmente.*/
+
+/*4.5*/
+
+.article {
+	background: #00ffff;
+}
+
+/*Un dato curioso es que si realizamos lo que es crear un articulo ( nuestro contenedor) ya sea cualquiera, este visualmente se distorsiona ya que tenemos dentro de este un hx y un p, y lo que crea el hx es añadir un margen superior fantasma sin que nosotros lo sepamos*/
+
+
+/*4.6*/
+
+.article-2 {
+	background: #00ffff;
+	padding: 100px;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.title-2 {
+	background: red;
+}
+
+/*El padding es la separacion del borde al contenido.*/
+/*Si trabajamos con porsentajes en padding este sera relativo al width del papá; en margin en margin-top podia ser relativo al alto del papá, el padding vertical es relativo al ancho, Una locura :v.*/
+
+/*Lo siguiente es un ejemplo tipico ya de css*/
+
+/*Haremos un que un elemento sea un contenedor para videos responsive, que se adecue a cualquier pantalla, pero queremos las medidas 16x9 ¿como lo hacemos? 
+-Aprovechando que la caracteristica padding top y bottom es relativo al ancho.*/
+
+.video {
+	background: #ffff00;
+	padding-bottom: 56.25%; /*Este 56.25% es relativo al ancho del papá*/
+
+} 
+/*Si no agregamos nada dentro de nuestro contenedor no veremos nada en el navegador, esto es porque el ancho es relativo a su contenido*//*Si le ponemos una alto claro se vera.*/
+
+

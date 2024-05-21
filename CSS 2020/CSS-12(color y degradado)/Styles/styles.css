@@ -1,0 +1,346 @@
+/*Bases de color*/
+:root{
+	--space-bottom:5px;
+}
+
+.box-bb-01 {
+	color:red;
+	background-color: currentColor;
+}
+
+.box-bb-01 span {
+	background: hsla(0,100%,100%,.7);
+}
+
+article {
+	color: rebeccapurple; /*Es un color con una historia triste por detrás..*/
+	width: 95%;
+	border: 1px solid currentColor;
+	margin: 20px auto;	
+	padding: 1em;
+	box-shadow: 0 0 8px 0 currentColor;
+	animation: color 5s infinite alternate;
+}
+
+.title {
+	margin-bottom: var(--space-bottom);
+}
+
+.article {
+	margin-bottom: var(--space-bottom);
+}
+
+.ver {
+	border: 1px solid currentColor;
+	display: inline-block;
+	text-decoration:none;
+	padding: .3em .7em;
+	color: currentColor;
+}
+
+@keyframes color {
+	25% {
+		color: hsl(45,100%,50%);
+	}
+
+	50% {
+		color: hsl(90,100%,50%);
+	}
+
+	75% {
+		color: hsl(45,100%,50%);
+	}
+
+	100% {
+		color: hsl(180,100%,50%);
+	}
+
+}
+
+/*--Modos de color--*/
+
+.box-sml-05 .box-bb-03 {
+	background-color: rgb(255,255,255);
+	box-shadow: 1px 2px 5px 3.5px #ccc;
+}
+
+.box-sml-06 .box-bb-05 {
+	background-color: rgb(0,0,0);
+}
+
+.box-sml-07 .box-bb-07 {
+	background-color: rgb(123,123,123);
+}
+
+.box-sml-08 .box-bb-09 {
+	background-color: rgb(0,255,255);
+}
+
+.box-sml-09 .box-bb-11 {
+	background-color: rgb(255,0,255);
+}
+
+.box-sml-10 .box-bb-13 {
+	background-color: rgb(255,255,0);
+}
+
+.box-sml-11 .box-bb-15 {
+	background-color: rgba(0,0,0,.5);
+}
+
+.box-sml-12 .box-bb-17 {
+	background-color: rgba(255,0,0,1);
+}
+
+.box-bb-19 {
+	background-color: #ff00ff;
+}
+
+.box-sml-20 img {	/*a las imágenes hay que establecerle las medidas, de lo contrario se pondrán las dimensiones que esta ya tiene por defecto, y otro dato es que las imágenes son inline pero aun y así podemos cambiarle el ancho y alto ._.*/
+	width: var(--width-principal);
+	margin: 0 auto;
+	margin-bottom: var(--space);
+	display: block;
+} 
+
+.box-bb-20 {
+	padding:0; /*Coloco que no tenga padding para que el hijo (after) pueda abarcar el 100% del papá (box-bb)*/
+	padding-bottom: 20px; /*Pero si quiero que tenga 20px de padding hacia abajo*/
+	height: 40px; /*y con el alto fijo el papá ya no se adaptara a las medidas del hijo*/
+}
+
+.box-bb-20:hover {
+	background-color: #fff;
+}
+
+.box-bb-20::after {
+	content: '';
+	display: block;
+	background-color: hsla(120,100%,50%,.1);
+	height: 100%; /*Le pongo si o si ya que no tiene contenido*/
+}
+
+.box-bb-20:hover::after {
+	content: 'Ni se ve ahora el verde ._.';
+	color: black;
+}
+
+.box-bb-21 {
+	background-image: linear-gradient(red,yellow);
+}
+
+.box-bb-22 {
+	background-image: linear-gradient(
+        hsl(0,100%,50%),
+        hsl(60,100%,50%),
+        hsl(120,100%,50%),
+        hsl(180,100%,50%),
+        hsl(240,100%,50%),
+        hsl(300,100%,50%),
+        hsl(360,100%,50%)
+	);
+	height: 190px;
+}
+
+.box-bb-23 {
+	background-image: linear-gradient(red 50%,yellow 50%);
+	height: 30%;
+}
+
+.box-bb-24 {
+	background-image: linear-gradient(red 50%,yellow 50%);
+	height: 100px;
+}
+
+.bb-100 [class*="box-bb-"]{
+	height: 100px;
+}
+
+.box-bb-25 {
+	background-image: linear-gradient(lime, yellow, red);
+}
+
+.box-bb-26 {
+	background-image: linear-gradient(to top, lime, yellow, red);
+}
+
+.box-bb-27 {
+	background-image: linear-gradient(to left, lime, yellow, red);
+}
+
+.box-bb-28 {
+	background-image: linear-gradient(to bottom, lime, yellow, red);
+}
+
+.box-bb-29 {
+	background-image: linear-gradient(to bottom left, lime, yellow, red);
+}
+
+.box-bb-30 {
+	background-image: linear-gradient(yellow 0, yellow 50px, red 50px, red 80px);
+}
+
+.box-bb-31 {
+	background-image: repeating-linear-gradient(yellow 0, yellow 50px, red 50px, red 80px);
+}
+
+.box-bb-32 {
+	background-image: linear-gradient(yellow 30px,red 30px);
+}/*del 0 al 30 es yellow y del 30 para adelante es rojo*/
+
+.box-bb-33 {
+	background-image: linear-gradient(yellow 30px, red 30px, blue);
+} /*El amartillo es solido ya que tiene un inicio en 0 y termina en 30, en cambio rojo inicia en 30 y termina con un degradado automático con blue, y si a blue le damos una medida solo especificamos que a partir de los 30 de red blue compensatoria el degradado, y esto no sera preciso*/
+
+.box-bb-34 {
+	background-image: linear-gradient(yellow 30px, red 30px, red 60px, blue 60px, blue 90px);
+} /*Con esto ya especificamos que yellow comienza automáticamente en 0 y termina en 30, red en 30 y termina en 60 y blue comienza en 60 pero termina hasta donde termina el contenedor ya que no es posible dejar espacios en blanco si no especificamos las medidas de la imagen. Con lo anterior también se afirma que a pesar de tener 90px en blue este esta mal ya que blue termina hasta donde finaliza el alto de dicho contenedor.*/
+
+.box-bb-35 {
+	background-image: linear-gradient(yellow 30px, red 30px, red 60px, blue)
+} /*Con esto determino que yellow empieza en 0 y finaliza en 30, red en 30 y termina en 60 y blue se calcula automáticamente a partir de donde termina el red con un degradado hasta topar con el fin height*/
+
+.box-bb-36 {
+	background-image: linear-gradient(yellow, hsl(20, 90%,40%) 40px, hsl(20, 90%,40%) 42px,hsl(200,100%,70%) 61px,hsl(200,100%,50%) 80px);
+}
+
+.circulo{
+	background-image:linear-gradient(hsla(40,100%,60%,.9) 34px,hsla(40,100%,60%,.3) 34px);
+	height:70px;
+	width: 70px;
+	margin: 0 auto;
+	border-radius: 50%;
+}
+
+.box-bb-37 {
+	height: 300px;
+	background-image: radial-gradient(yellow, red);
+}
+
+textarea {
+	min-height: 100px;
+	height: 200px;
+	max-height: 400px;
+	min-width: 50%;
+	width: 90%;
+	max-width: 90%;
+	margin: 20px auto;
+	display: block;
+	border: none;
+	box-shadow: 0 0 10px 1px hsl(35,10%,50%);
+	background-image: radial-gradient(red,yellow);
+}
+
+textarea:focus {
+	outline:none;
+}
+
+.bb-300 [class*="box-bb-"] {
+	width: 300px;
+	height: 300px;
+}
+
+.box-bb-39 {
+	background-image:radial-gradient(#000 1%,yellow 1%,yellow 51%, red 51%);
+}
+
+.box-bb-40 {
+	background-image: radial-gradient(at 0 0,#000 1%,yellow 1%,yellow 51%, red 51%);
+}	
+
+.box-bb-41 {
+	background-image: radial-gradient(at 100% 100%,#000 1%,yellow 1%,yellow 51%, red 51%);
+}
+
+.box-bb-42 {
+	background-image: radial-gradient(at 50% 50%,#000 1%,yellow 1%,yellow 51%, red 51%);
+}
+
+.box-bb-38 {
+	background-image: radial-gradient(at -50% -50%,#000 1%,yellow 1%,yellow 51%, red 51%);
+	height: 300px;
+	width: 300px;
+}
+
+.box-bb-43 {
+	background-image: radial-gradient(ellipse,yellow,red);
+	height: 300px;
+	width: 300px;
+}
+
+.box-bb-44 {
+	background-image: radial-gradient(100% 150px ellipse,yellow 50%,red 50%);
+	height: 400px;
+}
+
+.box-sml-21 .b-02 {
+	background-image: radial-gradient(circle,yellow,red,blue,black);
+}/*Este se mantiene fijamente en un circulo con un radio dinámico, a diferencia de que sino le establecemos el la forma a tomar este se puede convertir ya sea en un circulo o elipse es decir el efecto por default*/
+
+.b-03 {
+	background-image: radial-gradient(200px,red,yellow,gray,black);
+}
+
+.b-04 {
+		background-image: radial-gradient(200px 50px ellipse,red,yellow,gray,black);
+}
+
+ul p {
+	margin-bottom: 7px;
+}
+
+.box-bb-45 {
+	background-image: radial-gradient(closest-corner,yellow,red,cyan,rebeccapurple);
+}
+
+.box-bb-46 {
+	background-image: radial-gradient(yellow,red,cyan,rebeccapurple);	
+	margin: 12px auto;
+}
+
+.box-bb-47 {
+	background-image: radial-gradient(closest-side,yellow,red,cyan,rebeccapurple);
+}
+
+.box-01, .box-rer-flex-1 {
+	margin-bottom: 0;
+}
+
+.box-bb-48 {
+	background-image: radial-gradient(yellow 100%,red 100%);
+}
+
+.box-bb-49 {
+	background-image: radial-gradient(closest-side,yellow 100%,red 100%);
+}
+
+.box-bb-50 {
+	background-image: repeating-radial-gradient(yellow 0, yellow 50px, red 50px, red 100px);
+}
+
+.box-bb-51 {
+	background-image: radial-gradient(farthest-side,yellow 100%,red 100%);
+}
+
+.box-bb-52 {
+	width: 500px;
+	height: 500px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 2px #000; /*nuestra caja adopta una forma circular*/
+	background-image: /*Recordando que con las imágenes podemos poner img una sobre otra sabiendo que la primera que esta escrita en el código ira hasta arriba de estas.*/
+	radial-gradient(circle at 50% 25%,#000 5%,transparent 5%),/*Con la medida de circle le especificamos que solo se adapte a la forma de un circulo sin intentar deformarse para hacer un elipse*/
+	radial-gradient(circle at 50% 75%,#fff 5%,transparent 5%),
+	radial-gradient(closest-side circle at 50% 75%,#000 100%,transparent 100%),/*Le especificamos que queremos que se expanda solo hasta los costados no hacia las esquinas ya que esto intentara crear una especie de rectángulo*/
+	radial-gradient(closest-side circle at 50% 25%,#fff 100%,transparent 100%),
+	linear-gradient(to right, #fff 50%,#000 50%);/*Con to right le indicamos que la dirección de los colores sera en una posición de 90 grados con el blanco del lado derecho y el negro del izquierdo*/
+}
+
+@media (width:420) {
+	#b-02 {
+		margin: 0;
+	}
+
+	.bb-300 [class*="box-bb-"] {
+		width: 100%;
+	}
+}

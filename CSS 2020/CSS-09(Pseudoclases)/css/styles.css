@@ -1,0 +1,382 @@
+
+header h1 {
+	width: 90%;
+	background-color: yellow;
+	color: gray;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	padding: 35px 0;
+	border-radius: 20px;
+	border: 5px solid gray;
+	text-align: center;
+	font-size: 2.6em;
+	font-family: arial;
+	word-spacing: .18em;
+}
+
+section {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.big-box > h2 {
+	width: 100%; /*Descubri que con la propiedad display flex y grid esta wea se aregla xd, pero para que nuestro h2 no se reajuste en cuestion de ancho simplemente lo especificamos con width vaya.*/
+	background-color: #A6FFFF;
+	padding: 18px;
+	border: 8px solid gray;
+	margin-bottom: 20px;
+	font-family: arial;
+	font-weight: 1;
+	display:flex; /*No se porque se areglo usando flex o con grid ;-;*/
+}
+
+[class^="small-box-"] {
+	width: 45%;
+	height: 350px;
+	border: 5px solid #000;
+	display:block;
+	float: left;
+	margin-left: 2.4%;
+	margin-right: 2.4%;
+	margin-bottom: 35px;
+	font-size: 1.2em;
+	font-family: arial;
+	line-height: 1.3em;
+	padding: 10px;
+}
+
+[class^="small-box-"]  h3:first-child {
+	text-align:center;
+	margin-top: 10px;
+	font-family: monospace;
+	font-size: 2em;
+	margin-bottom: 10px;
+}
+/*Textos ll*/
+.baby-box {
+	background-color: gray;
+	width: 80%;
+	height: 150px;
+	margin: 0 auto;
+	padding:3rem;
+	font-family: monospace;
+	font-weight: 600;
+	color: #00ffff;
+}
+
+.baby-box:hover {
+	border: 3px solid #000;
+	background-color: aqua;
+	color: #fff;
+	transition: all .5s ease-out;
+}
+
+[class*="box-bb"] {
+	background-color: #1B2B34FF; /*es del mismo color que sublime xd*/
+	width: var(--width-principal);
+	margin-top: calc(var(--space) + 10px);
+	margin-right: auto;
+	margin-bottom: calc(var(--space) + 10px);
+	margin-left: auto;
+	font-family: Consolas, arial;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 1.5rem;
+	color: #fff;
+	white-space: pre-line; /*con esta propiedad puedo indicarle a css que me respete también ya sea los espacios (o no) o saltos de lineas o ambos. En este caso puse que solo respete los saltos de linea*/
+	font-size: 1rem;	
+}
+
+[class*="box-bb"]  h4 {
+	margin-bottom: var(--space);
+}
+/*<div class="box-bb"> <!--Con las baby cajas o cajitas puedo mostrar código que se respeten las lineas--></div>*/
+
+.flex {
+	height: initial;
+	min-height: 350px;
+}
+
+/*-----dynamic---------*/
+.small-box-1_5 {
+	width: 100%;
+	margin: 0 0 40px;
+	height: initial;
+}
+
+.link {
+	display: block;
+	line-height: 2em;
+	border: 1px solid #000;
+	margin: 5px;
+}
+
+.link:nth-child(3):visited {
+	color: lime;
+}
+
+.link:nth-child(4):active {
+	color: aqua;
+	background-color: hsla(60,100%,50%,.6);
+}
+
+.link:last-child:hover{
+	background-color: hsla(200,100%,50%,.5);
+}
+
+.txt__focus {
+	display: block;
+	margin:35px auto;
+}
+
+.txt__focus:focus {
+	box-shadow: 0 3px 0 0 aqua inset,
+				 0 -3px 0 0 aqua inset;
+	transition: all .5s;
+	transition-delay: .2s;
+}
+
+/*.btn:hover {
+	color: hsl(60,80%,55%);
+}*/
+
+.small-box-1_8 {
+	padding: 0;
+	border: none;
+	height: initial;
+}
+
+.small-box-1_8 [class^="small-box-"] {
+	width: 100%;
+	margin:0 0 10px;
+}
+
+
+.btn {
+	--height:50px;
+	display: block;
+	border: 1px solid;
+	height: var(--height);
+	width: calc(var(--height) * 1.5 + 2px);
+	text-align: center;
+	line-height:var(--height);;
+	border-radius: 10px;
+	text-decoration: none;
+	background-color: hsla(0,100%,50%,.2); /*Al ponerlo con hsl y alpha automaticamente el bg-color hedera el alpha por lo que si uso correctcolor se hederara el color puesto del elemento + el nuevo color del elemento.*/
+	color:red;
+	margin: 10px auto 35px;
+}
+
+.btn:visited {
+	background-color: currentColor;
+	color: cyan;
+}
+
+.btn:active {
+	color: hsl(180,80%,40%);
+	transform:scale(.95);
+}
+
+/*target*/
+:root {
+	scroll-behavior: smooth;
+}
+.menu {
+	margin: 10px 5px;
+}
+
+.menu__link {
+	display: block;
+	text-decoration: none;
+	color: red;
+	margin-bottom: 5px;
+}
+
+.menu__link::before {
+	content: '♥.- ';
+}
+
+:target {
+	border: 1px solid red;
+}
+:target::after {
+	content: ' Hola, estoy usando target';
+	color: gray;
+	font-weight: 500;
+	font-family: consolas;
+	font-style: italic;
+}
+/*lang*/
+.text {
+	margin:10px 5px;
+	border-bottom: 1px solid;
+	width: 50%;
+}
+
+:lang(en)::after {
+	content: '= texto en ingles';
+	margin-left: 5px;
+	color: gray;
+}
+
+/*---UI-STATES---*/
+.small-box-1_13 {
+	width: 100%;
+	margin: 0 0 40px;
+	height: initial;
+}
+
+.label, [class*="input"] {
+	display: block;
+}
+
+.label, .input--checkbox {
+	margin: 10px 2px 0;
+}
+
+.input--enabled:enabled {
+	background: red;
+	border:1px solid #000;
+}
+
+.input--disabled:disabled {
+	background: hsla(60,100%,50%,.5);
+	border:1px solid #000;
+}
+
+.input--checkbox:checked + .label{
+	background-color: red;
+	font-size: 2em;
+}
+
+.input--in-range:in-range {
+	background-color: hsla(35,100%,60%,1);
+}
+
+.input--out-range:out-of-range {
+	background-color: hsl(0,100%,67%);
+}
+
+.input--optional:optional {
+	background-color: hsl(130,100%,70%);
+}
+
+.input--required:required {
+	background-color: hsl(190,100%,70%);
+}
+
+.input--valid:valid {
+	background-color: hsl(130,100%,70%);
+}
+
+.input--invalid:invalid {
+	border-color: hsl(0,100%,55%);
+}
+
+.input--invalid:focus {
+	box-shadow: none;
+	outline: 0 none;
+}
+
+/*estructuras*/
+
+.small-box-1_15 {
+	counter-reset: n-hijo;
+}
+
+.paragraph {
+	font-weight: 600;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	margin: 5px 0;
+	counter-increment: n-hijo;
+}
+
+.paragraph::after {
+	content:' ' counter(n-hijo);
+}
+
+.paragraph:nth-child(3n) {
+	background-color: aqua;
+}
+
+.container div:first-child {
+	background: rebeccapurple;
+}
+
+.parrafo:first-child {
+	background: red;
+}
+
+.parrafo:last-child {
+	background-color: lime;
+}
+
+
+.container__paragraph:nth-of-type(n+3) { /*Selecciona los elementos que tengan la clase container__paragraph, y apartir de n se le sumara 3 y empezara a aplicar los estilos.*/
+	background-color: hsla(0,100%,70%,1);
+
+}
+
+/*--Not--*/
+
+.parrafos {
+	border: 2px solid;
+	margin: 10px 0;
+	text-align: center;
+	padding: 1.5px 0;
+}
+
+.parrafos:not(:nth-child(5)) { /*Seleccionamos la clase .parrafos con excepción de el 5to hijo que tenga esta clase.*/
+	border-color: lime;
+}
+
+
+/*--coloretes xd--*/
+
+
+.or {
+	color: orange;
+}
+
+.pu {
+	color: #BB7682FF;
+}
+
+.gr {
+	color: #BCBCBCFF;
+}
+
+.red {
+	color:red;
+}
+
+.azul {
+	color:#6699CCFF;
+}
+
+.ye {
+	color:#FAC863FF;
+}
+
+.ve  {
+	color: lime;
+}
+
+.ve-f {
+	color:#60B394FF;
+}
+
+.ve-l{
+	color: #99C77C;
+}
+
+.red-st {
+	color:#EB514BFF;
+}
+
+.alert {
+	color: hsla(60,100%,50%,.8);
+	border-bottom: 1px solid;	
+}

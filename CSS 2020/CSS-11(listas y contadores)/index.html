@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<meta charset="UTF-8"><!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> <!--Compatible con edge-->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="styles/normalize.css"> <!--Reseteo de estilos-->
+	<link rel="stylesheet" type="text/css" href="styles/styles-default.css">
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+	<title>CSS-11</title>
+</head>
+<body>
+	<header>
+		<h1>Practicas de la clase 11</h1> <!--Titulo del encabezado-->
+	</header>
+	<section>
+		<h2>11. Listas y contadores</h2> <!--Titulo de la sección-->
+		<div class="big-box">
+			<h3>11.1 Estructura de listas</h3> <!--titulo de la caja grande-->
+			<div class="box box-sml-01 box-flex">
+				<h4>Definición:</h4> <!--Titulo de referencia de la caja-->
+				<p>
+					Las listas son una enumeración de elementos. En html hay dos tipos de listas, ul para las no ordenadas, y las ordenadas ol; y cada elemento de la lista es un li (list item).
+					El navegador por default a las listas ul les pone balitas, y las ol números, esto lo dibuja el navegador.<br>
+					Dentro de una lista podemos poner otras listas exactamente dentro de los li.
+				</p>
+				<div class="box-bb">
+					Esta seria una lista desordenada (ul)
+					que dentro de uno de los li tiene otra 
+					lista que en este caso seria 
+					ordenada (ol)
+					○ Hola mundo
+					○ Hola mundo
+					○ Hola mundo
+					1. item1
+					2. item2
+					3. item3
+					4. item4
+					○ Hola mundo
+					○ Hola mundo
+				</div>
+			</div>
+			<div class="box box-sml-02 box-flex"> <!--Titulo de referencia de la caja-->
+				<h4>Ejemplo:</h4>
+				<ul>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+				</ul>
+				<ol>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+				</ol>
+				<div class="box-bb">
+					También podemos usar la propiedad display con el valor list-item como en el siguiente ejemplo 
+				</div>
+				<span>Holis</span>
+				<span>Holis</span>
+				<span>Holis</span>
+				<span>Holis</span>
+				<span>Holis</span>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>11.2 List style type</h3>
+			<div class="box box-sml-03">
+				<h4>Definición</h4>
+				<p>
+					Con la propiedad list style type podemos cambiar el estilo de la lista (cambiar la viñeta que muestra el navegador). Esta se la podemos aplicar ya se a el ul, ol o al mismo li, ya que en cualquiera de los casos que remos que el li adquiera dicha propiedad (lo heredara automáticamente).
+				</p>
+				<div class="box-bb or">
+					list-style-type:;
+				</div>
+				<p>
+					también podemos aplicar diversas diversos valores a la propiedad ya que son muchas las variantes.
+				</p>
+			</div>
+			<div class="box box-sml-04 box-flex">
+				<h4>Ejemplo</h4>
+				<ul>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+				</ul>
+				<ol>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+				</ol>
+				<div class="box-bb-02">
+					<span class="pu">.box-sml-04</span> {
+					<span class="or">list-style-type:square;</span>
+					}
+				</div>
+				<p>
+					con esto definimos que el estilo de viñeta sea un cuadrado. Hay demasiadas variantes de viñetas por la diversidad de idiomas en el mundo.
+				</p>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>11.3 List style image</h3>
+			<div class="box box-sml-05 box-flex">
+				<h4>Definición:</h4>
+				<p>
+					Esta propiedad sirve para colocar una imagen en ves de una viñeta, la desventaja es que no es posible re-dimensionar dicha imagen ._., la única solución es colocando una imagen del tamaño adecuado para la lista.
+					Un método es usar los seudoelementos con la propiedad background-img.
+				</p>
+				<div class="box-bb-02">
+					<span class="gr">/*Ejemplo con ::before y bg-img*/</span>
+
+					<span class="pu">.box-sml-06 ol</span> {
+							<span class="or">list-style-type: none;</span>
+						}
+
+						<span class="pu">.box-sml-06 ol li::before</span> {
+							<span class="or">content: '';
+							display: inline-block;
+							background-image: url("../media/images (3).jpg");
+							background-size: contain;
+							width: 50px;
+							height: 50px;</span>
+						}
+						<span class="gr"> /*esta solo es una prueba con before, es mucho mejor que usar la misma list-style-image ._.*/</span>
+				</div>
+			</div>
+			<div class="box box-sml-06 box-flex">
+				<h4>Ejemplo:</h4>
+				<ul>
+					<li>item 1</li>
+					<li>item 2</li>
+				</ul>
+				<ol>
+					<li>item 1</li>
+					<li>item 2</li>
+				</ol>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>11.4 List style position</h3>
+			<div class="box box-xl-07">
+				<ul>
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3
+						<ul>
+							<li>item 1</li>
+							<li>item 2</li>
+							<li>item 3</li>
+							<li>item 4</li>
+						</ul>
+					</li>
+					<li>Item 4</li>
+					<li>Item 5</li>
+				</ul>
+				<h4>Descripción:</h4>
+				<p>
+					Con la gráfica anterior podemos ver la separación de las viñetas con los <span class="red">li</span>. Resaltamos los <span class="red">li</span> con <span class="or">border rojo</span> y los ul con <span class="or">border black</span>, así de esta manera es mas fácil de distinguir la separación de cada elemento de la lista, y esto a su vez podemos destacar como es que las viñetas no están dentro de los <span class="red">li</span>; lo que quiere decir, que las viñetas no se manipular con li (pero aun y asi podemos separar el li de la viñeta con padding, a no ser..).
+				</p>
+			</div>
+			<div class="box box-xl-08">
+				<ul>
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3
+						<ul>
+							<li>item 1</li>
+							<li>item 2</li>
+							<li>item 3</li>
+							<li>item 4</li>
+						</ul>
+					</li>
+					<li>Item 4</li>
+					<li>Item 5</li>
+				</ul>
+				<h4>Descripción:</h4>
+				<p>
+					La propiedad list-style-position hace que las viñetas este ya sea por dentro del item o por fuera de este. La desventaja es que si usamos el position inside (como lo es en este ejemplo) ya no podemos manipular de ninguna forma la viñeta directamente.<br> Para solución de esto están los contadores.
+				</p>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>11.5 Contadores</h3>
+			<div class="box box-sml-09 box-flex">
+				<h4>Definición:</h4>
+				<p>
+					Con los contadores podemos contar todos los elementos que estan en una misma familia de clase, por lo que podemos contar cualquier cosa de html con css.
+				</p>
+				<p>
+					Para ello tenemos que crear un contador que es como una variable que se va incrementando, esta la creamos en el lugar donde vamos a trabajar(ya sea en el body o en el papá de los elementos que queremos contar), el contador es con la función <span class="azul">couter-reset</span>.
+				</p>
+				<p>
+					<span class="azul">Couter-reset</span> tiene dos funciones, crea un contador y también lo resetea ._.XD.
+					A este le asignamos un nombre (Cual quier nombre, es indiferente cual escojamos), que en nuestro caso sera <span class="red">i</span>.
+				</p>
+				<p>
+					Después de ello dentro del bloque de declaración de la clase o del objeto que deseamos contar en css escribimos counter-increment junto con el nombre de nuestra variable llamada <span class="red">i</span> y seguidamente de esta el valor que se le asignara a todos lo objetos o clases, por ejemplo 1.
+				</p>
+				<div class="box-bb">
+					counter-increment: i 1; <-- uno es el valor por default de counter-increment -->
+				</div>
+				<p>
+					Ya solo quedaría imprimir nuestro resultado, y lo haremos por medio de la propiedad content de los pseudoelementos.
+				</p>
+				<div class="box-bb">
+					<span class="red">Selector</span>::before {
+						content: counter(i) '.- ';
+						color: red;
+					}
+				</div>
+			</div>
+			<div class="box box-sml-10 box-flex">
+				<h4>Ejemplo:</h4>
+					<h1>Manual CSS</h1>
+				<div class="chapters">
+					<h2 class="chapter">Introducción</h2>
+					<h2 class="chapter">Selectores</h2>
+					<h2 class="chapter">Box Model</h2>
+					<h2 class="chapter">Posicionamiento</h2>
+				</div>
+				<div class="box-bb-3">
+					<span class="pu">.box-sml-10  .chapters</span> {
+						<span class="or">counter-reset: i;</span>
+					}
+					<span class="gr">/*creamos la variable que va contar*/</span>
+
+					<span class="pu">.chapter</span> {
+						<span class="or">counter-increment: i;</span>
+					}
+					<span class="gr">/*con counter increment le estamos diciendo que cada vez que encuentre un chapter incrementa el contador*/</span>
+
+					<span class="pu">.chapter::before</span> {
+						<span class="or">content: counter(i) '.- ';
+						color: red;</span>
+					}
+					<span class="gr">/*Con before solo imprimimos nuestra variable que se encuentra en memoria por el momento con la propiedad content mostrándola con la función counter()<-- en el paréntesis va la variable*/</span>
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>11.6 Contador en listas anidadas</h3>
+			<div class="box box-sml-11 box-flex">
+				<h4>Definición:</h4>
+				<div class="box-bb">
+					<span class="pu">.box-sml-12 ol</span> {
+						<span class="or">list-style: none;
+						counter-reset: list;</span>
+					}
+					<span class="pu">.box-sml-12 li</span> {
+						<span class="or">counter-increment: list;</span>
+					}
+					<span class="pu">box-sml-12 li::before</span> {
+						<span class="or">content: counters(list, '.') '. ';
+						color: red;</span>
+					} <span class="gr">/*Con la función <span class="azul">counters</span> podemos contar todos los elementos dentro del elemento padre pero a su vez concatenando el numero del padre, es un lio que se tiene que estudiar mas jsjs*/</span>
+				</div>
+			</div>
+			<div class="box box-sml-12 box-flex">
+				<h4>Ejemplo:</h4>
+				<ol>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo</li>
+					<li>Hola mundo
+						<ol>
+							<li>Hola mundo</li>
+							<li>Hola mundo</li>
+							<li>Hola mundo
+								<ol>
+									<li>Hola mundo</li>
+									<li>Hola mundo</li>
+									<li>Hola mundo</li>
+								</ol>
+							</li>
+							<li>Hola mundo</li>
+						</ol>
+					</li>
+					<li>Hola mundo</li>
+				</ol>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>11.7 Ejemplos de contadores</h3>
+			<div class="box box-sml-13 box-flex">
+				<h4>Definición:</h4>
+				<p>
+					Creamos una caja donde estará una lista que mostrara los temas con sus subtemas, para diferenciarlos ponemos el numero de tema junto con el numero del subtema.
+				</p>
+				<p>
+					llamamos a la caja papá temario, y dentro de este ponemos otras 3 cajas que tendran un tema y sus respectivos subtemas; así que escribimos h3 con la clase clase-title y los subtitulos con la clase class-topic.
+				</p>
+				<div class="box-bb">
+					< div class="temario">
+						< div class="class" >
+							< h3 class="class-title">Box model< /h3>
+							< p class="class-topic">Width< /p>
+							< p class="class-topic">height< /p>
+							< p class="class-topic">padding< /p>
+							< p class="class-topic">margin< /p>
+						< /div>
+					< /div>
+				</div>
+				<div class="box-bb">
+					<span class="pu">.temario</span> {
+							<span class="or">counter-reset: title;</span>
+						}
+
+						<span class="pu">.class-title</span> {
+							<span class="or">counter-increment: title;
+							margin-bottom: calc(var(--space) + 3px);</span>
+						}
+
+						<span class="pu">.class-title::before</span> {
+							<span class="or">content: counter(title) '. ';</span>
+						}
+
+						<span class="pu">.class</span> {
+							<span class="or">counter-reset: class;</span>
+						}
+
+						<span class="pu">.class-topic</span> {
+							<span class="or">counter-increment: class;
+							margin-bottom: var(--space);
+							margin-left: var(--space);</span>
+
+						}
+
+						<span class="pu">.class-topic::before</span> {
+							<span class="or">content: counter(title) '.' counter(class) '. ';</span>
+						}
+				</div>
+				</div>
+			<div class="box box-sml-14 box-flex">
+				<h4>Ejemplo:</h4>
+				<div class="temario">
+					<div class="class">
+						<h3 class="class-title">Box model</h3>
+						<p class="class-topic">Width</p>
+						<p class="class-topic">height</p>
+						<p class="class-topic">padding</p>
+						<p class="class-topic">margin</p>
+					</div>
+					<div class="class">
+						<h3 class="class-title">Listas</h3>
+						<p class="class-topic">Styles</p>
+						<p class="class-topic">Position</p>
+						<p class="class-topic">Image</p>
+					</div>
+					<div class="class">
+						<h3 class="class-title">Contadores</h3>
+						<p class="class-topic">counter reset</p>
+						<p class="class-topic">counter increment</p>
+						<p class="class-topic">counter()</p>
+						<p class="class-topic">counters()</p>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+</body>
+</html>
+
+<!--		<div class="big-box">
+				<h3>11.3 </h3>
+				<div class="box box-sml-04">
+					<h4>Definición:</h4>
+				</div>
+				<div class="box box-sml-05">
+					<h4>Ejemplo:</h4>
+				</div>
+			</div>-->

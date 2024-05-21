@@ -1,0 +1,8 @@
+/*---> reset de estilos <---*/
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+/*--> Raíz <---*/
+:root { /*ES lo mismo que la etiqueta html pero tiene mas especificidad*/
+	scroll-behavior: smooth; /*El deslizamiento del scroll sera más suave*/
+}

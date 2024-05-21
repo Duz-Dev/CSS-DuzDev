@@ -1,0 +1,630 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<meta charset="UTF-8"><!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> <!--Compatible con edge-->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="Styles/normalize.css">
+	<link rel="stylesheet" href="Styles/styles-default.css">
+	<link rel="stylesheet" href="Styles/styles.css">
+	<title>CSS-12</title>
+</head>
+<body>
+	<header>
+		<h1>Practicas de la clase 12</h1>
+	</header>
+	<section>
+		<h2>Color y degradados</h2>
+		<div class="big-box">
+			<h3>Conceptos base del color</h3>
+			<div class="box box-sml-01 flex">
+				<h4>Definición</h4>
+				<p>
+					La propiedad color es para el texto. Con esta propiedad podemos cambiar el color del texto.
+				</p>
+				<div class="box-bb ve-f">
+					<span class="ye">color</span>: <span class="or">(él color asignado)</span>;
+				</div>
+				<p>
+					Mientras que la propiedad background da fondo (background es un shorthand). Hay una gran diferencia entre background-color a usar color ya que son diferentes propiedades.
+				</p>
+				<div class="box-bb ve-f">
+					<span class="ye">background-color</span>:<span class="or">(color del fondo)</span>;
+				</div>
+				<p>
+					En un valor aparte en CSS que es como la primera variable que hubo en si, ya que con esta podemos asignar que las propiedades background y color tengan la mismo color. Básicamente con currentColor no estamos trayendo el color y este la aplicamos a otra propiedad.
+				</p>
+				<div class="box-bb ve-f">
+					<span class="ye">color</span>:<span class="or">red</span>;	
+					<span class="ye">background-color</span>:<span class="or">currentcolor</span>;
+					<div class="box-bb-01"><span>Soy un ejemplo</span></div>
+				</div>
+			</div>
+			<div class="box box-sml-02 flex">
+				<h4>Ejemplo:</h4>
+				<article>
+					<h5 class="title">Titulo</h5>
+					<p class="article">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eius totam quod voluptate dicta, perferendis tempora eveniet. Quasi, fugiat? Laudantium ullam nisi, totam. Impedit, ab expedita optio, aliquam ut voluptatibus!
+					</p>
+					<a href="" class="ver">Leer más</a>
+				</article>
+				<div class="box-bb">
+					article {
+					color: hsl(0,100%,50%);
+					width: 95%;
+					border: 1px solid currentColor;
+					margin: 20px auto;	
+					padding: 1em;
+					box-shadow: 0 0 8px 0 currentColor;
+					animation: color 5s infinite alternate;}
+
+
+					.ver {
+					border: 1px solid currentColor;
+					display: inline-block;
+					text-decoration:none;
+					padding: .3em .7em;
+					color: currentColor;}
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Color keywords</h3>
+			<div class="box box-xl-03">
+				<h4>Definición</h4>
+				<p>
+					los keywords en colores son las palabras claves que se igualan a un color, por ejemplo el color rojo en lugar de escribir el código hexadecimal de rojo solo escribimos red.
+				</p>
+				<div class="box-bb ve-f">
+					<span class="ye">color</span>:<span class="red">#ff0000</span>;
+					<span class="ye">color</span>: <span class="red">red</span>;
+					<span class="gr">/*Esto es un ejemplo de como escribiendo red obtenemos el color red, el cual es el mismo resultado si escribimos con el código hexadecimal u otro.*/</span>
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Modo de color rgb</h3>
+			<div class="box box-xl-04">
+				<h4>Definición</h4>
+				<p>
+					Hay dos modelos básicos de color, el modelo sustractivo que es para pinturas(imprenta) del cual su teoría es que entre mas colores se sobre pongan este se oscurecerá (en teoría), y en por ejemplo pantallas que tienen luz su modo es aditivo, aditivo porque suma color, cada color sumado a otro generan uno cada vez mas luminoso.
+				</p>
+				<br>
+				<p>
+					En el modelo RGB que es el que esta en las pantallas tiene tres canales de color, Rojo(R), Verde (G) y Azul(B).
+				</p>
+				<p>
+					Cada color tiene 256 colores posible, es decir que hay 0 a 255 niveles en un solo color (2^8 por canal. El 8 se da por los 8 bits que es por canal), es decir que si multiplicamos 256 x 256 x 256 podemos decir que existen 16,777,216 millones de colores.
+				</p>
+				<p>
+					Como ya mencionamos, en los tres canales en su nivel máximo que es 255 darán un color blanco porque son adictivos; los tres canales en su nivel mas bajo 0 darán negro y en cuando el nivel sea igual en los tres canales darán un gris que ira variando dependiendo de que tanto se alejan o se acercan a el valor 0 y al 255. Para este modo hay dos funciones, RGB y RGBA. La diferencia entre estos dos solo es que A significa transparencia (A: alpha que es transparencia).
+				</p>
+				<h4>Ejemplo</h4>
+				<div class="box box-sml-05 flex">
+					<p>Usamos rgb con los valores de 255,255,255 que es igual a blanco.</p>
+					<div class="box-bb-02 ve-f">
+						<span class="ye">background-color</span>:<span class="or"> rgb(255,255,255)</span>;
+					</div>
+					<div class="box-bb-03">
+					</div>
+				</div>
+				<div class="box box-sml-06 flex">
+					<p>Usamos rgb con los valores de 0,0,0 que es igual a negro.</p>
+					<br>
+					<div class="box-bb-04 ve-f">
+						<span class="ye">background-color</span>:<span class="or"> rgb(0,0,0)</span>;
+					</div>
+					<div class="box-bb-05">
+					</div>
+				</div>
+				<div class="box box-sml-07 flex">
+					<p>Usamos rgb con los valores de 123,123,123 que es igual a gris.</p>
+					<div class="box-bb-06 ve-f">
+						<span class="ye">background-color</span>:<span class="or"> rgb(123,123,123)</span>;
+					</div>
+					<div class="box-bb-07">
+					</div>
+				</div>
+				<div class="box box-sml-08 flex">
+					<p>Usamos rgb con los valores de 0,255,255 que es igual a aqua.</p>
+					<div class="box-bb-08 ve-f">
+						<span class="ye">background-color</span>:<span class="or"> rgb(0,255,255)</span>;
+					</div>
+					<div class="box-bb-09">
+					</div>
+				</div>
+				<div class="box box-sml-09 flex">
+					<div class="box-bb-10 ve-f">
+						<span class="ye">background-color</span>:<span class="or"> rgb(255,0,255)</span>;
+					</div>
+					<div class="box-bb-11">
+					</div>
+				</div>
+				<div class="box box-sml-10 flex">
+					<div class="box-bb-12 ve-f">
+						<span class="ye">background-color</span>:<span class="or"> rgb(255,255,0)</span>;
+					</div>
+					<div class="box-bb-13">
+					</div>
+				</div>
+				<div class="box box-sml-11 flex">
+					<div class="box-bb-14 ve-f">
+						<span class="ye">background-color</span>:<span class="or"> rgba(0,0,0,.5)</span>;
+					</div>
+					<div class="box-bb-15">
+						Aplicamos el RGBA A = alpha (opacidad)
+					</div>
+				</div>
+				<div class="box box-sml-12 flex">
+					<div class="box-bb-16 ve-f">
+						<span class="ye">background-color</span>:<span class="or">rgba(255,0,0,1)</span>;
+					</div>
+					<div class="box-bb-17">
+						<p>A es igual a la escala de 0 a 1</p>
+					</div>
+				</div>
+			</div>
+			<div class="box box-xl-18">
+				<h4>Definición</h4>
+				<p>
+					Con la notación hexadecimal es de 16 valores que van del 0 a la F. El 16 surge de 2^8 que es igual a 2^4 * 2^4 o 16*16 = 256. El problema es que solo hay 10 números y necesitamos 16 lugares, así que se usan las letras A, B, C, D, E, F.
+				</p>
+				<br>
+				<p>
+					Explicando: si tenemos la notación por #FFFF00, los primeras dos F significa 16*16 = 256 del primer canal que es red, lo que significa que el canal (red) como esta en su maximo nivel este sera rojo, el segundo canal es el de green que igual esta en su máximo valor que da como resultado verde, y el 3er canal (blue) esta en 0*0 que da 0 que es igual a negro, si sumamos los colores terminamos teniendo amarillo ya que se suman (se mezclan).
+				</p>
+				<h4>Ejemplo</h4>
+				<div class="box box-sml flex">
+					<p>Usamos la notación hexadecimal para sacar el valor del purpura. Para ello sabemos que azul + rojo dan purpura asi que ponemos ff en red y en blue, y en el medio como no queremos el color green lo ponemos en su nivel mas bajo que es negro o 00 en hexadecimal</p>
+					<div class="box-bb ve-f">
+						<span class="ye">background-color</span>:<span class="or"> #ff00ff</span>;
+					</div>
+					<div class="box-bb-19">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Modo de color hsl</h3>
+			<div class="box box-sml flex">
+				<h4>Definición</h4>
+				<p>
+					Este modo de notación es el mas fácil de comprender, para dar un ejemplo hagamos de cuentas que tenemos un color con rgb o con notación hexadecimal, ¿Cómo lo oscurecemos para tener un color mas fuerte?, si bien si podemos dar con este, hacerlo rápidamente para una persona tardaría mucho en encontrar el punto exacto de color. Así que se creo el modo <span class="or">HSL</span> para medir las proporciones mucho mas fáciles de entender.
+				</p>
+				<h4>¿Qué significa?</h4>
+				<p>
+					<b class="red">H</b>: significa hue, que es la tonalidad de color de 0 a 360° (circulo cromático).
+				</p>
+				<p>
+					<b class="red">S</b>: significa saturación, que es la intensidad del color, de gris 0% al color puro 100%.
+				</p>
+				<p>
+					<b class="red">L</b>: Luminosidad. Sus niveles ya van de negro 0%, color puro 100% hasta el blanco 100%. Esto se debe a que si nos ponen una luz muy brillante al fin y acabo solo terminaríamos viendo blanco, en cambio, si no hubiera luz no veríamos nada y solo pudiéramos ver el negro.
+				</p>
+				<p>
+					<b class="gr">A</b>: Alpha. Ya si utilizamos HSLA podemos modificar la transparencia (va del 0 al 1).
+				</p>
+				<div class="box-bb ve-f">
+					<span class="ye">background-color</span>: <span class="or">hsla(120,100%,50%,.5)</span>;
+					<span class="gr">
+						// Con el 120 estamos buscando el color verde, con 100% el color total del verde, y con 50% el color igualmente total normal de luminosidad del verde y ya con .5 que se vea la mitad de trasparente el color.
+						<div class="box-bb-20"></div>
+						// la caja se ve medio oscura por el fondo, si de fondo tuviera algo blanco se viera mas luminoso.
+					</span>
+				</div>
+			</div>
+			<div class="box box-sml-20 flex">
+				<h4>Circulo cromático</h4>
+				<img src="Media/circulo.jpg">
+				<p>
+					Como vemos en la imagen el rojo esta en el punto 0, en el 120 que es la 1/3 de la parte del circulo se ubica el verde y en la 2/3 se ubica el azul con 240°. 
+				</p>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Degradados lineales</h3>
+			<div class="box box-sml flex">
+				<h4>Definición</h4>
+				<p>
+					Según la especificación los degradados son imágenes, es por ello que la especificación se tiene que poner en la propiedad background image. Por lo tanto posee las propiedades background-size, position etc.
+				</p>
+				<p>
+					Existen dos tipos de degradados, los lineales y los radiales.
+					Los lineales se escriben de la siguiente manera:
+					<div class="box-bb">
+						background-image:
+						linear-gradient(color1,color2,color3,..);
+						<span class="gr">//Podemos ponerle los colores que se nos den la gana.</span>
+					</div>
+					Estos tienen un color inicial y un color final ya el ordenador calcula los colores que hay entre esos para que el degradado sea lo mas suave posible.
+					Si quisiéramos poner el degradado de fondo tendríamos que tener contenido ya que la imagen se adapta al tamaño del contenedor, o simplemente le definimos un alto por ejemplo 100vh.
+				</p>
+			</div>
+			<div class="box box-sml flex">
+				<h4>Ejemplo</h4>
+				<div class="box-bb">
+					.box-bb-21 {
+					background-image: linear-gradient(red,yellow);}
+				</div>
+				<div class="box-bb-21">
+				</div>
+				<div class="box-bb">
+					<span class="pu">.box-bb-22</span> {
+					<span class="ye">background-image</span>: <span class="or">linear-gradient</span>(<span class="ve-f">
+						hsl(0,100%,50%),
+						hsl(60,100%,50%),
+						hsl(120,100%,50%),
+						hsl(180,100%,50%),
+						hsl(240,100%,50%),
+						hsl(300,100%,50%),
+						hsl(360,100%,50%)
+					</span>);}
+				</div>
+				<div class="box-bb-22">
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Stops</h3>
+			<div class="box box-sml">
+				<h4>Definición</h4>
+				<p>
+					Los stops en el degradado nos sirve para definir que tanto abarca cada color, ejemplo si tenemos solo dos colores y no establecemos un porcentaje o una medida exacta el ordenador automáticamente calculara el degradado de esos dos, pero si le ponemos uno ya definido esto cambiara.
+				</p>
+				<br>
+				<p>
+					Como observamos en el ejemplo de la derecha los dos colores se dividen en dos niveles solamente, esto sucede ya que le definimos que cada color solo se extenderá la mitad del contenedor.
+				</p>
+			</div>
+			<div class="box box-sml">
+				<h4>Ejemplo</h4>
+				<div class="box-bb ve-f">
+					<span class="ye">background-image</span>: <span class="azul">linear-gradient</span>(<span class="or">red 50%,yellow 50%</span>);
+				</div>
+				<div class="box-bb-23">
+				</div>
+			</div>
+		</div>
+		<div class="big-box bb-100">
+			<h3>Ángulos y degradados lineales repetitivos</h3>
+			<div class="box box-rel-flex">
+				<div class="box box-xl">
+					<h4>Angulo del degradado</h4>
+					<p>
+						El angulo es hacia que dirección se plasma el degradado. Por predeterminado vemos que los colores van del primer color hacia abajo y el 2do hacia abajo y así sucesivamente en cascada.
+					</p>
+					<div class="box-bb-24">
+					</div>
+					<div class="box-bb">
+						background-image: linear-gradient(red 50%,yellow 50%);
+					</div>
+					<p>
+						Con ello es de saber que nosotros podemos definir que angulo queremos que tome la posición de los degradados. la sintaxis va de la siguiente manera:
+					</p>
+					<div class="box-bb">
+						background-image: linear-gradient(grados, color porcentaje, color porcentaje);
+					</div>
+					<p>
+						Y los valores que podemos asignarle son los siguientes:
+					</p>
+					<br>
+					<p>
+						<b>0</b>: Este significa top to bottom (de arriba hacia abajo) y a partir de este va en sentido de las manecillas del reloj.<br>
+						<b>90deg</b>: se coloca en una posición de 90 grados, recto. Si ponemos un numero siempre hay que poner la media que es deg de grados en ingles.<br>
+						<b>to top</b>: hacia arriba.<br>
+						<b>to right</b>: hacia la derecha.<br>
+						<b>to left</b>: hacia la izquierda.<br>
+						<b>to bottom</b>: hacia abajo.<br>
+						<b>to top right</b>: hacia arriba a la derecha.<br>
+						<b>to bottom left</b>: hacia abajo a la izquierda.
+					</p>
+				</div>
+				<div class="box box-xl">
+					<h4>Delineado lineal repetitivo</h4>
+					<p>
+						Es completamente idéntico, la única diferencia es que para cada color hay que colocar dos paradas, el inicio y el final.
+					</p>
+					<div class="box-bb-30"></div>
+					<div class="box-bb">
+						background-image: linear-gradient(yellow 0, yellow 50px, red 50px, red 80px);
+						<span class="gr">//Sin repeating, esto esta mal escrito ya que el rojo se expande si o si hasta donde topa ya que no se puede repetir los colores.</span>
+					</div>
+					<div class="box-bb-31"></div>
+					<div class="box-bb">
+						background-image: repeating-linear-gradient(yellow 0, yellow 50px, red 50px, red 80px);
+					</div>
+					<p>
+						Este mas que todo nos sirve para establecer colores sólidos.
+					</p>
+					<div class="box-bb-32"></div>
+					<div class="box-bb">
+						background-image: linear-gradient(yellow 30px,red 30px);
+						<span class="gr">/*del 0 al 30 es yellow y del 30 para adelante es rojo*/</span>
+					</div>
+					<div class="box-bb-33"></div>
+					<div class="box-bb">
+						background-image: linear-gradient(yellow 30px, red 30px, blue);
+
+						<span class="gr">/*El amartillo es solido ya que tiene un inicio en 0 y termina en 30, en cambio rojo inicia en 30 y termina con un degradado automático con blue, y si a blue le damos una medida solo especificamos que a partir de los 30 de red blue compensatoria el degradado, y esto no sera preciso*/</span>
+					</div>
+					<div class="box-bb-34"></div>
+					<div class="box-bb">
+						background-image: linear-gradient(yellow 30px, red 30px, red 60px, blue 60px, blue 90px);
+						<span class="gr">/*Con esto ya especificamos que yellow comienza automáticamente en 0 y termina en 30, red en 30 y termina en 60 y blue comienza en 60 pero termina hasta donde termina el contenedor ya que no es posible dejar espacios en blanco si no especificamos las medidas de la imagen. Con lo anterior también se afirma que a pesar de tener 90px en blue este esta mal ya que blue termina hasta donde finaliza el alto de dicho contenedor.*/</span>
+					</div>
+				</div>
+			</div>
+			<div class="box box-rer-flex">
+				<div class="box box-xl">
+					<h4>Ejemplo</h4>
+					<div class="box-bb-25"></div>
+					<div class="box-bb">
+						background-image: linear-gradient(lime, yellow, red);
+					</div>
+					<div class="box-bb-26"></div>
+					<div class="box-bb">
+						background-image: linear-gradient(to top, lime, yellow, red);
+					</div>
+					<div class="box-bb-27"></div>
+					<div class="box-bb">
+						background-image: linear-gradient(to left, lime, yellow, red);
+					</div>
+					<div class="box-bb-28"></div>
+					<div class="box-bb">
+						background-image: linear-gradient(to bottom, lime, yellow, red);
+						<span class="gr">//El por default</span>
+					</div>
+					<div class="box-bb-29"></div>
+					<div class="box-bb">
+						background-image: linear-gradient(to bottom left, lime, yellow, red);
+					</div>
+					<div class="box-bb-35"></div>
+					<div class="box-bb">
+						background-image: linear-gradient(yellow 30px, red 30px, red 60px, blue)
+						<span class="gr">/*Con esto determino que yellow empieza en 0 y finaliza en 30, red en 30 y termina en 60 y blue se calcula automáticamente a partir de donde termina el red con un degradado hasta topar con el fin height, de esta manera podemos determinar apartir de que punto queremos que se empiece a degradar el color siguiente en este caso el azul*/</span>
+					</div>
+					<div class="box-bb-36">
+						<div class="circulo"></div>
+					</div>
+					<div class="box-bb ve-f">
+						<span class="pu">.box-bb-36</span> {
+						<span class="ye">background-image</span>: <span class="azul">linear-gradient</span>(<span class="or">yellow, hsl(20, 90%,40%) 40px, hsl(20, 90%,40%) 42px,hsl(200,100%,70%) 61px,hsl(200,100%,50%) 80px</span>);}
+
+						<span class="pu">.circulo</span>{
+						<span class="ye">background-image</span>:<span class="azul">linear-gradient</span>(
+						<span class="or">hsla(40,100%,60%,.9) 34px,
+						hsla(40,100%,60%,.3) 34px</span>);
+						<span class="ye">height</span>:<span class="or">70px</span>;
+						<span class="ye">width</span>:<span class="or"> 70px</span>;
+						<span class="ye">margin</span>:<span class="or"> 0 auto</span>;
+						<span class="ye">border-radius</span>:<span class="or"> 50%</span>;}<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Degradado radial</h3>
+			<div class="box box-sml-21 flex">
+				<h4>Definición</h4>
+				<p>
+					Este en cuestión de sintaxis es exactamente igual a el degradado lineal
+				</p>
+				<div class="box-bb">
+					radial-gradient([size shape], [at xcenter ycenter], color1 [stop], color2 [stop])
+					<span class="gr">//Ejemplo de su sintaxis</span>
+				</div>
+				<div class="box-bb">
+					background-image: radial-gradient(yellow, red);
+				</div>
+				<div class="box-bb-37"></div>
+				<p>
+					Lo interesante con este degradado es que se ajusta a las dimensiones del objeto al cual se le esta aplicando.
+				</p>
+				<textarea id="" class="b-02" readonly="true"></textarea>
+				<p>
+					Este es un cuadro de texto, puedes alterar su tamaño para ver que si efectivamente la función radial-gradient se adapta al las dimensiones.
+				</p>
+				<p>
+					con at Xcenter Ycenter son las coordenadas de X y Y respecto al centro del circulo.
+				</p>
+				<p>
+					También podemos aplicar valores negativos los cuales sacarían el centro de nuestro circulo del contenedor.
+				</p>
+				<div class="box-bb-38"></div>
+				<div class="box-bb">
+					background-image: radial-gradient(at -50% -50%,#000 1%,yellow 1%,yellow 51%, red 51%);
+					<span class="gr">//Con esto vemos que aplicando números negativos es como si desplazáramos la imagen fuera del contenedor y esta ya no la llegamos a visualizar por lo mismo. De hecho si ahora en lugar de 50% en x & y pusiéramos 100% técnicamente ya no veríamos el circulo amarillo, o al menos que este sea mas grande ya que css estira el degradado.</span>
+				</div>
+				<p>
+					Por ultimo tenemos al size y al shape, size es el tamaño y shape es la forma.
+				</p>
+				<div class="box-bb">
+					radial-gradient([size shape]...)					
+				</div>
+				<p>
+					El shape puede ser ya sea un circulo o un elipse, este igual lo podemos omitir y terminaríamos teniendo una forma calculada por el tamaño del objeto.
+				</p>
+				<div class="box-bb">
+					background-image: radial-gradient(ellipse,yellow,red);
+				</div>
+				<div class="box-bb-43"></div>
+				<p>
+					Como se ve el efecto de ellipse no se da en nuestro cuadrado anterior, esto sucede ya que hay que asignarle una medida para que se adapte.
+				</p>
+				<div class="box-bb">
+					background-image: radial-gradient(100% 150px ellipse,yellow 50%,red 50%);
+				</div>
+				<div class="box-bb-44"></div>
+				<p>
+					Un detalle con esto es que si ponemos solo circulo el navegador pondrá un circulo con un radio dinámico, pero si le establecemos un radio ya no se expandiera el circulo.
+				</p>
+				<textarea id="" class="b-02" readonly="true"></textarea>
+				<div class="box-bb">
+					background-image: radial-gradient(circle,yellow,red,blue,black);
+					<span class="gr">/*Este se mantiene fijamente en un circulo con un radio dinámico, a diferencia de que sino le establecemos el la forma a tomar este se puede convertir ya sea en un circulo o elipse es decir el efecto por default*/</span>
+				</div>
+				<p>
+					Ya por lógica se puede intuir que si establecemos solo una medida para el radial este se convertirá en un circulo estático.
+				</p>
+				<div class="box-bb">
+					background-image: radial-gradient(200px,red,yellow,gray,black);
+				</div>
+				<textarea class="b-03" readonly="true"></textarea>
+				<div class="box-bb">
+					background-image: radial-gradient(200px 50px ellipse,red,yellow,gray,black);
+				</div>
+				<textarea class="b-04" readonly="true"></textarea>
+			</div>
+			<div class="box box-sml flex bb-300">
+				<h4>Ejemplo</h4>
+				<p>
+					Así se ve el efecto de degradado radial sin el degradado.
+				</p>
+				<div class="box-bb-39"></div>
+				<div class="box-bb">
+					background-image:radial-gradient(yellow 50%, red 50%);
+				</div>
+				<p>
+					Así luce el este efecto con 0 en el eje X y 0 en el eje Y.
+				</p>
+				<div class="box-bb-40"></div>
+				<p>
+					Ahora con 100% en Y y 100% en X.
+				</p>
+				<div class="box-bb-41"></div>
+				<p>
+					Con 50% en x y 50% en y.
+				</p>
+				<div class="box-bb-42"></div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>keywords y degradado radial repetitivo</h3>
+			<div class="box-01 box-rel-flex">				
+				<div class="box box-xl bb-300">
+					<h4>Definición</h4>
+					<p>
+						los keywords como ya sabemos son las palabras claves que en este caso son para el size de nuestro circulo que al fin y acabo definen el radio ya dependiendo a que keyword le asignemos. Existen 4 keywords los cuales son:
+					</p>
+					<ul>
+						<li>Closest-side</li>
+						<p>
+							Significa el lado más cercano.
+						</p>
+						<li>farthest-side</li>
+						<p>
+							El lado más lejano.
+						</p>
+						<li>closest-corner</li>
+						<p>
+							Hace referencia a la esquina mas cercana (este es el de default)
+						</p>
+						<li>farthest-corner</li>
+						<p>
+							Hace referencia a la esquina mas lejana.
+						</p>
+					</ul>
+					<p>
+						Por ejemplo nuestro circulo con degradado se ve de la siguiente forma.
+					</p>
+					<div class="box-bb-46"></div>
+					<div class="box-bb">
+						background-image: radial-gradient(yellow,red,cyan,rebeccapurple);	
+					</div>
+				</div>
+			</div>
+			<div class="box box-rer-flex-1">
+				<div class="box box-xl bb-300">
+					<h4>Ejemplo</h4>
+					<p>
+						Por defecto tenemos la keyword closest-corner
+					</p>
+					<div class="box-bb-45"><h4>closest-corner</h4></div>
+					<p>
+						Este valor indica que el radio del circulo llegue hasta la esquina empezando desde el eje central del contenedor.
+					</p>
+					<p>
+						Si queremos evitar esto podemos utilizar las otras clases, que en este caso para que el circulo ocupe el 100% de nuestro contenedor usaríamos el keyword closest-side que indica que queremos que el radio llegue hasta los costados, o en costado mas cercano.
+					</p>
+				</div>
+			</div>
+			<div class="box box-xl bb-300">
+				<p>
+					Si vemos comparando el closest-corner y con el closest-side veremos que el que viene por predefinido si es el closest-corner
+				</p>
+				<div class="box-bb-47"></div>
+				<div class="box-bb">	
+					background-image: radial-gradient(closest-side circle,yellow,red,cyan,rebeccapurple);
+				</div>
+				<div class="box-bb-45"></div>
+				<div class="box-bb">
+					background-image: radial-gradient(yellow,red,cyan,rebeccapurple);
+				</div>
+				<p>Ahora intentaremos hacer un circulo perfecto sin degradado</p>
+				<div class="box-bb-48"></div>
+				<div class="box-bb">
+					background-image: radial-gradient(yellow 100%,red 100%);
+					<span class="gr">//en teoria es es la solución ya que con el 100% le indicamos que nuestro circulo abarque todo el ancho y alto de la caja, pero como vemos no sucede como esperamos. porque?</span>
+				</div>		
+				<p>
+					Las medidas de 100% no funcionan bajo nuestra lógica ya que por defecto esta con la media de colsest-corner, lo que significa que el centro esta en la esquina.
+				</p>
+				<div class="box-bb-49"></div>
+				<div class="box-bb">
+					background-image: radial-gradient(closest-side,yellow 100%,red 100%);
+					<span class="gr">//ahora si se muestra como queremos.</span>
+				</div>
+				<p>
+					Con esto ya interpretamos que dará lo mismo escribir closest-side a farthest-side ya que a pesar que uno declara que empieza hasta el lugar mas cercano estos definen que sera hasta dentro del mismo eje, sin deformar el circulo por así decirlo. En cambio con corner ya le indicamos que sera hasta el punto máximo que pueda estirarse el degradado o mejor dicho el circulo.
+				</p>
+				<div class="box-bb-51"></div>
+				<div class="box-bb">
+					<span class="gr">Es lo mismo escribir</span>
+					background-image: radial-gradient(farthest-side,yellow 100%,red 100%);
+					<span class="gr">A</span>
+					background-image: radial-gradient(closest-side,yellow 100%,red 100%);
+					<span class="red">Siempre y cuando no este declarado otro lugar del punto central ([at xcenter ycenter]) ya que estos ya variarían por las propias dimensiones del circulo.</span>
+				</div>
+			</div>
+			<div class="box box-sml flex">
+				<h4>Radial repetitivo</h4>
+				<p>
+					Aquí ya no hay mucho que explicar ya que es la misma sintaxis que con lo que vimos en el lineal, tenemos que tener un punto de partida y de final de cada color para que se repitan estos.
+				</p>
+				<div class="box-bb">
+					background-image: repeating-radial-gradient(yellow inicio, yellow stop, red inicio, red stop);
+				</div>
+				<p>
+					Igualmente podemos aplicar los mismos efectos que vimos ya sobre esto para hacer efectos mas chulos.
+				</p><br><br><br><br><br><br><br>	
+			</div>
+			<div class="box box-sml flex bb-300">
+				<h4>Ejemplo</h4>
+				<div class="box-bb">
+					background-image: repeating-radial-gradient(yellow 0, yellow 50px, red 50px, red 100px);
+				</div>
+				<div class="box-bb-50"></div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Ejercicio con degradados</h3>
+			<div class="box box-xl">
+				<p style="text-align: center;">
+					Vamos hacer el símbolo del yin y el yan con solo degradados 😳
+				</p>
+				<div class="box-bb ve-f">
+					<span class="ye">border-radius</span>:<span class="or"> 50%</span>;<span class="gr"> /*nuestra caja adopta una forma circular*/</span>
+					<span class="ye">background-image</span>:<span class="gr"> /*Recordando que con las imágenes podemos poner img una sobre otra sabiendo que la primera que esta escrita en el código ira hasta arriba de estas.*/</span>
+					<span class="azul">radial-gradient</span>(<span class="or">circle at 50% 25%,#000 5%,transparent 5%</span>),<span class="gr">/*Con la medida de circle le especificamos que solo se adapte a la forma de un circulo sin intentar deformarse para hacer un elipse*/</span>
+					<span class="azul">radial-gradient</span>(<span class="or">circle at 50% 75%,#fff 5%,transparent 5%</span>),
+					<span class="azul">radial-gradient</span>(<span class="or">closest-side circle at 50% 75%,#000 100%,transparent 100%</span>),<span class="gr">/*Le especificamos que queremos que se expanda solo hasta los costados no hacia las esquinas ya que esto intentara crear una especie de rectángulo*/</span>
+					<span class="azul">radial-gradient</span>(<span class="or">closest-side circle at 50% 25%,#fff 100%,transparent 100%</span>),
+					<span class="azul">linear-gradient</span>(<span class="or">to right, #fff 50%,#000 50%</span>);<span class="gr">/*Con to right le indicamos que la dirección de los colores sera en una posición de 90 grados con el blanco del lado derecho y el negro del izquierdo*/</span>
+				</div>
+				<div class="box-bb-52"></div>
+			</div>
+		</div>
+	</sction>
+</body>
+</html>

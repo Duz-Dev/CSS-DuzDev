@@ -1,0 +1,62 @@
+/*Style CSS*/
+.flex-container {
+    background-color: #fca17d;
+    padding: 0.5m 0;
+    margin-bottom: 20px;
+    display: flex;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.flex-item {
+    --medida: 80px;
+    width: var(--medida);
+    height: var(--medida);
+    margin: .5em;
+    line-height: var(--medida);
+    color: aliceblue;
+    text-align: center;
+    background-color: #9a348e;
+}
+
+/*ejemplo*/
+
+
+.flex-article {
+    --margin_b: 20px;
+    /*separación dependiente*/
+    background-color: #e4e4e4;
+    height: 500px;
+    padding-top: var(--margin_b);
+    display: flex;
+    flex-wrap: wrap;
+    /*distribuye los items restantes si no caben en la misma linea para abajo.*/
+    justify-content: space-evenly;
+    /*modificamos el main axis para que el contenido se acomode de forma homogénea de lado a lado de forma centrada*/
+    align-items: baseline;
+    /*este valor indica que calcule a que altura se encuentran los textos de la misma y se pondrán a la misma altura. Si forzamos la altura de estos(line-height), puede que se deforme dicho efecto.*/
+    /*si no utilizamos un valor de align-items este solo dejara que la altura de los items intentara abarcar lo mas que pueda, a no ser que le definamos una altura o un valor de esta propiedad*/
+}
+
+.article {
+    width: 260px;
+    border: 2px solid #000;
+    margin-bottom: var(--margin_b);
+}
+
+.article__lorem {
+    width: 71%;
+    /*Si el 3er articulo no tuviera un width tan ancho, este se pondría al lado de sus otros tres hermanos items.*/
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+
+.img {
+    width: 700px;
+}

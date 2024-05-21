@@ -1,0 +1,110 @@
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    background-image: radial-gradient(circle,#b94bf8,#3a1957);
+    background-repeat: no-repeat;
+    color: #eee;
+    height: 100vh;
+}
+
+.card{
+    background: #333;
+    width: 80%;
+    height: 300px;
+    display: flex;
+    margin: 1rem auto;
+}
+
+.card__left{
+    width: 20%;
+    display: flex;
+    align-items: flex-start;
+    background-color: #222;
+    justify-content: center;
+    padding: .5rem 0;
+}
+
+.card__logo{
+    width: 90%;
+}
+
+.card__right{
+    width: 80%;
+    padding: 0 1rem;
+}
+
+.card__title{
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    margin: .5rem 0;
+    /* text-align: center; */
+}
+
+.form{
+    display: flex;
+    flex-wrap: wrap;
+    height: 80%;
+
+}
+
+.form__names{
+    display:flex;
+    width: 100%;
+}
+
+.form__names .form__field{
+    width: 0;
+    padding: 0 .2rem;
+}
+
+.form__field{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.form__label{
+    margin-bottom: .3rem;
+    text-transform: uppercase;
+    font-size: .8rem;
+}
+
+.form__input{
+    margin-bottom: .5rem;
+}
+
+.form__input,
+.form__textarea{
+    background: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+    color:inherit;
+}
+
+.form__input:focus,
+.form__textarea:focus{
+    outline:none;
+}
+
+.form__textarea{
+    resize: none;
+    border: 1px solid #eee;
+    height: 50px;
+}
+
+.form__submit{
+    flex-basis: 100%;
+    /* align-self: center; */
+    background-color: rgb(0, 180, 255);
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color:inherit;
+    cursor: pointer;
+}

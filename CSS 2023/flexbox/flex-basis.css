@@ -1,0 +1,16 @@
+/*Flex basis*/
+.item:nth-child(1){
+    flex-basis:content;
+}
+
+.item:nth-child(2){
+    flex-basis: 20%;
+}
+
+.item:nth-child(3){
+    flex-basis:400px;
+}
+
+.item:nth-child(4){
+    flex-basis: fit-content;
+}

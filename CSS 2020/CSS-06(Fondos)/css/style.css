@@ -1,0 +1,226 @@
+/*Practicas de la clase 6*/
+/*Estilos solo por estetica xd*/
+body {
+	width: 100%;
+}
+
+header {
+	width: 90%;
+	background: gray;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0.1px;
+	border-radius: 10px;
+	box-shadow: 0 10px 12px -8px black;
+}
+
+header h1 {
+	font-family: monospace;
+	background: lime;
+	text-align: center;
+	font-size: 3.2em;
+}
+
+header h1:hover{
+	background: red;
+	color: #fff;
+}
+
+header h1 span {
+	color: #fff;
+}
+
+header h1 span:hover {
+	color: yellow;
+}
+
+div {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div h2 {
+	background: #FFF465FF;
+	color:lime;
+	font-family: arial;
+	font-size: 1.7em;
+	padding: 6px 50px;
+	box-shadow: 0px 6px 4px -2px #ccc;
+	border-radius: 20px;
+	margin-bottom: 50px;
+}
+
+[class^="box-"] {
+	width: 350px;
+	height:300px;
+	margin-left: auto;
+	margin-top: auto;
+	margin-bottom: 50px;
+	padding: 0.1px;
+}
+
+[class^="box-"] span {
+	font-family: monospace;
+	font-size: 20px;
+	display: block;
+	margin-top: 50%;
+	text-align: center;
+
+}
+
+/*-------------------*/
+/*6.-Fondos*/
+
+/*6.1*/
+/*Especificas la priedad que utilizaremos en este caso un color.*/
+
+.box-1 {
+	background-color: red;
+}
+
+/*6.2*/
+
+.box-2 {
+	width: 100%;
+	background-image: url(../images/imagen.gif);
+}
+
+/*colocamos los dos puntos para indicar que tiene que abrirse una carpeta antes de la 2da carpeta, en este caso es images e indico que se habrá la carpeta anterior a esta que es CSS-06*/
+/*Aquí vemos como es que nuestra caja al estar al 100% esta esta al ancho el papá que es el div*/
+/*también podríamos utilizar la propiedad repeat para asignar que queramos que la imagen se repita o no, o en un eje en especifico ya sea c o y.*/
+
+.box-2_1 {
+	width: 100%;
+	background-image: url(../images/giphy.gif);
+	background-repeat: no-repeat;
+	background-color: #FFCCCF;
+}
+/*vemos que la propiedad color se coloca por debajo de las imagenes a pesar que la imagen igual sea un fondo.*/
+
+/*6.3*/
+
+.box-3 {
+	background-image: url(../images/imagen.gif);
+	background-clip: content-box; /*Con content box le especificamos que solo se extienda en el contenido.*/
+	padding: 50px;
+	border-width: 10px;
+	border-style: dotted;
+	border-color: red;
+}
+
+/*Si eliminamos el valor content-box este se extendera por todo el contenedor.*/
+
+.box-3_1 {
+	width: 50%;
+	background-image: url(../images/imagen.gif);
+	background-clip: content-box; /*Con content box le especificamos que solo se extienda en el contenido.*/
+	padding: 50px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #000;
+	border-radius: 10px;
+	box-shadow: 5px 10px 10px -5px #000;
+}
+
+.box-3_2{
+	width: 50%;
+	background-image: url(../images/giphy.gif);
+	background-clip: content-box;
+	background-origin: content-box;
+	padding: 50px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #000;
+	border-radius: 10px;
+	box-shadow: 5px 10px 10px -5px #000;
+}
+/*Un ejemplo del background-origin desde el content*/
+/*Con background-clip le decimos "visualízate desde el contenido y con origin "pero empieza la imagen desde el contenido"(se oye confuso pero es lo que es.)*/
+
+/*6.4*/
+
+[class^="box-4"] {
+	background-image: url(../images/giphy.gif);
+	background-repeat: no-repeat;
+	border: 5px solid #000;
+	background-size: 300px;
+}
+
+.box-4_1 {
+	background-size: 300px 300px;
+}
+
+.box-4_2 {
+	background-size: contain;
+}
+
+.box-4_3 {
+	background-size: cover;
+}
+
+.box-4_4 {
+	background-size: auto; /*es darle su tamaño original a la imagen*/
+}
+
+/*6.5*/
+/*Recordar que background position solo funciona con las imágenes de fondo(background image).*/
+.box-5 {
+	background-color: #00ffff;
+	background-image: url(../images/Kirby_aniversario.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center; 
+}
+
+.box-5_1 {
+	background-color: #00ffff;
+	background-image: url(../images/Kirby_aniversario.png);
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: right 40px top 50px; 
+	padding: 0.1px;
+}
+/*da igual si especificas el eje y y después el eje x si hablamos de palabras clave*/
+/*puse padding para a reglar el colapsado.*/
+/*con la unidad unit podemos añadirle valores a los valores, en este caso nos referimos a las palabras claves y a las cuales le podemos concatenar pixeles de desplazamiento (es como darle un margin pero sin que lo sea.)*/
+
+/*6.6*/
+
+[class^="box-6"] {
+	background-image: url(../images/giphy.gif);
+	background-color: red;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+
+}/*este efecto esta chingon (este efecto se le conoce como efecto paralax).*/
+
+.box-6_1{
+	background-attachment: local; /*este solo sirve para cosas que tienen su scroll interno*/
+}
+
+.box-6_2 {
+	background-attachment: scroll; /*es el valor por defaut*/
+}
+
+/*6.7*/
+
+.box-7 {
+	width: 100%;
+	height: 700px;
+	background-image: url(../images/Kirby_aniversario.png),
+	 url(https://pa1.narvii.com/6756/80a273e14bc6dc7610c207d7fb00a00a2b800089_hq.gif),
+	  url(../images/imagen.gif);
+	background-size: 25%, 30%, 100%;
+	background-repeat: no-repeat;
+	background-position: bottom left, bottom center, center;
+}
+
+/*Nota: el primero que aparece como valor de image es el que permanecerá arriba en primer lugar*/
+/*6.8*/
+.box-8 {
+	background: url(../images/imagen.gif) 0 20px / 100% no-repeat;
+	background-color: red;
+}

@@ -1,0 +1,90 @@
+.clip {
+    background-color: cornflowerblue;
+    width: 300px;
+    height: 300px;
+    margin-bottom: var(--margin-b);
+    display: inline-block;
+}
+
+.clip__item {
+    background-color: var(--color-E);
+    width: 100%;
+    height: 100%;
+    padding-top: calc((300px - 1.5rem) / 2 );
+    position: relative;
+}
+
+
+.clip__item::after {
+    content: '';
+    display: block;
+    width: 100%;
+    color: var(--color-text-item);
+    background-color: var(--color-primary-transparent);
+    position: absolute;
+    line-height: 1.5rem;
+    text-align: center;
+}
+
+.clip__item--circle {
+    clip-path: circle(150px); /*Los pixeles que le asignamos son para indicar el tamaño del radio*/
+}
+
+.clip__item--circle::after {
+    content: 'Este div tiene clip-path con circle 150px';
+}
+
+.clip__item--circle-2 {
+    clip-path: circle(150px at top); /*Con at le indicamos desde que coordenadas esta el centro con respecto a ejeX y ejeY, at X Y | left top*/
+}
+
+.clip__item--circle-2::after {
+    content: 'Clip-path con circle 150px at top';
+    top: 0;
+}
+
+.clip__item--ellipse {
+    clip-path: ellipse(150px 50px); /*con elipse le tenemos que determinar cual va a ser la medida que tendra el radio con respecto al ejeX y ejeY*/
+}
+
+.clip__item--ellipse::after {
+    content:'Con ellipse 150px 50px';
+}
+
+.clip__item--inset {
+    clip-path: inset(20px); /*El primer valor es lo que ocultara de arriba y abajo con respecto al borde del padre y si le determinados un 2do valor este sera lo mismo pero con left y right. Este valor da el efecto de un padding pero no son lo mismo.*/
+}/*Esta propiedad sigue casi los mismos valores que el modelo de caja.*/
+
+.clip__item--inset::after {
+    content: 'Inset 20px';
+}
+
+.clip__item--inset-2 {
+    clip-path: inset(60px 30px round 10px); /*Con round podemos simular una especie de border radius pero este no es igual.*/
+}
+
+.clip__item--inset-2::after {
+    content: 'inset 60px 30px round 10px';
+}
+
+.clip__item--polygon {
+    clip-path: polygon(0 0,100% 0,0 100%); /*podemos formar cualquier polígono pero tiene que tener al menos 3 puntos y no podemos crear curvas*/
+} /*El primer valor es en X y el 2do en Y*/
+
+.clip__item--polygon::after {
+    content: 'Polygon (0 0, 100% 0, 0 100%)';
+    top: 0;
+}
+
+.clip__item--polygon-2 {
+    clip-path: polygon(0 100%, 100% 100%,50% 0);
+}
+
+.clip__item--polygon-2::after {
+    content: 'polygon(0 100%, 100% 100%,50% 0)';
+    bottom:0;
+}
+
+.clip__item--polygon-3 {
+    clip-path: polygon(85% 50%, 25% 15%, 25% 85%);
+}

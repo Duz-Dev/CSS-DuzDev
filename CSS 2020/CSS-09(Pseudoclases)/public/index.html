@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<meta charset="UTF-8"><!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> <!--Compatible con edge-->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+	<title>CSS-09</title>
+</head>
+<body>
+
+	<header>
+		<h1>Practicas de la clase 9</h1>
+	</header>
+
+	<section>
+		<div class="big-box">
+			<h2>Practica 9</h2>
+			<div class="small-box-1_2"><h3>Definición:</h3>Estilos especiales que son aplicados dependiendo de contexto, estado o posición. Lo podemos interpretar como una clase condicional ya que si sucede acción esta se aplicara. Un ejemplo de esto es la :root la cual es lo mismo que seleccionar la etiqueta html pero root tiene mayor especificidad.</div>
+			<div class="small-box-1_1"><h3>Ejemplo:</h3>:ROOT</div>
+		</div>
+		<div class="big-box">
+			<h2>Hover</h2>
+			<div class="small-box-1_2"><h3>Definición:</h3>Pseudo clase "hover" sucede cuando pasan un puntero sobre el elemento, pero este puede causar inconvenientes en una pantalla touch</div>
+			<div class="small-box-1_1"><h3>Ejemplo:</h3>
+				<div class="baby-box">
+					ejemplo xd
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h2>A partir de aquí seguí las explicaciones de Dorian Desings en su vídeos de Pseudo clases <a href="https://www.youtube.com/watch?v=DNADe0F3hqU" target="_bank">Video</a></h2>
+			<div class="small-box-1_3">
+				<h3>¿Qué son?</h3>
+				<p>
+					Son selectores que reaccionan en tiempo real detectando la interacción de usuario con algunos elementos. Este selector se mantienen atento para ver si interactuamos con ella, y si es así aplicara los estilos que le hemos declarado.
+				</p>
+				<p>
+					Funcionan con todos los selectores de CSS, podemos aplicarla en todo básicamente.
+				</p>
+				<p>
+					No están atados a ningún elemento. Podemos ponerla sola en el código tal cual.
+				</p>
+			</div>
+			<div class="small-box-1_4">
+				<h3>Ejemplo</h3>
+				<div class="box-bb">
+				<span class="red-st">selector</span>:pseudoclase {
+					<span class="ye">propiedad</span>:<span class="or">valor</span>;	
+				}
+				<span class="gr">//Y en caso de no tener ningun selector</span>
+				:pseudoclase {
+					<span class="ye">propiedad</span>:<span class="or">valor</span>;	
+				}
+				</div>		
+			</div>
+		</div>
+		<div class="big-box">
+			<h2>Clasificaciones</h2>
+			<div class="small-box-1_5">
+				<h3>Reflexión</h3>
+				<p>
+					Directamente de manera oficial no hay ni se necesita una clasificación de estos, pero para hacer la cosa un poco mas sencilla se han clasificado en el curso para entender una idea general de para que servirían cada uno de ellos.
+				</p>
+			</div>
+			<div class="small-box-1_8">
+				<div class="small-box-1_6 flex">
+					<h3>Dynamic</h3>
+					<p>
+						Nos centramos en las pseudoclases que solo se pueden aplicar a link con excepción de focus y hover que se puede aplicar a otros elementos.
+					</p>
+					<br>
+					<p>
+						<b>:Link</b> Este indica el estado cuando a un enlace aun no se le ha hecho click, el que esta por default.<br>
+						<b>:visited</b> Indica el estado de un enlace cuando se le a hecho click.<br>
+						<b>:active</b> Este sucede cuando en el momento exacto que le hemos hecho click a un link pues en esa fracción de segundo se puden declarar estilos. Este puede ser util para simular que estamos dando click a un botón, ya que estos estilos se aplican un vez hayamos hecho click en dicho link.<br>
+						<b>:Hover</b> Son efectos que se aplican una vez pasemos el ratón sobre dicho elemento.<br>
+						<b>:focus</b> Esto es para cuando el elemento tiene el foco, es decir, esta seleccionado como cuando oprimimos un input del tipo text para ingresar datos, este por ende lo seleccionamos y tiene dicho foco el cual podemos modificar con css.
+					</p>
+				</div>	
+				<div class="small-box-1_9 flex">
+					<a href="#" class="btn">Botón</a>
+					<div class="box-bb">
+						.btn:visited {
+							background-color: currentColor;
+							color: cyan;
+						}
+
+						.btn:active {
+							color: hsl(180,80%,40%);
+							transform:scale(.95);
+						}
+					</div>
+				</div>
+			</div>
+			<div class="small-box-1_7 flex">
+				<h3>Ejemplo</h3>
+					<a href="#" class="link">Soy un link con :link</a>
+					<a href="#" class="link">Soy un link con :visited</a>
+					<a href="#" class="link">Soy un link con :active</a>
+					<a href="#" class="link">Soy un link con :hover</a>
+				<div class="box-bb">
+					.link:nth-child(3):visited {
+					color: lime;
+					}
+
+					.link:nth-child(4):active {
+						color: aqua;
+						background-color: hsla(60,100%,50%,.6);
+					}
+
+					.link:last-child:hover{
+						background-color: hsla(200,100%,50%,.5);
+					}
+				</div>		
+					<input type="text" class="txt__focus">
+					<div class="box-bb">
+						.txt__focus {
+								display: block;
+								margin:35px auto;
+							}
+
+							.txt__focus:focus {
+								box-shadow: 0 3px 0 0 aqua inset,
+											 0 -3px 0 0 aqua inset;
+								transition: all .5s;
+								transition-delay: .2s;
+							}
+					</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h2>target</h2>
+			<div class="small-box-1_10 flex">
+				<h3>Definición</h3>
+				<p>
+					<b>Target:</b>Elementos que son objetivos de un marcador o ancla. Este nos sirve para añadirle estilos a el efecto cuando un link tarjetea a un mismo elemento de la propia página web.
+				</p>
+				<br>
+				<div class="box-bb">
+					<span class="ve-f">:target</span>{
+						<span class="ye">propiedad</span>:<span class="or">valor</span>;
+					}
+				</div>
+				<br>
+				<div class="box-bb">
+					:target {
+					<span class="ye">border</span>: <span class="or">1px solid red</span>;
+					}
+					:target::after {
+						<span class="ye">content</span>: <span class="or">' Hola, estoy usando target'</span>;
+						<span class="ye">color</span>: <span class="or">gray</span>;
+						<span class="ye">font-weight</span>: <span class="or">500</span>;
+						<span class="ye">font-family</span>: <span class="or">consolas</span>;
+						<span class="ye">font-style</span>: <span class="or">italic</span>;
+					}
+				</div>		
+			</div>
+			<div class="small-box-1_11 flex">
+				<h3>Ejemplo</h3>
+				<h2>Hola mundo</h2>
+				<div class="menu">
+					<a href="#chapter3" class="menu__link"> IR A Capitulo 3</a>
+					<a href="#chapter4" class="menu__link">IR A Capitulo 4</a>
+				</div>
+				<h4>Capitulo 1</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum ut, quisquam delectus facere consequuntur rerum similique ducimus soluta molestias beatae vel cum laboriosam quam dolores error quibusdam laborum ipsam at?
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque neque, sint reprehenderit, magnam placeat beatae optio provident quia suscipit at voluptates ad porro culpa asperiores libero praesentium totam eligendi voluptas.
+				</p>
+				<h4>capitulo 2</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, rem necessitatibus eum. Suscipit, voluptatibus adipisci delectus nam, minus mollitia quam sed optio deleniti rem eius rerum soluta sint beatae quibusdam.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quas quod eos facere ipsum, molestias, modi odio dicta aliquid cumque id! Enim, voluptate, sed. Ad voluptate quos, nisi quidem aperiam.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quas quod eos facere ipsum, molestias, modi odio dicta aliquid cumque id! Enim, voluptate, sed. Ad voluptate quos, nisi quidem aperiam.
+				</p>
+				<h4 id="chapter3">Capitulo 3</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quas quod eos facere ipsum, molestias, modi odio dicta aliquid cumque id! Enim, voluptate, sed. Ad voluptate quos, nisi quidem aperiam.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nulla aliquam culpa architecto mollitia eos sequi magnam voluptatem porro, laborum est earum obcaecati tempora exercitationem ducimus magni provident officia sit!
+				</p>
+				<h4 id="chapter4">Capitulo 4</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque at atque fuga inventore similique voluptatibus facilis velit vitae ex, quasi excepturi ullam incidunt, repellat iure soluta a. Iste ullam, error.
+				</p>
+			</div>
+		</div>
+		<div class="big-box">
+			<h2>Lenguaje</h2>
+			<div class="small-box-1_11">
+				<h3>:lang()</h3>
+				<p>
+					Es una funcion que la podemos usar como una pseudoclase ya que sierve para filtrar los idiomas, es decir, si ciertos elementos tienen en su etiquetado el atributo de lang en otro idioma en el css le podemos añadir otras propiedades/estilos.
+				</p>
+				<div class="box-bb">
+					<span class="azul">:lang(en)</span>{ <span class="alert">//!Le idicamos que todas las etiquetas que en su atributo lang tengan especificado el indioma ingles (en) se les asignara las siguientes propiedades.</span>
+					<span class="ye">propiedad</span>:<span class="or">valor</span>;
+					}
+				</div>
+			</div>
+			<div class="small-box-1_12">
+				<h3>Ejemplo</h3>
+				<p class="text" lang="en">Hello world</p>
+				<p class="text" lang="es">Hola mundo</p>
+				<div class="box-bb">
+					<span class="azul">:lang(en)</span>::after { <span class="gr">//todo texto con el atributo en lang en se le agregara lo siguiente:
+						<span class="ye">content</span>:<span class="ve-f"> '= texto en ingles'</span>;
+						<span class="ye">margin-left</span>:<span class="or"> 5px</span>;
+						<span class="ye">color</span>:<span class="or"> gray</span>;
+					}
+				</div>		
+			</div>
+		</div>
+		<div class="big-box">
+			<h2>Pseudoclases de estado/ UI States</h2>
+			<div class="small-box-1_13">
+				<p>Todas las clases en este apartado son exclusivamente para formulario con excepción de fullscreen ya que esta es mas técnica, así que no la vamos a ver.</p>
+			</div>
+			<div class="small-box- flex">
+				<h3></h3>
+				<p>
+					<b>:Enabled</b> Sirve para seleccionar los elementos de un formulario que estan habilitados, que basicamente son todos los elementos por default a no ser que en la etiqueta le agreguemos <span class="ve-f">disabled</span>.<br>
+					<b>:disabled</b> Selecciona a todos los elementos de un form que tengan el atributo disabled.<br>
+					<b>:checked</b> Hace referencia a los checkbox el cual indica que si el checkbox es seleccionado aplica los siguientes estilos. Con este podemos hacer muchísimos efectos.<br>
+					<b>:in-range</b> Estos sirven para los input de tipo numero el cual al indicarle un rango de digitos este al estar en rango queremos aplicarle estilos, bueno esto se consigue con in-range.<br>
+					<b>:out-of-range</b> Seleccionamos el input de tipo numero cuando se sale del rango establecido en etiqueta.<br>
+					<b>:required</b> Seleccionamos a los inputs que se les especifico en su etiqueta el atributo required, este sirve para aplicar un after o before que mencione que tiene que llevarse el campo o simplemente no es valido.<br>
+					<b>:optional</b> Indica que los elementos input que sean opcionales se seleccionen con esta pseudoclase. El opcional es el atributo que esta por defecto.<br>
+					<b>:valid</b> Indica que campos son validos.<br>
+					<b>:invalid</b> indica que los campos <span class="red">no</span> son validos.<br>
+					<b>:read-only</b> Indica los campos que les especificamos que solo son de lectura.<br>
+					<b>:read-write</b> Indica los campos que son de lectura y escuritura. En las etiquetas este seria el por default.
+				</p>
+			</div>
+			<div class="small-box-1_14 flex">
+				<h3>Ejemplo</h3>
+				<form action="#">
+					<label class="label">:Enabled</label>
+					<input class="input--enabled" type="text">
+					<label class="label">:disabled</label>
+					<input class="input--disabled" type="text" disabled>
+					<input class="input--checkbox" id="checkbox" type="checkbox">
+					<label class="label" for="checkbox">:checked</label>
+					<label class="label">:in-range</label>
+					<input class="input--in-range" type="number" min="50" max="60">
+					<label class="label">:out-of-range</label>
+					<input class="input--out-range" type="number" min="50" max="100">
+					<label class="label">:optional</label>
+					<input class="input--optional" type="text">
+					<label class="label">:required</label>
+					<input class="input--required" type="text" required>
+					<label class="label">:valid</label>
+					<input class="input--valid" type="text">
+					<label class="label">:invalid</label>
+					<input class="input--invalid" type="email">
+				</form>
+				<br>
+				<div class="box-bb">
+					<span class="pu">.input--enabled</span>:enabled {
+						background: red;
+						border:1px solid #000;
+					}
+
+					<span class="pu">.input--disabled</span>:disabled {
+						background: hsla(60,100%,50%,.5);
+						border:1px solid #000;
+					}
+
+					<span class="pu">.input--checkbox</span>:checked + .label{
+						background-color: red;
+						font-size: 2em;
+					}
+
+					<span class="pu">.input--in-range</span>:in-range {
+						background-color: hsla(35,100%,60%,1);
+					}
+
+					<span class="pu">.input--out-range</span>:out-of-range {
+						background-color: hsl(0,100%,67%);
+					}
+
+					<span class="pu">.input--optional</span>:optional {
+						background-color: hsl(130,100%,70%);
+					}
+
+					<span class="pu">.input--required</span>:required {
+						background-color: hsl(190,100%,70%);
+					}
+
+					<span class="pu">.input--valid</span>:valid {
+						background-color: hsl(130,100%,70%);
+					}
+
+					<span class="pu">.input--invalid</span>:invalid {
+						border-color: hsl(0,100%,55%);
+					}
+
+					<span class="pu">.input--invalid</span>:focus {
+						box-shadow: none;
+						outline: 0 none;
+					}
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h2>Estructuras</h2>
+			<div class="small-box- flex">
+				<h3>Pseudo clases del tipo estructura</h3>
+				<p>
+					<b>:root</b> Representa la raiz del documento (html) usando una  pseudoclase tenemos mas especificidad  que si usamos html, es decir, :root y html simbolizan lo mismo pero :root tienen mas valor en el código. El mejor caso del uso de este es para el empleo de variables.<br>
+					<b>:empty</b> Esta selecciona las etiquetas que no tienen contenido en el html. Esto puede ser útil para cuando trabajemos con un CMS o con js y que es obligatorio tener una etiqueta para que interactue en el código para después usarla, pero por cascada o un detalle así vemos que dicha etiqueta se ve y no queremos eso podemos quitarle estilos con esta pseudoclase.<br>
+					<span class="red"><b>Nota:</b></span> Con la anterior pseudoclase igualmente podemos emplear la propiedad <span class="azul"><b>ALL</b></span> la cual hace que todo lo que se le haya aplicado antes se reseten con el valor de initial, inherit y unset, las unicas propiedad que son exepciones a esta son direction y unicode-bidi ya que estas son fundamentales en idiomas que se leen de derecha a izquierda.<br><br>
+					<b>-child</b> (se aplican indiferentemente el tipo de etiqueta)<br>
+					<b>:first-child</b> Selecciona el primer hijo de un papá, si solo tiene un hijo aun así seleccionara este.<br>	
+					<b>:last-child</b> Selecciona el ultimo hijo del papá, si solo tiene un hijo aun así seleccionara este.<br>
+					<b>:nth-child()</b> Selecciona al <span class="red">N</span> hijo que este entre primero y el ultimo de sus hermanos.<br>
+					A este ultimo igualmente podemos poner diferentes valores entre el paréntesis como:<br>
+					<b>odd</b> que indica que seleccionara los hijos impares.<br>
+					<b>even</b> indica que seleccione los hijos pares.<br>
+					<b>Números enteros</b> para indicar la posición del hijo como pude ser 1,2,3...<br>
+					<b>Ecuaciones</b> En este caso utilizamos una variable llamada n el cual es un multiplicador. El valor de N empieza en 0 y termina cuando ya no tenga elementos que seleccionar o N (0-N). La lógica va así: Si ponemos <span class="ye">nth-child(3n)</span> le estamos indicando que queremos que seleccione los hijos que sean resultado de la multiplicación del bucle de 3n; entendiendo mejor, le estamos indicando que seleccione al hijo que resulte de la multiplicación de 3 * 0, 0 ya que el primer valor de N es 0, se repite el bucle pero ahora n vale 1 así que ahora multiplicaremos 3 * 1 que dará 3 así que se seleccionara el hijo en la posición 3, posteriormente n vale 2 así que seria 3 * 2 que da 6 así que seleccionara el hijo num 6, por ultimo n vale 3 por lo que seria 3 * 3 que da 9 y así sucesivamente hasta que se terminen los hijos.<br>
+					Otro caso en las ecuaciones es usar n + 3 por dar un ejemplo que dara lo mismo, básicamente estamos diciendo que a n se le sume en lugar de multiplicar siguiendo la misma lógica que ya describimos.<br>
+					<b>nth-last-child</b> Selecciona la posición de los hijos indicada pero contando desde abajo hasta arriba.<br>
+					<b>only-child</b> Solo selecciona si solo hay un hijo, de lo contrario no se aplicara.<br><br>
+					<span class="red"><b>!NOTA:</b></span> La pseudoclase child se va aplicando a los hijos, si le especificamos un selector este seleccionara a los hijos que sean de dicho selector. Explicando mejor, si dentro del div(papá) tenemos otros 2 divs (hijo 1 y hijo 2) y otros parrafos, al momento de usar first-child estariamos seleccionado a el primer hijo, en este caso el primer div, es decir, no le importa el selector en si, si no el hijo, el selector nos indica que si dicho hijo no es igual al selector entonces este se ignorara.<br><br>
+					<b>-type</b> (a este si le importa que tipo de etiqueta, clase, id [selector] se emplee, a diferencia de child que solo le basta con que sea un hijo.)<br>
+					<b>:First-of-type</b> Selecciona al primer hijo del tipo especificado.<br>
+					<b>:last-of-type</b> Selecciona al ultimo hijo del tipo especificado.<br>
+					<b>nth-of-type</b> Selecciona n posición de hijo del tipo especificado.<br>
+					<b>nth-last-of-type</b> Selecciona n posición de hijo de abajo hacia arriba del tipo especificado.<br>
+					<b>:only-of-type</b> Solo selecciona al único hijo del tipo especificado.<br><br>
+					<span class="red"><b>!NOTA:</b></span> Este puede llegar a ser mucho mas util si dentro del papá tenemos varios hijos pero solo queremos seleccionar a los hijos que tengan una clase o una etiqueta especifica; a diferencia de child que empieza a contar a partir del primer elemento (son) que esta dentro den contenedor (dad).<br><br>
+				</p>
+			</div>
+			<div class="small-box-1_15 flex">
+				<h3>Ejemplo</h3>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<p class="paragraph">Párrafo</p>
+				<div class="box-bb ve-f">
+					<span class="pu">.paragraph</span>::after {
+						<span class="ye">content</span>:' ' <span class="azul">counter</span>(<span class="ve-l">n-hijo</span>);
+					}
+
+					<span class="pu">.paragraph</span>:nth-child(3n) {
+						<span class="ye">background-color</span>: <span class="or">aqua</span>;
+					}
+				</div>
+				<br>
+				<div class="container">
+					<div>div 1</div>
+					<div>div 2</div>
+					<p class="parrafo">Párrafo 1</p>
+					<p class="parrafo">Párrafo 2</p>
+					<p class="parrafo">Párrafo 3</p>
+					<p class="parrafo">Párrafo 4</p>
+				</div>
+				<br>
+				<div class="box-bb">
+					<span class="alert">Ejemplo de la nota:</span>
+					<span class="pu">.container</span> <span class="red-st">div</span>:first-child {
+						<span class="ye">background</span>: <span class="or">rebeccapurple</span>; 😭
+					}
+
+					<span class="pu">.parrafo</span>:first-child {<span class="gr"> /*le indica que seleccione el primer hijo, pero, si el primer hijo no tiene la clase .parrafo este lo ignorara.*/</span>
+						<span class="ye">background</span>: <span class="or">red</span>;
+					}
+
+					<span class="pu">.parrafo</span>:last-child {
+						<span class="ye">background-color</span>: <span class="or">lime</span>;
+					}
+				</div>
+				<br>
+				<div class="container-2">
+					<div>div 1</div>
+					<div>div 2</div>
+					<p class="container__paragraph">Párrafo 1</p>
+					<p class="container__paragraph">Párrafo 2</p>
+					<p class="container__paragraph">Párrafo 3</p>
+					<p class="container__paragraph">Párrafo 4</p>
+					<p class="container__paragraph">Párrafo 5</p>
+				</div>
+				<br>
+				<div class="box-bb ve-f">
+					<span class="pu">.container__paragraph</span>:<span class="azul">nth-of-type</span>(<span class="or">n+3</span>) { <span class="gr">/*Selecciona los elementos que tengan la clase container__paragraph, y apartir de n se le sumara 3 y empezara a aplicar los estilos.*/</span>
+						<span class="ye">background-color</span>: <span class="or">hsla(0,100%,70%,1)</span>;
+					}
+				</div>	
+			</div>
+		</div>
+		<div class="big-box">
+			<h2>Negación</h2>
+			<div class="small-box-">
+				<h3>Not</h3>
+				<b>:Not()</b> Selecciona al elemento que no cumpla la condición, se puede oponer cualquier selector salvo otro :not( ) .<br>
+				Este en si funciona para cuando tengamos varios elementos de diferente tipo en el html con una misma clase, por ejemplo tenemos varios divs  y diferentes p con la misma clase, con este selector podemos indicar dentro del paréntesis que los div no sean aplicados los estilos, o podemos resetear los estilos de dicha clase con excepción de los elementos div.
+			</div>
+			<div class="small-box- flex">
+				<h3>Ejemplo</h3>
+				<div class="container-3">
+					<div class="parrafos">div 1</div>
+					<div class="parrafos">div 2</div>
+					<p class="parrafos">Parrafo 1</p>
+					<p class="parrafos">Parrafo 2</p>
+					<p class="parrafos">Parrafo 3</p>
+					<p class="parrafos">Parrafo 4</p>
+					<p class="parrafos">Parrafo 5</p>
+				</div>
+				<div class="box-bb ve-f">
+					<span class="pu">.parrafos</span>:<span class="azul">not</span>(:<span class="azul">nth-child</span>(<span class="or">5</span>)) { <span class="gr">/*Seleccionamos la clase .parrafos con excepción de el 5to hijo que tenga esta clase.*/</span>
+						<span class="ye">border-color</span>: <span class="or">lime</span>;
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

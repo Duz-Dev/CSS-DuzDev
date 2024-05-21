@@ -1,0 +1,307 @@
+/*Practicas de la clase 6*/
+/*Estilos solo por estetica xd*/
+body {
+	width: 100%;
+}
+
+header {
+	width: 90%;
+	background: gray;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0.1px;
+	border-radius: 10px;
+	box-shadow: 0 10px 12px -8px black;
+}
+
+header h1 {
+	font-family: monospace;
+	background: lime;
+	text-align: center;
+	font-size: 3.2em;
+}
+
+header h1:hover{
+	background: red;
+	color: #fff;
+}
+
+header h1 span {
+	color: #fff;
+}
+
+header h1 span:hover {
+	color: yellow;
+}
+
+div {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div h2 {
+	background: #FFF465FF;
+	color:lime;
+	font-family: arial;
+	font-size: 1.7em;
+	padding: 6px 50px;
+	box-shadow: 0px 6px 4px -2px #ccc;
+	border-radius: 20px;
+	margin-bottom: 50px;
+}
+
+[class^="box-"] {
+	width: 75%;
+	height:100px;
+	margin-left: auto;
+	margin-top: auto;
+	margin-bottom: 50px;
+	padding: 0.1px;
+	border: 5px solid #000;
+	font-family: monospace;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom:10px;
+}
+
+/*[class^="box-"] span {
+	font-family: monospace;
+	font-size: 20px;
+	display: block;
+	margin-top: 50%;
+	text-align: center;
+
+}*/
+
+/*-------------------*/
+/*7.-textos I*/
+
+/*7.1*/
+
+.box-1 {
+	font-size: 2em;
+}
+/*un em por defaut es igual a 16px por lo cual 2em es gual a 32px, y si no nos equivocamos su hijo que es el span heredara como un 1em el valor de 32 px porque es el nuevo valor máximo.*/
+
+.box-1 span {
+	font-size: 2em;
+
+}
+
+.box-1_1 {
+	font-size: 2rem;
+}
+
+.box-1_1 span {
+	font-size: 1rem;
+}
+
+/*De hecho si nosotros modificamos el root o html con una propiedad diferente de rem esta sera ahora el nuevo contexto de tal medida. ejemplo
+:root{
+ font-size:10px;
+} este seria el contexto de la raiz y por ello el rem se adaptara a ello.
+*/
+
+/*7.2*/
+
+.box-2 {
+	direction: rtl;
+	text-align: initial;
+}
+
+.box-2_2 {
+	direction: ltr;
+	text-align: initial;
+}
+
+.box-2_3 {
+	text-indent: 3em;
+	padding: 0;
+}
+
+/*7.3*/
+
+.box-3 {
+	text-align: left;
+}
+
+.box-3_2 {
+	text-align: right;
+}
+
+.box-3_3 {
+	text-align: center;
+}
+
+.box-3_4 {
+	text-align: justify;
+}
+
+.box-3_5 {
+	text-align: left;
+	text-align-last: right;
+}
+/*el text-align-last se refiere a la dirección de la ultima linea de nuestro texto, el cual podemos alinear independientemente del text-align que ya aplicamos anteriormente.*/
+
+/*7.4*/
+
+.box-4 {
+	line-height: 1.3;
+}
+
+.box-4_1 {
+	height: 100px;
+	padding:0;
+}
+
+.box-4_1 p {
+	line-height: 100px; 
+	text-align: center;
+
+}
+
+/*7.5*/
+[class^="box-5"]{
+	font-size: 2em;
+}
+
+[class^="box-5"] span{
+	background-color: red;
+	font-size: 1rem;
+}
+
+.box-5 span {
+	vertical-align: top;
+}
+
+.box-5_1 span{
+	vertical-align: middle;
+}
+
+.box-5_2 span{
+	vertical-align: bottom;
+}
+
+/*7.6*/
+
+.box-6 {
+	letter-spacing: .72em;
+}
+/*lo recomendable con esta propiedad es aplicar valores pequeños.*/
+
+.box-6_1 {
+	padding-top: 0;
+	font-family: serif;
+	font-size: 1.1em;
+	letter-spacing: .2em;
+}
+
+.box-6_2 {
+	word-spacing: 20px;
+}
+
+/*7.7*/
+
+.box-7 {
+	font-size: 20px;
+	text-decoration-line: line-through;
+	text-decoration-color: red;
+	text-decoration-style: solid;
+}
+
+.box-7_1 {
+	font-size: 20px;
+	text-decoration: underline overline;
+}
+
+.box-7_2 {
+	font-size: 20px;
+	text-decoration: underline overline #D9BE6DFF double;
+}
+
+/*7.8*/
+
+.box-8 {
+	font-size:20px;
+	text-shadow: 2em 2em 0 red;
+}
+
+/*7.9 white space*/
+
+.box-9 {
+	text-align: initial;
+	white-space: pre; /*Css imprime TODO el texto dentro de la caja contando los saltos de linea y conserva espacios*/
+}
+
+.box-9:hover {
+	background-color: gray;
+	color:#fff;
+	cursor: pointer;
+	white-space: normal; /*aqui poner el texto en formato normal*/
+}
+
+/*7.9 desbordamiento*/
+
+[class^="awesome-"] {
+	width: 130px;
+	margin: 50px auto;
+	font-size: 2.5em;
+	white-space: pre-line;
+	border: 3px solid #000;
+	box-sizing: initial;
+}
+
+.awesome-1 {
+	word-break: break-all;
+}
+
+.awesome-2 {
+	word-wrap: break-word;
+}
+
+.awesome-3 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/*7.10*/
+
+.vertical_1 {
+	margin-bottom: 50px;
+	border: 5px solid #000;
+	word-spacing: -5px;
+	font-family: arial;
+	white-space: pre-line;
+	writing-mode: vertical-lr;/*con esto decimos que el texto este de modo izquierda a la derecha y en modo vertical*/
+	text-orientation: upright;
+}
+
+.vertical_2 {
+	margin-bottom: 50px;
+	border: 5px solid #000;
+	word-spacing: .2em;
+	font-family: arial;
+	white-space: pre-line;
+	writing-mode: horizontal-tb;/*con esto decimos que el texto este de modo izquierda a la derecha y en modo vertical*/
+/*	text-orientation: upright;
+*/}
+
+/*7.11*/
+
+.box-11 {
+	text-transform: uppercase;
+}
+
+.box-11_1 {
+	text-transform: lowercase;
+}
+
+
+.box-11_2 {
+	text-transform: capitalize;
+}
+
+.box-11_3 {
+	text-transform: none;
+}

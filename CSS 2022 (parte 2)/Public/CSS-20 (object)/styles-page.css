@@ -1,0 +1,165 @@
+
+
+.box--img-content{
+    height: 400px;
+    margin-bottom: 20px;
+    position: relative;
+    background-color: var(--color-secondary);
+}
+
+.box__img-content{
+    height: 400px;
+    margin-bottom: 20px;
+    position: relative;
+    background-color: var(--color-secondary);
+}
+
+.box__img{
+    width: 50%;
+}
+
+.box--img-content:after{
+    content: '';
+    background-color: var(--color-primary-transparent);
+    color: var(--color-text-item);
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.example::after {
+    content: 'Imagen original sin deformar';
+}
+
+
+
+.box__img--fill {
+    width: 25%;
+    object-fit: fill;
+}
+
+.fill::after {
+    content: 'Imagen a la mitad y con fill';
+}
+
+.box__img--cover {
+    width: 25%;
+    object-fit: cover;
+}
+
+.cover::after {
+    content: 'imagen a la mitad y con cover';
+}
+
+.box__img--contain {
+    width: 25%;
+    object-fit: contain;
+}
+
+.contain::after {
+    content: 'imagen a la mitad y con contain';
+}
+.box__img--none {
+    width: 25%;
+    object-fit: none;
+}
+
+.none::after {
+    content: 'imagen a la mitad y con none';
+}
+
+.box__img--scale-down {
+    width: 25%;
+    object-fit: scale-down;
+}
+
+.scale-down::after {
+    content: 'imagen a la mitad y con scale-down';
+}
+
+
+.box__img--example-2 {
+    object-fit: none;
+    object-position: left top;
+    transition: object-position 1s ease;
+}
+
+.box__img--example-2:hover {
+    object-fit: none;
+    object-position: right bottom;
+}
+
+[type="checkbox"] {
+    display:none;
+}
+
+[id^="position"] + label {
+    background: var(--color-B);
+    display: block;
+    color: var(--color-text-item);
+    cursor: pointer;
+    position: absolute;
+    width:200px;
+    height: 36px;
+    text-transform: uppercase;
+    font-size: .8rem;
+    border-radius: 5px;
+}
+
+#position-1 + label {
+    top:10px;
+}
+
+#position-1 + label::after  {
+    content: 'ir Abajo a la izquierda';
+    display: block;
+    position: absolute;
+    top:10px;
+    left:13px;
+}
+
+#position-1:checked + label::after  {
+    content: 'ir a arriba a la izquierda';
+    left:8px;
+}
+
+#position-1:checked ~ .box__img--example-2  {
+    object-position: left bottom;
+}
+
+
+#position-2 + label {
+    top:60px;
+}
+
+#position-2 + label::after  {
+    content: 'ir arriba a la derecha';
+    display: block;
+    position: absolute;
+    top:10px;
+    left:13px;
+}
+
+#position-2:checked + label::after  {
+    content: 'ir a arriba a la izquierda';
+    left:8px;
+}
+
+#position-2:checked ~ .box__img--example-2  {
+    object-position: right top;
+}
+
+
+.box__img--example-3 {
+    filter: blur(3px);
+}
+
+.box__img--example-3:hover {
+    filter: none;
+}
+
+
+

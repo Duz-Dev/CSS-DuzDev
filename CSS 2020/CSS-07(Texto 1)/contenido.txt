@@ -1,0 +1,126 @@
+7.-Textos I
+
+7.1 Unidades em y rem
+
+em es básicamente la unidad que varia de tamaño del contexto y rem la que varia por la raíz del contexto (con raíz nos referimos a la proporción que viene con defecto en html).
+
+por ejemplo si colocamos 
+
+h1 {
+	font-size:2em;
+}
+este seria de 32 pixeles ya que es la medida defaut de un em es 16px
+pero si tenemos un hijo dentro de este como un span sucedería lo siguiente
+
+h1 span {
+	font-size:1em;
+}
+
+aquí lo que resultaría es que en lugar de ser 16px seria 32 ya que este es relativo al máximo del papá.
+Entonces si aplicaramos en lugar de 1em un .5em este seria de la misma medida que el papá.
+
+En cambio el rem es fijo, por lo cual no cambia a no ser que le demos un valor diferente al root (o html :v)
+por ejemplo
+
+h2 {
+	font-size:2rem;
+}
+
+seria de la misma talla si también le agregamos su valor en rem a su hijo.
+
+h2 span {
+	font-size:2rem;
+}
+
+Entonces aveces conviene manejar rem y aveces em, por ejemplo un padding para un botón que se ajuste al tamaño del texto, hay te conviene un em, pero si haces un border o un margen que quieras que sea fijo ocuparías un rem, os si quieres cambiar un borde redondeado convendría ponerlo en rem para que todos los bordes de la caja sean iguales.
+
+7.2 Direction y text indent.
+
+Direction se refiere a la dirección en la cual el texto esta orientado. Para nosotros no es casi útil ya que esta sirve mas para orientar texto de otros idiomas.
+La propiedad es tal cual direction con los valores ltr (left to right) y rtl (right to left); que claro como ya hemos visto ltr es el por defaut.
+
+Algo a aclarar son dos conceptos, cual hablamos de texto hablamos del contenido, y cuando hablamos de fuente estamos haciendo alusión a la tipografía, cambiar el tipo de fuente etc.
+
+bueno Text indent te permite identar la primera linea de un párrafo. Antes se usaba mucho pero en sus tiempos habia muchos hacks con text-indent 
+
+7.3.-Text align
+
+como hace alusión la propiedad es la alineación del texto.
+Sus valores son start|end|left|center|right|justify.
+Donde start y end tiene que ver con direction, estos no son útiles, pero nunca se sabe.
+start es el valor por defecto como ltr, y end es lo mismo que rtl.
+También tenemos el valor left que manda el texto a la izquierda, center que lo centra, y right que lo manda a la derecha.
+Con justify hace que el texto se ajuste a los dos lados. La desventaja con este ultimo es que al principio se vea bien, pero en un tamaño de pantalla mas pequeño se vera muy feo porque quedan huecos entre las palabras las cuales el navegador genera para rellenar toda la pantalla.
+
+Como ultimo dato esta:
+.box-3_5 {
+	text-align: left;
+	text-align-last: right;
+}
+/*el text-align-last se refiere a la dirección de la ultima linea de nuestro texto, el cual podemos alinear independientemente del text-align que ya aplicamos anteriormente.*/
+
+7.4.- line height
+
+la propiedad line height nos permite delinear la lineas de los textos. Puede tener medidas especificas como Xpx, lo cual no es muy recomendable ya que si le terminamos cierta altura de linea menor a la medida del texto se desproporcionara y se vera mal. Para ello esta los em, o simplemente números. el rango recomendable es entre 1.3 y 1.6. 
+Su sintaxis es line-height:;
+y si queremos centrar verticalmente ponemos un line-height igual a la altura del contenedor, esto solo funcionara "Si solo es una linea de texto".
+
+7.5.- vertical align
+Otra propiedad para alinear el texto verticalmente en un eje interno es vertical align, el concepto tal cual confunde pero en practica puede resultar útil para ciertas cosas como en los efectos de las etiquetas a o elementos que se comporte como el texto, va con la propiedad inline.
+sus valores son baseline(el por defaut)|top|middle|bottom junto con la sintaxis que es vertical-align:;
+
+7.6 Letter spacing y word spacing
+
+Solo es el espaciado en las letras y las palabras. Esto es útil si aplicamos un estilo de letra medio cursiva la cual llega a juntar las palabras para ello esta letter-spacing ya que las separa.
+
+
+.p {letter-spacing: .02em;}
+/*lo recomendable con esta propiedad es aplicar valores pequeños.*/
+
+7.7 Text decoration 
+
+Text decoration nos permite dibujar lineas horizontales en le texto. Un ejemplo son los enlaces los cuales por defaut se subrayan.
+Su sintaxis tanto sus valores son: text-decoration:;el cual es un shorthand de text-decoration-line, text-decoration-color y text-decoration-style, y sus valores son underline | line-through | overline (en el caso de text-decoration-line) y solid | dashed | dotted | double (en el caso de text-decoration style)
+
+el cual en forma de shorthand es  text-decoration: underline line-through overline;
+
+7.8 Text-shadow
+
+Es casi lo mismo que box-shadow solo que aqui no tenemos la propiedad de asignarle un reducción o agrandamiento de la sombra. entonces tenemos como sintaxis: text-shadow: h-offset v-offset blur color | inset(esto ni pake we);. Se recomienda que por cuestión de estética no abuses de este ya que puede verse feo.
+
+7.9 White space y desbordamiento
+
+La propiedad -espacio en blanco- nos permite manipular vaya el espacio en blanco. Básicamente con esta propiedad puedes hacer que el navegador te tome el código de texto tal cual como esta escrito. como ejemplo podemos decir que si escribimos un párrafo con un gran salto de espacio (ejemplo                      fin del ejemplo) este solo se vera como si solo hubiéramos puesto un space y no es así, para ello podemos utilizar white-space para que respete es espaciado.
+
+Sus valores son:
+normal (el por defaut)
+pre(respeta los saltos de linea y conserva espacios)
+nowrap(no salta de linea)
+pre-wrap (salta de linea y conserva espacios)
+pre-line (salta de linea y no conserva espacios)
+
+-Desbordamiento- con ello nos referimos a el problema que nos sucede seguido sobre que el texto se "desborda", vaya se sale del contenedor, y el para el cual hay propiedades para componerlo o mas bien evitarlo.
+Hay tres propiedades Word-break, word-wrap y text-overflow.
+
+World-break lo que hace es partir palabras. Entonces si una palabra caí en el limite del texto word-break lo rompe y el otro pedazo lo manda abajo. valores: normal| break-all|keep-all
+
+World-wrap es prácticamente lo mismo pero tiene una pequeña diferencia, la cual es que rompe la misma palabra siempre y cuando la palabra en si misma sea mas larga que el tamaño de su contenedor. En cambio con word-break la palabra podría ser mas corta pero por la culpa del flujo del texto la palabra bajara si o si. valores: normal|break-word
+
+Aun y así lo recomendable es usar word-break ya que cubre ambos casos.
+
+Y text-overflow es cuando el texto no entra. Por ejemplo en una sesión hay hay tres contenedores con un titulo cada uno. En dos de esos contenedores hay un titulo de solo una linea, pero en el del medio es de 2 lineas. La solución seria que salte de linea el texto y ya esta, pero va a ver situaciones donde no queramos que pase eso por cuestión de espacio, estética o diseño etc. así que ponemos la propiedad overflow le mencionamos que no lo oculte el sobrante y con text-overflow le dices que no solo lo oculte si no que le de una apariencia de cortado o de unos puntitos, dando a entender que el texto continua. valores: clip | ellipsis.
+
+7.10.- Texto vertical y text rendering 
+
+	Texto vertical como menciona es orientar las palabras y letras de forma vertical. 
+	Ocupamos de dos propiedades. writing-mode: vertical-lr; (modo de escritura: de forma vertical)
+	y la propiedad text-orientation: upright; (orientación del texto: arriba ala izquierda), las definiciones no son muy claras pero son lo que es. Con una decimos que le texto se oriente de forma vertical, y con otra le decimos que el eje de las palabras este orientada como originalmente estaban.
+
+	Sobre text-rendering se suele usar mas en svg, ya que para css no resulta muy útil ya que tiene pocos efectos y se usa en fuentes con ligaduras. (Nota: hay tipografías con ligaduras las cuales se pueden orientar con esta propiedad, lo de las tipografías es un tema amplio al cual no nos vamos a meter +-+)
+
+7.11.- Text transform
+
+Nos permite trasformar el texto o mas bien resetiar el mismo para que este se visualice en el navegador con el valor que le asignemos. Para ponernos en contexto, nosotros escribimos el código del texto el cual este puede ser en mayúsculas y en minúsculas, pero va a ver veces que quieras que el texto de cierto contenedor sobre títulos o cualquier cosa comience si o si con mayúsculas o se vea en mayúsculas, bueno pos para ello esta text-trasform el cual trasforma el texto a la forma que queremos que se vea en cuestión de mayúsculas y minúsculas.
+
+sus valores:
+Uppercase: texto en mayúsculas, lowercase texto en minusculas, capitalize cada palabra del texto comience con mayúsculas. 

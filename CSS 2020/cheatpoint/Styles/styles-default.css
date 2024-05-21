@@ -1,0 +1,284 @@
+ 	:root {
+	--width-principal:90%;
+	--space:10px; /*declare la variable para manipular la separación de arriba y abajo de las cajas con respecto a sus títulos*/
+	--barra-color: red;
+}
+/*--Estilos del titulo del encabezado--*/
+header h1 {
+	width: var(--width-principal);
+	color: gray;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	margin-top: 3px;
+	padding: 35px 0;
+	border-radius: 10px;
+	border: 4px solid gray;
+	text-align: center;
+	font-size: 2.6em;
+	font-family: arial;
+	word-spacing: 2px;
+}
+
+header h1::after{
+	content: '';
+	display: block;
+	width: var(--width-principal);
+	height: 6px; /*nota: no es lo correcto colocar porcentajes como alto si no sabemos a que se compara*/
+	margin:0 auto;
+	background-color: var(--barra-color);
+	transform: scale(0,1);
+	transition: transform .23s;
+	transform-origin: center; /*este es el origen por default*/
+}/*si no especificamos un alto este automáticamente sera el 100% del ancho del papá o del espacio que pueda ocupar*/
+
+header h1:hover::after{
+	transform: scale(1,1);
+}
+
+/*Estilos de la sección*/
+section {
+	width: 95%;
+	margin: 0 auto;
+	counter-reset: title-i;	/*Declaramos la variable para el numero de el titulo del section*/
+	counter-reset: subtitle-i; /*Declaramos la variable para el numero de los títulos que están en los big box*/
+}
+
+section > h2 {
+	counter-increment: title-i 14; /*Indicamos que cada vez que CSS vea un h2 dentro de section lo contara y su valor sera de 12*/
+	padding: 15px;
+	padding-left: 22px;
+	margin-bottom: 20px;
+	font-family: arial;
+	font-weight: 1;
+	font-size: 1.73em;
+	letter-spacing: 1.8px;
+}
+
+section > h2::before {
+	content: counter(title-i) '. '; /*Con esto ya declaramos que imprimirá el numero de h2 que hay directamente después de section. Y claro, esto lo imprimirá creando un hijo antes del papá (h2) para mostrarlo.*/
+}
+
+section > h2::after { /*Con este hijo posterior a el h2 creamos una linea que manipulamos con display para poder ajustarlo*/
+	content: '';
+	display: block; /*desplaza hacia abajo el hijo y nos da la libertad de cambiar el width y etc*/
+	width: 27.4rem;
+	height: 3px;
+	background-color: var(--barra-color);
+	margin-top: 3px;
+}
+
+/*--Estilos de la Gran caja (big-box)--*/
+
+.big-box > h3 {
+	counter-increment: subtitle-i; /*Contamos los h3 que estén directamente después de la .big-box*/
+	width: var(--width-principal);
+	padding: 10px;
+	border-bottom: 2px solid #000;
+	margin-bottom: 50px;
+	font-family: arial;
+	font-weight: 1;
+	font-size: 1.4em;
+	margin-left: auto;
+	margin-right: auto;
+	display:flex; /*con flex el h3 se auto calcula y con su variante de flexibilidad esta se acopla a su 90% sin que cambie de estado, a diferencia de block que parecía que pasaba de relative a absolute.*/
+}
+
+.big-box > h3::before {
+	content:counter(title-i) '.' counter(subtitle-i) '.';
+	display: inline-block;
+	padding-right: .2em;
+}
+
+/*--Estilos de la caja base (box)--*/
+.box {
+	border: 2.1px solid orange;
+	float: left;
+	margin-bottom: 80px;
+	font-family: arial;
+	word-spacing:1.5px; /*el espacio entre cada palabra*/
+	letter-spacing: .5px; /*el espacio entre cada letra*/
+	font-size: 1.2rem;
+	padding:var(--space);
+	box-shadow: 1px 4px 10px -1px gray;
+	line-height: 1.5rem; /*Es el interlineado de las palabras (es espacio entre cada linea de texto)*/
+}
+
+/*--Estilos de la caja pequeña (box-sml)--*/
+[class*="box-sml"] {
+	width: 45%;
+	height: 350px;/*Con height establecemos un alto estático, lo que significa que ahora el alto de la caja ya no depende de su contenido.*/
+	margin-left: 2.4%;
+	margin-right: 2.4%;
+	padding-top: var(--space);
+}
+
+[class*="box-sml"]  h4, [class*="box-xl"] h4, [class*="box-re"] h4 { /*Aplicara los mismas propiedades a el h4 de la caja chica como a la grande*/
+	text-align:center;
+	font-family: monospace;
+	font-size: 1.96rem;
+	margin-bottom: var(--space);
+	font-weight: 2;
+}
+/*--Estilos de la caja grande (box-xl)--*/
+
+[class*="box-xl"] {
+	width: 100%;
+}
+
+[class*="box-xl"] h4 {
+	text-align: initial;
+	padding-top: var(--space);
+}
+
+/*Estilos de las cajas slide relative left(rel) y relative right(rer)*/
+/*El modelo relativo (así le puse :v o main to example) esta ordenado de tal manera que hay una clase padre (re) el cual le "hereda" (mas bien asigna) las propiedades a dos clases distintas rel y rer*/
+[class*="box-re"] { /*clase papá el cual engloba los valores que comparten rel y rer*/
+	margin-left: 2.4%;
+	margin-right: 2.4%;
+}
+
+[class*="box-rel"] { /*relativo hacia la izquierda*/
+	width: 60%;	
+}
+
+[class*="box-rer"] { /*relativo a la derecha*/
+	width: 30%;
+}
+
+[class*="box-rel-flex"],[class*="box-rer-flex"] { /*La clase box-re-flex es para que cuando dentro de ya sea de rel o rer tengan cajas xl y queramos que estas abarquen el 100% solo le ponemos esta clase para que se ajuste al 100% del contenido del papá*/
+	padding: 0;
+	border: none;
+	box-shadow: none;
+} /*El uso de esta es solo para que las cajas xl internas fluyan por el 100% del papá*/
+
+[class*="box-rel-flex"] .box-xl,[class*="box-rer-flex"] .box-xl {
+	margin-bottom: 40px;
+}
+
+/*Estilo de ancho inicial (flex)*/
+
+.flex{
+	height: initial;
+}
+
+/*--Estilos de la caja bebe (box-bb)--*/
+[class*="box-bb"] {
+	background-color: #1B2B34FF; /*es del mismo color que sublime xd*/
+	width: var(--width-principal);
+	margin-top: calc(var(--space) + 10px);
+	margin-right: auto;
+	margin-bottom: calc(var(--space) + 10px);
+	margin-left: auto;
+	font-family: Consolas, arial;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 1.5rem;
+	color: #fff;
+	white-space: pre-line; /*con esta propiedad puedo indicarle a css que me respete también ya sea los espacios (o no) o saltos de lineas o ambos. En este caso puse que solo respete los saltos de linea*/
+	font-size: 1rem;	
+}
+
+[class*="box-bb"]  h4 {
+	margin-bottom: var(--space);
+}
+/*<div class="box-bb"> <!--Con las baby cajas o cajitas puedo mostrar código que se respeten las lineas--></div>*/
+
+/*--coloretes xd--*/
+
+.or {
+	color: orange;
+}
+
+.pu {
+	color: #BB7682FF;
+}
+
+.gr {
+	color: #BCBCBCFF;
+}
+
+.red {
+	color:red;
+}
+
+.azul {
+	color:#6699CCFF;
+}
+
+.ye {
+	color:#FAC863FF;
+}
+
+.ve  {
+	color: lime;
+}
+
+.ve-f {
+	color:#60B394FF;
+}
+
+.red-st {
+	color:#EB514BFF;
+}
+
+.alert {
+	color: hsla(60,100%,50%,.8);
+	border-bottom: 1px solid;	
+}
+
+/*resposive design*/
+@media (max-width: 420px) {
+	:root {
+		--space-responsive:10px;
+	}
+
+	header h1 {
+		font-size: 1.5rem;
+		padding: 10px;
+		margin-bottom: 20px;
+	}
+
+	section > h2 {
+		font-size: 1.2rem;
+	}
+
+	section > h2::after {
+		width: 100%;
+	}
+	
+	.big-box > h3 {
+		font-size: 1rem;
+		border: none;
+		margin-bottom: 10px;
+		font-weight: 600;
+	}
+
+	.box {
+		margin-bottom: 30px;
+	}
+
+	[class*="box-sml"], [class*="box-re"] {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	[class*="box-sml"],	[class*="box-xl"], [class*="box-re"] {
+		width: 100%;
+		font-size: .8rem;
+		height: initial;
+	}
+
+	[class*="box-sml"] h4, [class*="box-xl"] h4, [class*="box-re"] h4 {
+		font-size: .9rem;
+		font-weight: 700;
+		font-family: arial;
+	}
+
+	[class*="box-bb"] {
+		font-size: .8rem;
+		padding-left:var(--space-responsive) ;
+		padding-right:var(--space-responsive) ;
+		padding-bottom: calc(var(--space-responsive) + 10px);
+	}
+}

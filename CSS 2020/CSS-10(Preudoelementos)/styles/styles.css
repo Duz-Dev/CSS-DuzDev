@@ -1,0 +1,362 @@
+
+header h1 {
+	width: 90%;
+	background-color: yellow;
+	color: gray;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	padding: 35px 0;
+	border-radius: 20px;
+	border: 5px solid gray;
+	text-align: center;
+	font-size: 2.6em;
+	font-family: arial;
+	word-spacing: .18em;
+}
+
+section {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.titulo {
+	width: 100%; /*Descubri que con la propiedad display flex y grid esta wea se aregla xd, pero para que nuestro h2 no se reajuste en cuestion de ancho simplemente lo especificamos con width vaya.*/
+	background-color: #A6FFFF;
+	padding: 18px;
+	border: 8px solid gray;
+	margin-bottom: 20px;
+	font-family: arial;
+	font-weight: 1;
+	font-size: 1.5em;
+	display:flex; /*No se porque se areglo usando flex o con grid ;-;*/
+}
+.big-box > h2 {
+	width: 90%;
+	padding: 10px;
+	border-bottom: 2px solid #000;
+	margin-bottom: 50px;
+	font-family: arial;
+	font-weight: 1;
+	display:flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+[class^="small-box-"] {
+	width: 45%;
+	height: 350px;	 /*Con height establecemos un alto estático el cual a pesar de que los elementos de la caja sobrepasen el alto definido esta no se ara mas grande.*/
+	border: 3px solid orange;
+	display:block;
+	float: left;
+	margin-left: 2.4%;
+	margin-right: 2.4%;
+	margin-bottom: 80px;
+	font-family: arial;
+	word-spacing:1.5px; /*el espacio entre cada palabra*/
+	letter-spacing: .5px; /*el espacio entre cada letra*/
+	font-size: 1.2em;
+	text-align: center;
+	padding:10px;
+	box-shadow: 1px 4px 10px -1px gray;
+	line-height: 1.5rem; /*Es el interlineado de las palabras (es espacio entre cada linea de texto)*/
+}
+
+[class^="small-box-"] h3 {
+	text-align:center;
+	margin-top: 10px;
+	font-family: monospace;
+	font-size: 2em;
+	margin-bottom: 10px;
+}
+
+.small-box-1_5 {
+	height: initial; /*establezco que el alto sea el inicial, es decir, que el height que establecí que heredaran todas las cajitas (small-box) no sea de 350px sino que se ajuste a su propio contenido. */
+	padding-bottom: 30px;
+	text-align: initial;
+}
+
+
+[class^="baby-box"] {background-color: #ccc;width: 80%;margin: 0 auto;padding:3rem;font-family: monospace;font-weight: 600;color: #fff;margin-bottom: 50px;}
+/*--------Pseudoelementos---------*/
+	/*first-line*/
+	.first-line p::first-line {
+		color: red;
+		font-size:1.3em;
+	}
+
+	/*First letter*/
+	 
+	.first-letter p::first-letter {
+		color: red;
+		font-size: 1.4em;
+	}
+
+	/*Before y after*/
+	.small-box-1_6 {text-align: initial;}
+
+	.small-box-1_6 h4::before {
+		content: '¿' /*Este es posiblemente el único concepto de css que tiene sobre string con las comillas simples y que es muy chido ya que podemos generar contenido jugando con las seudoclases. */
+	}
+
+	.small-box-1_6 h4::after {
+		content: '?'
+	}
+
+	.small-box-1_6 h4:hover::after {
+		content: 'Espera khee :o';
+	/*  background-color: gray;
+		transform: scale(1.2);
+		transition: all .6s;
+		display: block;*/
+	}
+	
+	.small-box-1_6 span:hover::after {
+		content: ' se genera algo de contenido con la funcion content de css. Esto lo genera css en lugar de pasmarlo con html.';
+	}
+
+	/*Before y after e imprimir atributos*/
+
+	.small-box-1_8 h4::after {
+		content:' 'attr(class);
+	}
+
+	.small-box-1_8 h4::before {
+		content: ''; /*Este genera un elemento y como sabemos cuando un elemento no tiene un alto definido este no se vera, por lo que hay que asignarle un alto estático, pero el problema es que si le ponemos un alto a un elemento este no lo aplicara, ya que los elementos son inline, y los inline no es posible definirle su alto.*/
+		display: block;
+		height: 100px;
+		background-color: red;
+
+	}
+	/*Before y after e imprimir imágenes*/
+
+	.small-box-1_10 div::after{
+		content: url("../media/images (3).jpg");
+	}
+
+	/*quotes*/
+/*	.small-box-1_11 {
+		height: initial;
+	}
+
+	.small-box-1_11 .ejemplo-1 {
+		background-image: url(../media/eje.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+		border:1px solid red;
+		height: 300px;
+		margin: 30px;
+
+	}*/
+
+	.small-box-1_12 h4 {
+		quotes: '\201C Hola pana' '\201D';
+	}
+	.small-box-1_12 h4::before {
+		content: open-quote;
+	}
+
+	.small-box-1_12 h4::after {
+		content: close-quote;
+	}
+
+	.small-box-1_12 div:hover::after {
+		content: url(../media/eje.png);
+	}
+	/*formatear moneda*/
+
+	[class^="small-box-2_"]{
+		width: 100%;
+		height: initial;
+		margin-left: 0;
+		
+	}
+
+
+	.usd::before {
+		content: '$';
+	}
+
+	.pen::before {
+		content: '$/';
+	}
+
+	.cop::before {
+		content: '$ ';
+	}
+
+	.two-decimals::after {
+		content: '.00';
+	}
+
+	/*subrayado animado*/
+
+	.small-box-2_14 p::after {
+		content: '';
+		display: block;
+		height: 10px;
+		background-color: red;
+		transform: scale(0,1); /*EL PRIMERO ES X y el 2do y, con esto decimos que se agranda 0 en x y en y se queda igual*/
+		transition: transform .25s;
+		transform-origin: center left;
+	}
+	.small-box-2_14 p:hover::after {
+		transform: scale(1,1);
+	}
+
+	.small-box-2_14 .prueba-2::after {
+		content: '';
+		display: block;
+		height: 5px;
+		background-color: aqua;
+		margin-top: 10px;
+		transform:scale(1,0);
+		transition: all .2s;
+		transform-origin:bottom;
+		}
+
+	.small-box-2_14 .prueba-2:hover::after {
+		transform: scale(1,1);
+	}
+
+	.small-box-2_14 .prueba-3::after {
+		content: 'Hola we uwu';
+		display: block;
+		height: 5px;
+		margin-top: -10px;
+		transform:scale(1,0);
+		transition: all .2s;
+		transform-origin:bottom;
+	}
+
+	.small-box-2_14 .prueba-3:hover::after {
+		transform: scale(1,1);
+	}
+	/*Aspect radio*/
+
+	.baby-box-01 {
+		background-color: red;
+		min-height: 200px;
+		width: 500px; /*asumiendo que ponemos 500px porque se calcula con el papá o etc podemos hacer el siguiente hack*/
+		padding-bottom: 100%;
+	}
+	/*Este hack solo funciona si no tenemos un width definido, pero el otro proble es que si no tenemos control del width del papá esto tampoco funionara o el resultado sera el no deseado.*/
+
+
+
+	.baby-box-02 {
+		background-color: green;
+		width: 400px;
+	} /*este css lo tomara como un papá del elemento before por lo que ahora si tedriamos control de su ancho*/
+	
+	.baby-box-02::before {
+		content: '';
+		display: block;
+		padding-bottom: 100%;
+	} /**/
+
+
+	.cajita iframe {
+		background-color: aqua;
+	}
+
+	.cajita iframe::before {
+		content:'';
+		display: block;
+		padding-bottom: 56.25%;
+	}
+
+	/*dibujar un corazon uwu*/
+
+	.small-box-2_17 {
+		display: grid;
+		min-height: 100vh;
+		justify-content: center;
+		align-content: center;
+	}
+
+	.kokoro,
+	.kokoro::before,
+	.kokoro::after{
+		--size:200px;
+		--color:red;
+		width: var(--size);
+		height: var(--size);
+		background-color: var(--color);
+	}
+
+	.kokoro::before,
+	.kokoro::after{
+		content: '';
+		display: block;
+		margin-top: calc(var(--size) * -0.5);
+		border-radius: 50%;
+	}
+
+	.kokoro {
+		transform: rotate(45deg);
+		animation: doki .5s infinite alternate ease-in-out;
+	}
+
+	@keyframes doki{
+		to {
+			transform: rotate(45deg) scale(1.1);
+		}
+	}
+
+	.kokoro::after{
+		margin-left: calc(var(--size) * -0.5);
+	}
+
+	.footer {
+		text-align: initial;
+	}
+
+	.footer p::before {
+		content: '▼ ';
+	}	
+
+	.quiero-info {
+		color:#46aa21;
+		text-decoration: none;
+		position: relative;
+	}
+
+	.quiero-info::after{
+		position: absolute;
+		bottom: 130%;
+		left: 70%;
+		background-color: #46aa21;
+		padding: 7px 14px;
+		color:#fff;
+		border-radius: 5px;
+		white-space: nowrap;
+		opacity: 0;
+		transition: all .4s ease;
+		content: attr(data-tooltip);
+	}
+	.quiero-info::before {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-top: 20px solid #46aa21;
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent;
+		transition: all 0.4s ease;
+		opacity: 0;
+		left: 75%;
+		bottom: 90%;
+	}
+
+	.quiero-info:hover::after {
+		bottom: 100%;
+	}
+
+	.quiero-info:hover::before {
+		bottom: 70%;
+	}
+
+	.quiero-info:hover::after,.quiero-info:hover::before{
+		opacity: 1;
+	}

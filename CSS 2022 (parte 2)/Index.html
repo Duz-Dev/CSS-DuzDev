@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--Compatible con edge-->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="Styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="Styles/styles.css">
+	<title>CSS Desde 0 | CSS-Avanzado</title>
+</head>
+
+<body id="body">
+	<header>
+		<nav class="menu">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html"
+						class="menu__item--link menu__item--logo" target="_blank">
+						<img class=" menu__item--logo-img" src="Media/logo-nav-2.png" alt=""></a>
+				</li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" class="menu__item--link"
+						target="_blank">Inicio</a>
+				</li>
+				<li class="menu__item"><a href="#" class="menu__item--link">HTML</a></li>
+				<li class="menu__item"><a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html"
+						target="_blank" class="menu__item--link">CSS-Básico</a></li>
+				<li class="menu__item"><a href="#" class="menu__item--link">CSS-Avanzado</a>
+				</li>
+				<li class="menu__item"><a href="#footer" class="menu__item--link">Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!--sección con el vídeo del sitio-->
+	<section class="content">
+		<div class="container">
+			<div class="video">
+				<iframe class="video__iframe" src="https://www.youtube.com/embed/d94wLkOpBoE" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+	<!--sección del contenido-->
+	<section class="content">
+		<h1 class="content__title"><span class="content__title__text">CSS Avanzado</span></h1>
+		<div class="container">
+			<h2 class="container__title">Capítulos de CSS avanzado:</h2>
+			<div class="col--sml">
+				<div class="box box--card">
+					<a href="https://www.youtube.com/watch?v=d94wLkOpBoE&list=PLROIqh_5RZeAoysDfEpB_asxV0cItZOL_" target="_blank" class="box__thumbnail">
+						<div class="box__thumbnail__content">
+							<img class="box__thumbnail__img"
+								src="https://i.ytimg.com/vi/d94wLkOpBoE/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLA_Bwj0UThLw9miBJ5lOGGOljROuw" alt="imagen">
+							<div class="box__thumbnail__note">
+								<span class="box__thumbnail__note__head">Ver video</span>
+								<p class="box__thumbnail__note__text">#0 - Curso básico de CSS 2018 (Presentación del curso)</p>
+							</div>
+						</div>
+					</a>
+					<h2 class="box__title">CSS: introducción</h2>
+					<div class="box__text">
+						<p class="box__paragraph">
+							Hablemos un poco de lo que es CSS, ver su historia y porque es importante aprender este lenguaje que le da diseño a la web.
+						</p>
+					</div>
+					<input type="radio" name="modal" id="open-modal">
+					<label for="open-modal">Ver Documentos</label>
+					<input type="radio" name="modal" id="close-modal">
+					<label for="close-modal">x</label>
+					<div class="modal" id="modal">
+						<div class="modal__content">
+							<div class="modal__header">
+								<h2 class="modal__header__title">Contenido</h2>
+							</div>
+							<div class="box box--modal">
+								<h2 class="box__title">CSS-15:introducción</h2>
+								<div class="box__text">
+									<p class="box__paragraph">
+										Que es CSS, la historia de este y lo que podemos hacer gracias a este, eso y un poco más hablamos en este capitulo.
+									</p>
+								</div>
+								<div class="box__links">
+									<a href="Public/CSS-15 (Introduccion)/Index.html" class="box__links--item">Inicio</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box--card">
+					<a href="www.youtube.com/watch?v=  &list=PLROIqh_5RZeAoysDfEpB_asxV0cItZOL_&index=25" target="_blank" class="box__thumbnail">
+						<div class="box__thumbnail__content">
+							<img class="box__thumbnail__img"
+								src="https://i.ytimg.com/vi/d1iv9iQEFf8/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLAxCimi6bHk7ceC0AAIRk4HDaqeIg" alt="imagen">
+							<div class="box__thumbnail__note">
+								<span class="box__thumbnail__note__head">Ver video</span>
+								<p class="box__thumbnail__note__text">#24 - Google fonts - @font-face - Curso básico de CSS 2019</p>
+							</div>
+						</div>
+					</a>
+					<h2 class="box__title">CSS: Font face</h2>
+					<div class="box__text">
+						<p class="box__paragraph">
+							Esta <code>at-role</code> sirve para poder itilizar fuentes que muy posiblemente no tengan todos los dispositivos que visiten la nuestra página o simplemente queremos...
+						</p>
+					</div>
+					<input type="radio" name="modal" id="open-modal-5">
+					<label for="open-modal-5">Ver Documentos</label>
+					<input type="radio" name="modal" id="close-modal-5">
+					<label for="close-modal-5">x</label>
+					<div class="modal" id="modal">
+						<div class="modal__content">
+							<div class="modal__header">
+								<h2 class="modal__header__title">Contenido</h2>
+							</div>
+							<div class="box box--modal">
+								<h2 class="box__title">CSS-19: @font-face</h2>
+								<div class="box__text">
+									<p class="box__paragraph">
+										Son muchas las ventajas que tenemos en el apartado visual de nuestra página si utilizamos esta <code>at-rule</code> y esta nos puede servir para utilizar iconos que con ello daremos una presentación mas que sublime.
+									</p>
+								</div>
+								<div class="box__links">
+									<a href="Public/CSS-19 (font-face)/Index.html" class="box__links--item">Inicio</a>
+									<a href="Public/CSS-19 (font-face)/styles-page.css" class="box__links--item">Estilos utilizados</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col--sml">
+				<div class="box box--card">
+					<a href="https://www.youtube.com/watch?v=yBx2EKrb_ag&list=PLROIqh_5RZeAoysDfEpB_asxV0cItZOL_&index=2" target="_blank" class="box__thumbnail">
+						<div class="box__thumbnail__content">
+							<img class="box__thumbnail__img"
+								src="https://i.ytimg.com/vi/yBx2EKrb_ag/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLCQ_YkKlSfjszTUqCRgGZiA-nnjiw" alt="imagen">
+							<div class="box__thumbnail__note">
+								<span class="box__thumbnail__note__head">Ver video</span>
+								<p class="box__thumbnail__note__text">#1 - Sintaxis y selectores de CSS - Curso básico de CSS 2018
+								</p>
+							</div>
+						</div>
+					</a>
+					<h2 class="box__title">CSS: Sintaxis</h2>
+					<div class="box__text">
+						<p class="box__paragraph">
+							Repasamos lo que eran los selectores de CSS y la sintaxis de ello añadiendo lo que no vimos en el capitulo 2 de CSS-básico.
+						</p>
+					</div>
+					<input type="radio" name="modal" id="open-modal-2">
+					<label for="open-modal-2">Ver Documentos</label>
+					<input type="radio" name="modal" id="close-modal-2">
+					<label for="close-modal-2">x</label>
+					<div class="modal" id="modal-2">
+						<div class="modal__content">
+							<div class="modal__header">
+								<h2 class="modal__header__title">Contenido</h2>
+							</div>
+							<div class="box box--modal">
+								<h2 class="box__title">CSS-16: Selectores y sintaxis</h2>
+								<div class="box__text">
+									<p class="box__paragraph">Un pequeño repaso de los selectores y sintaxis de css</p>
+								</div>
+								<div class="box__links">
+									<a href="Public/CSS-16 (selectores)/Index.html" class="box__links--item">Inicio</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box--card">
+					<a href="https://www.youtube.com/watch?v=bSL_F8cXTRU&list=PLROIqh_5RZeAoysDfEpB_asxV0cItZOL_&index=29" target="_blank" class="box__thumbnail">
+						<div class="box__thumbnail__content">
+							<img class="box__thumbnail__img"
+								src="https://i.ytimg.com/vi/bSL_F8cXTRU/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLC8f--X6NQ_fkl0djtS79P39THo-A" alt="imagen">
+							<div class="box__thumbnail__note">
+								<span class="box__thumbnail__note__head">Ver video</span>
+								<p class="box__thumbnail__note__text">#28 - Object-fit, Object-position y filter() - Curso básico de CSS 2019
+								</p>
+							</div>
+						</div>
+					</a>
+					<h2 class="box__title">CSS: Object y filter</h2>
+					<div class="box__text">
+						<p class="box__paragraph">
+							Estas propiedades son muy útiles al momento de darle una mejor presentación a las imágenes
+						</p>
+					</div>
+					<br>
+					<input type="radio" name="modal" id="open-modal-6">
+					<label for="open-modal-6">Ver Documentos</label>
+					<input type="radio" name="modal" id="close-modal-6">
+					<label for="close-modal-6">x</label>
+					<div class="modal" id="modal-6">
+						<div class="modal__content">
+							<div class="modal__header">
+								<h2 class="modal__header__title">Contenido</h2>
+							</div>
+							<div class="box box--modal">
+								<h2 class="box__title">CSS-20: object-fit, object-position y filter</h2>
+								<div class="box__text">
+									<p class="box__paragraph">Cada una de estas propiedades son muy útiles ya que nos sirven para dotar de una mejor presentación a las imágenes.</p>
+								</div>
+								<div class="box__links">
+									<a href="Public/CSS-20 (object)/Index.html" class="box__links--item">Inicio</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col--sml">
+				<div class="box box--card">
+					<a href="https://www.youtube.com/watch?v=yBx2EKrb_ag&list=PLROIqh_5RZeAoysDfEpB_asxV0cItZOL_&index=2" target="_blank" class="box__thumbnail">
+						<div class="box__thumbnail__content">
+							<img class="box__thumbnail__img"
+								src="https://i.ytimg.com/vi/ubIB6k9bg84/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLCJyO7eIDyx-XBte92F3f2rHkOHIw" alt="imagen">
+							<div class="box__thumbnail__note">
+								<span class="box__thumbnail__note__head">Ver video</span>
+								<p class="box__thumbnail__note__text">#4 - Metodología BEM - Curso básico de CSS 2018</p>
+							</div>
+						</div>
+					</a>
+					<h2 class="box__title">CSS: Metodología</h2>
+					<div class="box__text">
+						<p class="box__paragraph">
+							Veamos que significa una Metodología y como podemos aplicar la Metodología BEM para el mejor desarrollo de una página web.
+						</p>
+					</div>
+					<input type="radio" name="modal" id="open-modal-3">
+					<label for="open-modal-3">Ver Documentos</label>
+					<input type="radio" name="modal" id="close-modal-3">
+					<label for="close-modal-3">x</label>
+					<div class="modal" id="modal-3">
+						<div class="modal__content">
+							<div class="modal__header">
+								<h2 class="modal__header__title">Contenido</h2>
+							</div>
+							<div class="box box--modal">
+								<h2 class="box__title">CSS-17: Metodología BEM</h2>
+								<div class="box__text">
+									<p class="box__paragraph">Explicación de lo que es una metodología y el empleo de BEM en html y css.</p>
+									<p class="box__paragraph">Aprender una metodología es lo mejor, y no solo existe la de BEM si no muchas más para el mejor flojo posible en el desarrollo web.</p>
+								</div>
+								<div class="box__links">
+									<a href="Public/CSS-17 (Metodologia BEM)/Index.html" class="box__links--item">Inicio</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box--card">
+					<a href="https://www.youtube.com/watch?v=yBx2EKrb_ag&list=PLROIqh_5RZeAoysDfEpB_asxV0cItZOL_&index=2" target="_blank" class="box__thumbnail">
+						<div class="box__thumbnail__content">
+							<img class="box__thumbnail__img"
+								src="https://i.ytimg.com/vi/XAk96ax-QCU/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLBNa-1GhFTTcvshm6eO4Arj6mu54w" alt="imagen">
+							<div class="box__thumbnail__note">
+								<span class="box__thumbnail__note__head">Ver video</span>
+								<p class="box__thumbnail__note__text">#29 - clip-path - Curso básico de CSS 2019</p>
+							</div>
+						</div>
+					</a>
+					<h2 class="box__title">CSS: clip-path</h2>
+					<div class="box__text">
+						<p class="box__paragraph">
+							Esta propiedad nos sirve para crear formas y con contenedores, esto es de gran ayuda si queremos crear un efecto con algúna imagen o un fondo en especifico.
+						</p>
+					</div>
+					<input type="radio" name="modal" id="open-modal-7">
+					<label for="open-modal-7">Ver Documentos</label>
+					<input type="radio" name="modal" id="close-modal-7">
+					<label for="close-modal-7">x</label>
+					<div class="modal" id="modal-7">
+						<div class="modal__content">
+							<div class="modal__header">
+								<h2 class="modal__header__title">Contenido</h2>
+							</div>
+							<div class="box box--modal">
+								<h2 class="box__title">CSS-21: clip-path</h2>
+								<div class="box__text">
+									<p class="box__paragraph">Veamos como funciona esta propiedad y lo volátil que es con los valores que tiene.</p>
+								</div>
+								<br>
+								<div class="box__links">
+									<a href="Public/CSS-21 (clip)/Index.html" class="box__links--item">Inicio</a>
+									<a href="Public/CSS-21 (clip)/styles-page.css" class="box__links--item">Estilos aplicados (incluye notas)</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col--sml">
+				<div class="box box--card">
+					<a href="https://www.youtube.com/watch?v=yBx2EKrb_ag&list=PLROIqh_5RZeAoysDfEpB_asxV0cItZOL_&index=2" target="_blank" class="box__thumbnail">
+						<div class="box__thumbnail__content">
+							<img class="box__thumbnail__img"
+								src="https://i.ytimg.com/vi/FC3bL23Fca0/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLDMJDs_LqDBwLPHH8FXX8xLEU0dZg" alt="imagen">
+							<div class="box__thumbnail__note">
+								<span class="box__thumbnail__note__head">Ver video</span>
+								<p class="box__thumbnail__note__text">
+									#8 - Propiedad outline - Curso básico de CSS 2018
+								</p>
+							</div>
+						</div>
+					</a>
+					<h2 class="box__title">CSS: outline</h2>
+					<div class="box__text">
+						<p class="box__paragraph">
+							<span class="pu-sb">Propiedad</span> de css similar a border pero este no forma parte del box-model... Interesante cuanto menos.
+						</p>
+						<br>
+					</div>
+					<input type="radio" name="modal" id="open-modal-4">
+					<label for="open-modal-4">Ver Documentos</label>
+					<input type="radio" name="modal" id="close-modal-4">
+					<label for="close-modal-4">x</label>
+					<div class="modal" id="modal-4">
+						<div class="modal__content">
+							<div class="modal__header">
+								<h2 class="modal__header__title">Contenido</h2>
+							</div>
+							<div class="box box--modal">
+								<h2 class="box__title">CSS-18: outline</h2>
+								<div class="box__text">
+									<p class="box__paragraph">El uso de esta propiedad es util su la combinamos con su valor offset ya que podemos agrandar o disminuir sus dimensiones.</p>
+								</div>
+								<div class="box__links">
+									<a href="Public/CSS-18 (Outline)/Index.html" class="box__links--item">Inicio</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Pie de página del sitio-->
+	<footer class="footer" id="footer">
+		<div class="footer__content content">
+			<div class="col--md col--footer">
+				<div class="footer__text">
+					<span class="footer__author">Juan Rubén Chávez Turrubiartes.</span>
+					<div class="footer__contact">
+						<span class="footer__contact__text">Contacto: </span>
+						<a href="https://www.facebook.com/juanruben.chavez" target="_blank"
+							class="footer__link icon-face"><span class="footer__link__text">F</span></a>
+					</div>
+				</div>
+				<a href="#body" class="btn btn--shadow btn--footer">
+					<span class="btn__text">Subir</span>
+				</a>
+			</div>
+		</div>
+	</footer>
+	<script src="https://kit.fontawesome.com/92b3da59fb.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

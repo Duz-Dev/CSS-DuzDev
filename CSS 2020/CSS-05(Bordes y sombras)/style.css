@@ -1,0 +1,152 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body {
+	width: 100%;
+}
+
+h1{width: 90%;margin-left: auto;margin-right: auto;margin-bottom: 20px;padding:5px 0px;border-radius:5px;background: gray;box-shadow:0px 8px 8px #000;text-align: center;font-size:3em;font-family:'arial';color:#fff;}h1 span{color: red;-webkit-text-stroke:1.3px black;} h2{font-size: 2em;}
+
+/*5.1 bordes*/
+
+[class^="box"] {
+	width: 300px;
+	height: 300px;
+	background: red;
+	margin: 100px auto;
+}
+
+.box {
+	border: 20px solid black;
+}
+
+/*5.2 Propiedades de border*/
+
+.box-1 {
+	/*Propiedades de border*/
+	border-width: 20px;
+	border-style:solid dotted dashed double;
+	border-top-color: orange;
+	border-bottom-color:yellow;
+	border-left-color:blue;
+	border-right-color:gray;
+} /*algo curioso es que si solo colocamos la propiedad border-style vemos que color y ancho ya estan automaticos, lo que quiere decir es que el style manda; y el color que adquirio es el que ya tenemos en nuestra caja que por defaut es negro pero si ya tenemos asignado la propieda color ya no seria necesario redeclarar este valor para el border, a no  ser que queramos que este sea de otro color.*/
+
+/*5.3 Shorthads de shorthands en border*/
+
+.box-2 {
+	color: green;
+/*	border-top: 150px solid blue;
+	border-bottom: 150px solid transparent;
+	border-right: 150px solid transparent;
+	border-left: 150px solid transparent;*/
+	border: 150px solid;
+	border-color: blue transparent transparent;
+}
+/*Como vemos esribir border-top: 150px solid blue;
+	border-bottom: 150px solid transparent;
+	border-right: 150px solid transparent;
+	border-left: 150px solid transparent; es lo mosmo que declarar border: 150px solid;
+	border-color: blue transparent transparent;. Esto da a resaltar el uso de los shorthands de un manera eficaz.*/
+
+/*5.4 Border radius*/
+
+.box-3 {
+	background: lime;
+/*	border-radius: 50px;*/
+ 	border-top-left-radius: 50px;
+ 	border-top-right-radius: 300px;
+ 	border-bottom-right-radius: 500px;
+ 	border-bottom-left-radius: 100px;
+ 	border: 10px solid black;
+}
+
+/*5.5 Practica con border radius*/
+/*aremos el logo de youtube*/
+/*Una cosa "Nunca pongas el valor 0 con una unidad de medida :v" ya que 0 es cero, de nada sirve especificar su medida ya que se es cero(Esto es algo evidente sobre todo para los novatos).*/
+.box-4 {
+	--border-radius-y:120px;
+	--border-radius-x:90px;
+	background: hsl(10, 90%, 40%);
+	width: 490px;
+	height: 345px;
+	padding:0.1px;
+	border-top-left-radius:var(--border-radius-x) var(--border-radius-y); 
+	border-top-right-radius:var(--border-radius-x) var(--border-radius-y); 
+ 	border-bottom-right-radius:var(--border-radius-x) var(--border-radius-y); 
+ 	border-bottom-left-radius:var(--border-radius-x) var(--border-radius-y);
+}
+/*Como recordatorio agrregamos padding con un leve aumento para solucionar el problema de colapsado de margin verticales :,v*/
+/*Ahora el boton de play*/
+
+.play {
+	--dad-width:115px;
+	--border-width:58.3px;
+	width: 0;
+	height: 0;
+/*	margin-left:150px;
+	margin-top: 115px ;*/
+	margin: var(--dad-width) auto;
+	border-left:var(--dad-width) solid #fff;
+    border-top: var(--border-width) solid transparent;
+	border-bottom: var(--border-width) solid transparent;
+}
+/*Colocamos 155px de margin y de top porque equivalen a una 3ra parte del total del ancho del papá*/
+
+/*5.6 Outline*/
+
+.box-5 {
+	outline: 10px solid;
+}
+
+/*5.7 Box shadow*/
+
+.box-6 {
+	width: 50px;
+	height: 50px;
+	background: purple;
+	margin-bottom: 150px;
+
+	/*shadow*/
+	box-shadow: 100px 100px;
+}
+
+.box-7 {
+	width: 50px;
+	height: 50px;
+	box-shadow: 100px 100px 0 100px blue;
+	margin-bottom: 250px;
+}
+
+.box-8 {
+	width: 200px;
+	height: 200px;
+	box-shadow: 0 0 0 10px blue,
+				0 0 0 20px green,
+				0 0 0 30px yellow
+	;
+}
+
+.box-9 {
+	border-radius: 50%;
+	box-shadow: 2px 2px 10px rgba(0,0,0,1);
+}
+
+/*Si ponemos la sombra tal cual esta estara outset, por fuera de la caja, pero si colocamos el valor inset, se clocara por dentro pero en polo opuesto. Para desplazarlo en ese segundo caso seria utilizando valores negativos.*/
+
+.box-10 {
+	border-radius: 50%;
+	box-shadow: -6px -6px 40px rgba(0,0,0,1) inset;
+}
+
+.box-11 {
+	box-shadow: 0 50px 0 yellow inset,
+				0 100px 0 green inset,
+				0 150px 0 blue inset;
+	;
+}
+
+.box-12 {
+	box-shadow: 0 10px 10px -4px black;
+}
+
+/* Colocando un blur negativo hacemos que este se encoja y nos de una mejur ilusion de sombra*/

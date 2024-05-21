@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--Compatible con edge-->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="../../Styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../../Styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="styles-page.css">
+	<title>CSS Desde 0 | CSS-21</title>
+</head>
+
+<body id="body">
+	<header>
+		<nav class="menu">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html"
+						class="menu__item--link menu__item--logo" target="_blank">
+						<img class=" menu__item--logo-img"
+							src="https://mygithome.000webhostapp.com/CSS-Desde%200/Media/logo-nav-2.png" alt=""></a>
+				</li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" class="menu__item--link"
+						target="_blank">Inicio</a>
+				</li>
+				<li class="menu__item"><a href="#" class="menu__item--link">HTML</a></li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" target="_blank"
+						class="menu__item--link">CSS-Básico</a>
+				</li>
+				<li class="menu__item"><a href="../../Index.html" class="menu__item--link">CSS-Avanzado</a></li>
+				<li class="menu__item"><a href="#footer" class="menu__item--link">Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!--sección con el vídeo del sitio-->
+	<section class="content">
+		<div class="container">
+			<div class="video">
+				<iframe class="video__iframe" src="https://www.youtube.com/embed/XAk96ax-QCU" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+	<!--Sección de contenido-->
+	<section class="content">
+		<h1 class="content__title"><span class="content__title__text">Clip path</span></h1>
+		<div class="container">
+			<h2 class="container__title">clip-path</h2>
+			<div class="box">
+				<h2 class="box__title">Propiedad:</h2>
+				<div class="box__text">
+					<p class="paragraph">
+						Esta lo que hace es crear una especie de máscara que oculta partes de una caja. Algo parecido a overflow pero este no solo oculta lo que sale de su contenido si no que podemos modificar la forma de la caja para indicar que queremos ver, con ello podemos determinar diferentes formas y figuras.
+					</p>
+					<h2 class="box__title">Sintaxis</h2>
+					<p class="paragraph">
+						Se escribe como<code>clip-path</code>y esta se puede aplicar a todos los contenedores, y podemos aplicar los siguientes valores:
+					</p>
+				</div>
+				<div class="list">
+					<ul class="list__container">
+						<li class="list__item"><code>clip-path</code>
+							<p class="list__item__text">dibuja un círculo, puede tener una medida fija, circle(100px) o podemos especificar un centro con at, circle(100px at medidaX medidaY | palabrasClaveX palabrasClaveY), esto ya lo hemos visto con el radial-gradient.</p>
+						</li>
+						<li class="list__item"><code>ellipse()</code>
+							<p class="list__item__text">dibuja una elipse, funciona igual que el círculo, pero en este caso tenemos que especificar 2 centros, el horizontal y el vertical</p>
+						</li>
+						<li class="list__item"><code>inset()</code>
+							<p class="list__item__text">dibuja un borde transparente por dentro de la caja. inset(all| Y X | top X bottom | top left bottom right), y existe la opción de redondear las esquinas, para ello después de los valores de inset pondremos round, ejemplo:
+								<div class="console or">
+									inset(*** round all | 
+									top-left & bottom-right top-right & bottom-left |
+									top-left top-right & bottom-left bottom-right
+									top-left top-right bottom-right bottom-left
+								)
+								</div>
+							</p>
+						</li>
+						<li class="list__item"><code>polygon()</code>
+							<p class="list__item__text">Especifica una serie de puntos (mínimo 3) para definir la zona visible siendo el punto 0 0 la esquina superior izquierda y los puntos se especifican por parejas de ejeX y ejeY separados por comas</p>
+							<div class="console or">
+							polygon(0 0, 100% 0, 0 100%)<span class="gr">//Ejemplo de polígono triangular</span>	
+							</div>
+						</li>
+					</ul>
+				</div>
+				<h2 class="box__title">Ejemplo</h2>
+				<div class="clip">
+					<div class="clip__item clip__item--circle"></div>
+				</div>
+				<div class="clip">
+					<div class="clip__item clip__item--circle-2"></div>
+				</div>
+				<div class="clip">
+					<div class="clip__item clip__item--ellipse"></div>
+				</div>
+				<div class="clip">
+					<div class="clip__item clip__item--inset"></div>
+				</div>
+				<div class="clip">
+					<div class="clip__item clip__item--inset-2"></div>
+				</div>
+				<div class="clip">
+					<div class="clip__item clip__item--polygon"></div>
+				</div>
+				<div class="clip">
+					<div class="clip__item clip__item--polygon-2"></div>
+				</div>
+				<div class="clip">
+					<div class="clip__item clip__item--polygon-3"></div>
+				</div>
+				<p class="paragraph">Con ello podemos dar formas de una manera mas fácil, y con ello podemos crear logos y mas que podemos cambiar de color.<br> Una página para crear formas y utilizarlas es https://bennettfeely.com/clippy/ la cual nos facilitara el trabajo.</p>
+				<br>
+				<a href="https://bennettfeely.com/clippy/" target="_blank" class="btn btn--box">
+					<span class="btn__text">Ir a el sitio</span>
+					<span class="btn__icon">🔎</span>
+				</a>
+			</div>
+		</div>
+	</section>
+	<!--Pie de página-->
+	<footer class="footer" id="footer">
+		<div class="footer__content content">
+			<div class="col--md col--footer">
+				<a href="#body" class="btn btn--shadow btn--footer">
+					<span class="btn__text">Subir</span>
+				</a>
+			</div>
+		</div>
+	</footer>
+</body>
+<script src="https://kit.fontawesome.com/92b3da59fb.js" crossorigin="anonymous"></script>
+</html>

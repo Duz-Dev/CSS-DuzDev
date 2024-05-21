@@ -1,0 +1,31 @@
+:root {
+	--color: green;
+}
+
+body {
+	background: var(--color);
+	color: #fff;
+	margin: 10px;
+}
+
+h1 {
+	background: white;
+	color: var(--color);
+}
+/*un checkbox por defecto esta desactivado y es por ello que lo ocultamos*/
+.enabled {
+	display: none;
+}
+
+.check:checked + .enabled{
+	display: block;
+}
+
+.check:checked ~ .desabled {
+	display: none;
+}
+
+/*el + solo detecta el hermano inicial que seria .check con el siguiente que seria .enable
+y la tilde ~ detecta a todos los hermanos con .desabled*/
+
+

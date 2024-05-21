@@ -1,0 +1,123 @@
+:root {
+	--space:10px;	
+}
+
+/*--Estructura de lista--*/
+.box-sml-02 span {
+	display: list-item;
+	margin-left: 50px;
+}
+
+/*--LIST STYLE TYPE--*/
+
+.box-sml-04 {
+	list-style-type:square;
+}
+
+/*--List style image--*/
+
+.box-sml-06 ul {
+	list-style-image: url("../media/images (3).jpg");
+	margin-left: 50%;
+} /*La única manera de que se vea bien es colocando una imagen del tamaño apropiado*/
+
+
+.box-sml-06 ol {
+	list-style-type: none;
+}
+
+.box-sml-06 ol li::before {
+	content: '';
+	display: inline-block;
+	background-image: url("../media/images (3).jpg");
+	background-size: contain;
+	width: 50px;
+	height: 50px;
+} /*esta solo es una prueba con before, es mucho mejor que usar la misma list-style-image ._.*/
+
+/*--list style position--*/
+.box-xl-07 ul, .box-xl-08 ul {
+	border: 1px solid #000;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.box-xl-07 ul li, .box-xl-08 ul li {
+	border: 2px solid red;
+	margin-bottom: 10px;
+}
+
+.box-xl-08 ul {
+	list-style-position: inside;
+}
+
+.box-xl-08 ul li {
+	padding-left: 1em;
+}
+/*--contadores--*/
+
+.box-sml-10  .chapters {
+	counter-reset: i;
+}
+/*creamos la variable que va contar*/
+
+.chapter {
+	counter-increment: i;
+}
+/*con counter increment le estamos diciendo que cada vez que encuentre un chapter incrementa el contador*/
+
+.chapter::before {
+	content: counter(i) '.- ';
+	color: red;
+}
+/*Con before solo imprimimos nuestra variable que se encuentra en memoria por el momento con la propiedad content mostrandola con la función counter()<-- en el paréntesis va la variable*/
+
+.box-sml-10 h2{
+	margin: 10px;
+}
+
+/*--Contador en listas anidadas--*/
+
+.box-sml-12 ol {
+	list-style: none;
+	counter-reset: list;
+}
+
+.box-sml-12 li {
+	counter-increment: list;
+}
+
+.box-sml-12 li::before {
+	content: counters(list, '.') '. ';
+	color: red;
+}
+
+/*--Ejemplo de contadores--*/
+
+.temario {
+	counter-reset: title;
+}
+
+.class-title {
+	counter-increment: title;
+	margin-bottom: calc(var(--space) + 3px);
+}
+
+.class-title::before {
+	content: counter(title) '. ';
+}
+
+.class {
+	counter-reset: class;
+}
+
+.class-topic {
+	counter-increment: class;
+	margin-bottom: var(--space);
+	margin-left: var(--space);
+
+}
+
+.class-topic::before {
+	content: counter(title) '.' counter(class) '. ';
+}

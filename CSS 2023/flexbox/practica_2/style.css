@@ -1,0 +1,35 @@
+*{ /*reset*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    max-height: 100vh;
+    background-color:#eee;
+}
+
+.container__flex{
+    width: 400px;
+    height: 400px;
+    margin: 10px auto;
+    border:5px solid rebeccapurple;
+    box-shadow: 0 10px 10px gray;
+}
+
+.item{
+    background-color: powderblue;
+    border: 5px solid rgb(20, 130, 170 );
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/*-----> flexbox <-----*/
+.container__flex{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}

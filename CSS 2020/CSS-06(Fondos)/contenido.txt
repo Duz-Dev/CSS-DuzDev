@@ -1,0 +1,98 @@
+6.-Fondos
+
+6.1 Background color.
+
+Cuando hablamos de background siempre nos referíamos a solo background a secas, pero, background en en si un shorthand el cual se tiene que especificar su propiedad especifica para que la sintaxis sea mas acertada.
+En el caso de los fondos de color la propiedad correcta es "background-color"...fin.
+
+6.2 Background image y background repeat.
+
+El primero como menciona es insertar una imagen como fondo, y la definimos con una función con url().
+su sintaxis es background-image:url(dirección de la imagen);, y su comportamiento predeterminado es si hay suficiente ancho para repetir la imagen lo hace.
+
+El 2do nos sirve para definir si lo ultimo se repite o no.
+
+Su sintaxis es Background-repeat:; con los valores de repeat|no-repeat|repeat-x|repeat-y.
+
+6.3 Background clip y background origin.
+
+Con background-clip definimos que parte de la caja es cubierta por el fondo. Sus valores son border-box|padding-box|content-box. Su valor por defecto es border-box.
+
+Background origin es muy parecido al anterior, pero la diferencia es que desde donde se empieza a dibujar.
+La diferencia radica cuando vemos que aplicando background-clip este empieza desde el borde y con background-origin empieza desde la parte que le especificamos del ya modelo de cajas como border-box|padding-box|content-box. Esto claramente se nota cuando queremos ver una imagen o gif.
+
+6.4 Background size.
+
+El background-size nos sirve específicamente solo para modificar los tamaños del fondo solo de imágenes, porque background-color no tiene dimensiones, a lo mucho podemos limitarlo con background-clip.
+Lo normal es que cuando utilizamos background-image este se ponga en su tamaño original, y si tu caja es de cierto tamaño no se vera lo demás; es decir que las imágenes no siempre se verán por completo porque ya sea que la imagen sea mas grande o pequeña que su contenedor. Para ello esta background-size:;, y sus valores son Width=height|width height|Contain|Cover|auto.
+
+☼-width=height nos referimos que si declaramos solo width el alto se declara solo.
+
+☼-Contain es que la imagen sea lo mas grande posible, pero  que entre en la caja sin afectar sus dimensiones proporcionales originales.
+
+☼-Cover es para hacer que la imagen al igual no se deforme pero esta empieza a calcular desde la esquina superior.
+
+☼-auto la imagen se pone a sus valores originales básicamente.
+
+6.5 Background position
+
+Como dice su nombre sirve para posicionar el fondo, y es de recordar que esto solo funciona con background image ya que el color no se puede posicionar. Background-position te permite donde se va a dibujar este fondo.
+Algo para recalcar es que las imágenes empiezan desde la esquina izquierda superior del contenedor, ese es el punto 0,0 en web.
+
+Podemos asignar valores como "x ("y" se pone en center automáticamente)" y "x" y "y", y las palabras clave como:
+en el eje x left|center|right <unit> y para el eje y es top|center|bottom <unit>.
+
+/*Recordar que background position solo funciona con las imágenes de fondo(background image).*/
+.box-5 {
+	background-color: #00ffff;
+	background-image: url(../images/Kirby_aniversario.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center; 
+}
+
+.box-5_1 {
+	background-color: #00ffff;
+	background-image: url(../images/Kirby_aniversario.png);
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: right 40px top 50px; 
+	padding: 0.1px;
+}
+/*da igual si especificas el eje y y después el eje x si hablamos de palabras clave*/
+/*puse padding para a reglar el colapsado.*/
+/*con la unidad unit podemos añadirle valores a los valores, en este caso nos referimos a las palabras claves y a las cuales le podemos concatenar pixeles de desplazamiento (es como darle un margin pero sin que lo sea.)*/
+
+6.6 background attachment
+
+Es como se dibuja el fondo respecto al viewport, es decir ejemplo:
+
+si tenemos un scroll es normal que el contenido suba, y con el attachment podemos ponerlo fijo con uno de sus valores que es fixed.
+
+sus otros valores son scroll (que esta por defecto) y local que funciona mas para elementos que tengan scroll interno.
+
+6.7 background múltiples.
+
+solo es interpolar con la misma propiedad mas de un fondo a la vez. ejemplo:
+
+.box-7 {
+	width: 100%;
+	height: 700px;
+	background-image: url(../images/Kirby_aniversario.png),
+	 url(https://pa1.narvii.com/6756/80a273e14bc6dc7610c207d7fb00a00a2b800089_hq.gif),
+	  url(../images/imagen.gif);
+	background-size: 25%, 30%, 100%;
+	background-repeat: no-repeat;
+	background-position: bottom left, bottom center, center;
+}
+
+/*Nota: el primero que aparece como valor de image es el que permanecerá arriba en primer lugar*/
+Si observamos el ejemplo anterior se ve que asignamos valores a cada fondo para ir ajustándolos, estos los dividimos con la "," para decir que el valor siguiente es aparte.
+
+6.8 Shorthand background
+
+Como sabemos el background tal cual como propiedad es un shorthand, el cual este hace a lución a las propiedades que ya mencionamos en este tema.
+
+el orden el cual van acomodadas sus propiedades es lo de menos, solo que, los valores de position y size van divididas con un slash /.
+
+su orden en si es background:image position/size repeat attachment origin clip;.

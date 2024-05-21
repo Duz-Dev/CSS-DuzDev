@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--Compatible con edge-->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="../../Styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../../Styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="styles-page.css">
+	<title>CSS Desde 0 | CSS-20</title>
+</head>
+
+<body id="body">
+	<header>
+		<nav class="menu">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html"
+						class="menu__item--link menu__item--logo" target="_blank">
+						<img class=" menu__item--logo-img"
+							src="https://mygithome.000webhostapp.com/CSS-Desde%200/Media/logo-nav-2.png" alt=""></a>
+				</li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" class="menu__item--link"
+						target="_blank">Inicio</a>
+				</li>
+				<li class="menu__item"><a href="#" class="menu__item--link">HTML</a></li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" target="_blank"
+						class="menu__item--link">CSS-Básico</a>
+				</li>
+				<li class="menu__item"><a href="../../Index.html" class="menu__item--link">CSS-Avanzado</a></li>
+				<li class="menu__item"><a href="#footer" class="menu__item--link">Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!--sección con el vídeo del sitio-->
+	<section class="content">
+		<div class="container">
+			<div class="video">
+				<iframe class="video__iframe" src="https://www.youtube.com/embed/bSL_F8cXTRU" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+	<!--Sección de contenido-->
+	<section class="content">
+		<h1 class="content__title"><span class="content__title__text">Object y filter</span></h1>
+		<div class="container">
+			<h2 class="container__title">Object-fit</h2>
+			<div class="box">
+				<h2 class="box__title">Propiedad:</h2>
+				<div class="box__text">
+					<p class="paragraph">
+						Esta propiedad de css sirve para especificar como debe de verse una imagen o video para que se
+						ajuste a su contenedor, por dar un ejemplo este es similar a background-size ya que tienen casi
+						los mismos valores y efectos.
+					</p>
+					<h2 class="box__title">Sintaxis</h2>
+					<p class="paragraph">
+						Se escribe como<code>object-fit</code>y esta se puede aplicar solo a las<code>img</code>o
+						videos.<br>
+						Sus valores son los siguientes:
+					</p>
+				</div>
+				<div class="list">
+					<ul class="list__container">
+						<li class="list__item"><code>fill</code>
+							<p class="list__item__text">Valor por default</p>
+						</li>
+						<li class="list__item"><code>contain</code>
+							<p class="list__item__text">El contenido se ajustará hasta rellenar de forma horizontal o
+								vertical el contenedor sin deformarse</p>
+						</li>
+						<li class="list__item"><code>cover</code>
+							<p class="list__item__text">El contenido se ajustará completamente de forma horizontal y
+								vertical el contenedor pero no podemos ver el objeto completamente.</p>
+						</li>
+						<li class="list__item"><code>none</code>
+							<p class="list__item__text"> El contenido no se re-dimensiona y mantiene su tamaño original
+								mostrando solo el trozo de las dimensiones especificadas, pero esto provocara que la
+								imagen o video se deformen.</p>
+						</li>
+						<li class="list__item"><code>scale-down</code>
+							<p class="list__item__text">Selecciona el menor de la comparación entre none y contain, vaya
+								hace una comparación entre si none mide tal y contain y el que de el un numero menor lo
+								mostrara.</p>
+						</li>
+					</ul>
+				</div>
+				<h2 class="box__title">Ejemplo</h2>
+				<div class="box--img-content example">
+					<img src="../../Media/object-example.png" alt="" class="box__img box__img--example">
+				</div>
+				<div class="box--img-content fill">
+					<img src="../../Media/object-example.png" alt="" class="box__img box__img--fill">
+				</div>
+				<div class="box--img-content cover">
+					<img src="../../Media/object-example.png" alt="" class="box__img box__img--cover">
+				</div>
+				<div class="box--img-content contain">
+					<img src="../../Media/object-example.png" alt="" class="box__img box__img--contain">
+				</div>
+				<div class="box--img-content none">
+					<img src="../../Media/object-example.png" alt="" class="box__img box__img--none">
+				</div>
+				<div class="box--img-content scale-down">
+					<img src="../../Media/object-example.png" alt="" class="box__img box__img--scale-down">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h2 class="container__title">object position</h2>
+			<div class="box">
+				<h2 class="box__title">Object-position</h2>
+				<div class="box__text">
+					<p class="paragraph">Esta propiedad va de la mano de object-fit ya que sirve para cambiar la
+						parte
+						de la imagen que podemos visualizar cuando esta no se muestra por completo, por lo que solo
+						la
+						podemos usar si tenemos object-fit con cover o none.</p>
+					<p class="paragraph"><span class="red">La sintaxis es</span> <span
+							class="bg-dark-transparent ye-sb"><code>object-position:</code>(primer valor en el eje
+							x)
+							(2do valor en el eje y)</span>; </p>
+					<p class="paragraph">Podemos usar los valores de left y right para el eje X y para Y top y
+						bottom, y al igual podemos utilizar medias como px o porcentajes.</p>
+				</div>
+				<h2 class="box__title">Ejemplo</h2>
+				<div class="box__img-content">
+					<input type="checkbox" name="img" id="position-1">
+					<label for="position-1"></label>
+					<input type="checkbox" name="img" id="position-2">
+					<label for="position-2"></label>
+					<img src="../../Media/object-example.png" alt="" class="box__img box__img--example-2">
+				</div>
+				<div class="box__text">
+					<p class="paragraph">
+						En este ejemplo le he puesto <code>object-fit:none;</code>y<code>object-position:left top;</code> que al pasar el ratón se movera a abajo a la derecha.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h2 class="container__title">Filter</h2>
+			<div class="box">
+				<h2 class="box__title">¿Qué es?</h2>
+				<div class="box__text">
+					<p class="paragraph">Como dice la propiedad este es un filtro que dota de efectos gráficos como el desenfoque o cambio de color en la representación antes de que se muestre el elemento. Los filtros se utilizan comúnmente para ajustar la representación de imágenes, fondos o bordes yq que estos denotan más.</p>
+				</div>
+				<h2 class="box__title">Sintaxis</h2>
+				<div class="box__text">
+					<div class="paragraph">Se escribe tal cual<code>filter</code>y le podemos asignar las siguientes propiedades:</p>
+				</div>	
+				<div class="list">
+					<ul class="list__container">
+						<li class="list__item">
+							<code>none</code><p class="list__item__text">Este elimina todo efecto aplicado.</p>
+						</li>
+						<li class="list__item">
+							<code>blur(px)</code><p class="list__item__text">desenfoca la imagen</p>
+						</li>
+						<li class="list__item">
+							<code> brightness(%)</code><p class="list__item__text">Ajusta el brillo de la imagen siendo 1 el original. De 0 a 1 dan oscuridad y de 1 a n dan sobre exposición</p>
+						</li>
+						<li class="list__item">
+							<code>contrast(%)</code><p class="list__item__text">Ajusta el contraste de la imagen siendo 1 el original. De 0 es negro y de 1 a n dan más contraste</p>
+						</li>
+						<li class="list__item">
+							<code> drop-shadow(h-shadow v-shadow blur spread color)</code><p class="list__item__text">Aplica una sombra paralela a la imagen.</p>
+						</li>
+						<li class="list__item">
+							<code>grayscale(%)</code><p class="list__item__text">Convierte la imagen a escala de grises, 0 es el original y 1 sería blanco y negro completamente</p>
+						</li>
+						<li class="list__item">
+							<code>hue-rotate(deg)</code><p class="list__item__text">Añade matiz de color a la imagen. Se da un valor en grados según la rueda cromática. El valor máximo es 360deg.</p>
+						</li>
+						<li class="list__item">
+							<code>invert(%)</code><p class="list__item__text">Invierte el color de la imagen. Saca un negativo. 0 es el valor por defecto y 1 es totalmente invertida</p>
+						</li>
+						<li class="list__item">
+							<code>opacity(%)</code><p class="list__item__text">Controla la opacidad de la imagen. 1 es el valor por defecto y 0 es transparente</p>
+						</li>
+						<li class="list__item">
+							<code>saturate(%)</code><p class="list__item__text">Controla la saturación de color de la imagen. 1 es el valor por defecto, 0 es totalmente desaturada y por encima de 1 se sobresatura</p>
+						</li>
+						<li class="list__item">
+							<code>sepia(%)</code><p class="list__item__text">Aplica un tono sepia a la imagen. 0 es el valor por defecto y 1 es totalmente sepia.</p>
+						</li>
+						<li class="list__item">
+							<code>url()</code><p class="list__item__text">busca información, este se aplica en svg.</p>
+						</li>
+					</ul>
+				</div>
+				<h2 class="box__title">Ejemplo</h2>
+				<div class="box__img-content">
+					<img src="../../Media/object-example.png" alt="" class="box__img box__img--example-3">
+				</div>
+				<p class="paragraph">Aplique filter con blur(5px) y un hover con none.</p>
+			</div>
+		</div>
+	</section>
+	<!--Pie de página-->
+	<footer class="footer" id="footer">
+		<div class="footer__content content">
+			<div class="col--md col--footer">
+				<a href="#body" class="btn btn--shadow btn--footer">
+					<span class="btn__text">Subir</span>
+				</a>
+			</div>
+		</div>
+	</footer>
+</body>
+<script src="https://kit.fontawesome.com/92b3da59fb.js" crossorigin="anonymous"></script>
+</html>

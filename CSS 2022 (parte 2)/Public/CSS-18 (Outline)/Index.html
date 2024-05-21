@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--Compatible con edge-->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="../../Styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../../Styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="styles-page.css">
+	<title>CSS Desde 0 | CSS-18</title>
+</head>
+
+<body id="body">
+	<header>
+		<nav class="menu">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html"
+						class="menu__item--link menu__item--logo" target="_blank">
+						<img class=" menu__item--logo-img"
+							src="https://mygithome.000webhostapp.com/CSS-Desde%200/Media/logo-nav-2.png" alt=""></a>
+				</li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" class="menu__item--link"
+						target="_blank">Inicio</a>
+				</li>
+				<li class="menu__item"><a href="#" class="menu__item--link">HTML</a></li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" target="_blank"
+						class="menu__item--link">CSS-Básico</a>
+				</li>
+				<li class="menu__item"><a href="../../Index.html" class="menu__item--link">CSS-Avanzado</a></li>
+				<li class="menu__item"><a href="#footer" class="menu__item--link">Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!--sección con el vídeo del sitio-->
+	<section class="content">
+		<div class="container">
+			<div class="video">
+				<iframe class="video__iframe" src="https://www.youtube.com/embed/FC3bL23Fca0" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+	<!--Sección de contenido-->
+	<section class="content">
+		<h1 class="content__title"><span class="content__title__text">Propiedad Outline</span></h1>
+		<div class="container">
+			<h2 class="container__title">outline</h2>
+			<div class="box">
+				<h2 class="box__title">¿Que es?</h2>
+				<div class="box__text">
+					<p class="paragraph">
+					 Como vemos en el titulo outline es una propiedad de css, esta se comporta casi igual como <code>border</code>(ver modelo de cajas de CSS-Básico), pero este no afecta a la caja, es decir, da igual las medidas que tenga este no alterara el layout. Este es como si fuera un borde, pero como no forma parte del modelo de cajas no empuja el contenido, a diferencia de border que si lo hace.
+					</p>
+					<h2 class="box__title">Sintaxis</h2>
+					<p class="paragraph">
+						Igual que <code>border</code>, pero con el plus que podemos especificarle que se salga de la caja con la propiedad <code>outline-offset</code>. Esta misma propiedad si le aplicamos valores positivos se ira saliendo de la caja, pero si aplicamos valores negativos se ira metiendo dentro de esta. La ventaja de este es que podemos crear un marco pero que no empuje el contenido o utilizar un pseudo-elemento.
+					</p>
+					<p class="paragraph">la siguiente imagen seria una idea del concepto de outline pero recordemos que este <span class="alert bg-dark-transparent">No</span> forma parte del modelo de cajas.</p>
+				</div>
+				<div class="box__content__img box__content__img--outline">
+					<img src="../../Media/outline.png" alt="" class="box__img box__img--outline">
+				</div>
+				<h2 class="box__title">Ejemplo:</h2>
+				<div class="console">
+					<span class="alert">!Sintaxis</span><br>
+					<span class="red-sb">selector</span>{
+						<span class="ye-sb">outline</span>: <span class="or">5px solid red</span>;
+						<span class="ye-sb">outline-offset</span>: <span class="or">10px</span>;
+						<span class="ye-sb">border</span>: <span class="or">10px solid lime</span>;
+					}
+				</div><br>
+				<div class="box-img--ejemplo"></div>
+			</div>
+		</div>
+	</section>
+	<!--Pie de página-->
+	<footer class="footer" id="footer">
+		<div class="footer__content content">
+			<div class="col--md col--footer">
+				<a href="#body" class="btn btn--shadow btn--footer">
+					<span class="btn__text">Subir</span>
+				</a>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<meta charset="UTF-8"><!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> <!--Compatible con edge-->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="Styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="Styles/styles-default.css">
+	<link rel="stylesheet" type="text/css" href="Styles/styles.css">    	
+	<title>CSS-14</title>
+</head>
+<body id="titulo">
+	<header>
+		<h1>Practicas de la clase 14</h1>
+	</header>
+	<section>
+		<h2 >Posicionamiento avanzado</h2>
+		<div class="big-box">
+			<h3>Temas básicos de position</h3>
+			<div class="box box-xl">
+				<h4>Repasemos..</h4>
+				<p>
+					Position tiene varios valores que cada uno se comporta diferente, y entre estos el que esta por default es static y sus otros valores relative | absolute | fixed | sticky ya los aplicaríamos por css.
+				</p>
+				<p>
+					Entendemos que por -el elemento esta posicionado- por el valor que se le asigno a position como lo son a relative | absolute | fixed | sticky a <b>static</b> no se le toma en cuenta ya que es el de por defecto y no se puede manipular como los anteriores. 
+				</p>
+				<p>
+					También vimos las propiedades offset, top | right | left | bottom los cuales solo funcionan si tenemos el elemento posicionado. A demás estas propiedades mueven el elemento según su referencia. 
+				</p>
+				<p>
+					Todos los elementos posicionados tienen una referencia (contexto), y esta definen como se mueve. Ejemplo si movemos un elemento con position relative y con un top de 10px  este se movera 10 pixeles contando desde el top hacia abajo <b>siempre tomando el borde top del contexto</b>. Ya la referencia varia del valor.
+				</p>
+				<br>
+				<p>
+					Vimos que <b>relative</b> tiene su referencia es su posición inicial, si solo aplicamos position relative no pasara nada, pero si lo movemos con offset ya se desplazara conservando su espacio.
+				</p>
+				<br>
+				<p>
+					En <b>absolute</b> su referencia es su ancestro -posicionado- mas cercano, este desaparece del flujo lo que significa que todos los demás elementos lo ignoran, y si el elemento no tiene unas dimensiones establecidas este se adaptara a su contenido automaticamente, pero si las tiene las respetara (width y height).
+				</p>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Position fixed</h3>
+			<div class="box box-xl">
+				<h4>Definición</h4>
+				<p>
+					Es fijo relativo al viewport (la parte visible de la página). Explicando, un viewport es como una ventana, en nuestro cuarto tenemos una y gracias a ella podemos ver una parte del mundo exterior, pero sabemos que hay mucho mas de lo que muestra, estamos limitados por el espacio que nos muestra la ventana. Lo mismo ocurre en web, la página puede ser grande y tener contenido en horizontal y vertical que creen un scroll, pero el viewport es la parte que solo podemos ver, es decir el espacio disponible en la ventana.
+				</p>
+				<p>
+					Se ignora en el flujo.
+				</p>
+				<p>
+					Sus dimensiones automáticas se restringen a su contenido.
+				</p>
+				<br>
+				<p>
+					En sitios como en el de <a href="https://ed.team/cursos/css/14/02">Ed.team</a> que tienen un navbar que se queda fijo a pesar de que scrolleamos dentro de la página se debe mismamente a este valor. Como <span class="red">Ejemplo</span> esta el header de esta misma página.
+				</p>
+				<div class="box-bb">
+					<span class="ve">//clases css aplicadas</span>
+					<span class="gr">/*--Jugando con fixed---*/</span>
+					<span class="red-st">html</span> {
+					<span class="ye">scroll-behavior</span>: <span class="or">smooth</span>;<span class="gr">/*el desplazamiento del scroll sea suave*/</span>}
+
+					<span class="red-st">body</span> {
+					<span class="ye">--header-height</span>:<span class="or">140px</span>;
+					<span class="ye">--responsive-header-height</span>:<span class="or">80px</span>;
+					<span class="ye">margin-top</span>: <span class="azul">var</span>(<span class="ye">--header-height</span>);}
+
+					:target { <span class="gr">/*<--Indica que todo elemento que se tarjeten se les agregue las sig propiedades*/</span>
+					<span class="ye">padding-top</span>: <span class="azul">var</span>(<span class="ye">--header-height</span>);}
+
+					<span class="ve-f">#</span><span class="pu">titulo</span>:target {<span class="gr">/*id puesta en body*/</span> <span class="alert"> //!Este es importante ya que evita que una vez queramos volver hasta arriba del todo se elimine el margin top, de lo contrario si no lo aplicamos se vera los px del margin-top del body y los pixeles del padding top del target que culminara con 280px cuando solo queremos 140px.</span>
+					<span class="ye">margin-top</span>:<span class="or"> 0</span>;<span class="gr"> /*Al tarjetear a el id titulo se le quitara el margin top*/</span>}
+
+					<span class="red">header</span> {
+					<span class="ye">position</span>:<span class="or"> fixed</span>; <span class="gr">/*el header quedara fijo*/</span>
+					<span class="ye">width</span>: <span class="or">100%</span>;
+					<span class="ye">background-color</span>: <span class="or">#fff</span>;
+					<span class="ye">top</span>: <span class="or">0</span>; <span class="or">/*y estará arriba del todo*/</span>}
+
+					<span class="red-st">header h1</span> {
+					<span class="ye">margin-bottom</span>:<span class="or"> 0</span>;
+					<span class="ye">margin-top</span>:<span class="or"> 0</span>;}
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Position Sticky</h3>
+			<div class="box box-xl">
+				<h4>Definición</h4>
+				<p>
+					Es una especie de combinación entre position relative y position fixed. Esta al ser un valor relativamente nuevo implementado en este modulo puede ser que no sea 100% soportado por los navegadores, pero eso no evita que no se deba aprender.
+				</p>
+				<p>
+					Sabemos que un position relative no modifica el layout, ya que este conserva su espacio y por lo tanto no altera la geometría de la página. Y con fixed si se sale del layout, se queda fijo en el scroll etc. 
+				</p>
+				<p>
+					Funciona de la siguiente manera, es igual que fixed pero conserva su espacio inicial sin alterar el layout, de tal manera que al hacer scroll este sigue pegado junto al viewport pero conserva su espacio original como en relative para que el flujo no se altere.
+				</p>
+				<div class="box-bb">
+					<span class="ye">Position</span>:<span class="or">sticky</span>; <span class="gr">/*Es como tener a relative pero que se pegue al viewport una vez le indiquemos sus medida en offset 😳*/</span>
+				</div>
+			</div>
+			<div class="box box-xl">
+				<div class="article">
+					<h1 class="article__title">Hola mundo</h1>
+					<h2 class="article__subtitle">Capitulo 1</h2>
+					<p class="article__text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+					<h2 class="article__subtitle">Capitulo 2</h2>
+					<p class="article__text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+					<h2 class="article__subtitle">Capitulo 3</h2>
+					<p class="article__text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+					<h2 class="article__subtitle">Capitulo 4</h2>
+					<p class="article__text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+					<h2 class="article__subtitle">Capitulo 5</h2>
+					<p class="article__text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+					<h2 class="article__subtitle">Capitulo 6</h2>
+					<p class="article__text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+					<h2 class="article__subtitle">Capitulo 7</h2>
+					<p class="article__text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+					<h2 class="article__subtitle">Capitulo 8</h2>
+					<p class="article__text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+					<div class="box-bb article__texto-sintaxis">	
+					<span class="pu">.article__subtitle</span> {<span class="gr">/*Es la clase de los h2 donde esta escrito el numero de capitulo*/</span>
+						<span class="ye">position</span>: <span class="or">sticky</span>;
+						<span class="ye">top</span>: <span class="azul">calc</span>(<span class="azul">var</span>(<span class="or">--header-height</span>) - <span class="or">9px</span>);
+						<span class="ye">background-color</span>:<span class="or"> #fff</span>;
+					<span class="gr">/*	z-index: -1; /*</span>}<span class="gr"> /*Utilice el z-idex porque como ya esta utilizando el fixed para el header de la página este se miraba sobre este y no me gustaba, pero ahora que lo desplace con top ya no lo necesitamos*/</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>z index</h3>
+			<div class="box box-rel">
+				<h4>Definición</h4>
+				<p>
+					Z index es un apilamiento, se llama z index porque existen tres ejes, el eje x (x-index) el eje y (y-index) y z index, que es por imaginarnos el eje que va de la pantalla hacia nosotros. 
+				</p>
+				<br>
+				<p>Quien tenga mas valor en el z-index es el que aparecerá mas arriba.</p>
+				<br>
+				<p>Automáticamente el ultimo valor que aparezca en el código sera el que aparezca mas arriba, es decir, que si tenemos varios div posicionados unos sobre otros, el que veremos sera el ultimo escrito en el html.
+				</p>
+				<p>
+					El valor por defecto de los elementos con z-index es 0, por lo que cualquier numero mayor a 0  declarado es superior a todos los elementos con z-index automático.
+				</p>
+				<p>
+					Si dos o o más elementos tienen z-index declarado con el mismo valor y estos se sobreponen el que estará hasta arriba del todo sera el que este por ultimo en el código, ya que si el navegador lee que tienen el mismo z-index le da pre pre-valencia a el código.
+				</p>
+				<h4>Funciona cuando</h4>
+				<p>Un elemento esta posicionado, si no lo esta se lo podemos aplicar pero no tiene ningún efecto.</p>
+				<p>Un caso curioso son los elemento trasform se sale de la capa del layout y se pone en una capa de composición, esto lo hace el navegador para no calcular toda la interacion de este junto con el flujo de los demás elementos, son muchos mas calculos que se oueden evitar solo poniendo una capa especialmente para los trasform (esto es teoría, nosotros no creamos tal capa), debido a ello se sobreponen aunque no le apliquemos un z index</p>
+				<p>Los flex item y los grid item tambien tienen z index auque no le apliquemos position. </p>
+				<h4>Consejos</h4>
+				<p>
+					Cuando nosotros comenzamos y entendemos que z-index vaya mas arriba o abajo tenemos a poner z-index: 1, 2, 3, 4 ... y cuando algo falla y queremos que un elemento se ponga arriba de otro ponemos un z-index muy alto por lo que se tiende a poner un z-index muy alto;<b> esto nunca lo debemos de hacer</b>, nunca hay que ir de en 1 en 1 ya que si queremos poner un elemento entre por ejemplo 1 y 2 ya no podremos hacer que se vea, pero si escogemos numeros intermedios como 10, 20, 30 nos da un espacio para poner un z en medio.
+				</p>
+				<p>El consejo es seguir una estructura para los z-index como la siguiente:</p><br>
+				<p>
+					Usemos variables para definir ciertos componentes claves como un z para poner al fondo, un z para un elemento que se sobreponga sobre el layout , un z normal que de 1 y un z para los tooltips por ejemplo.
+				</p>
+				<div class="box-bb">
+					<span class="ye">--z-back</span>:<span class="or">-10</span>;<span class="gr">/*Si es que queremos enviar algo atrás*/</span>
+
+					<span class="ye">--z-normal</span>:<span class="or">1</span>;<span class="gr">/*Si algo se comporta raro y queremos poner en el flojo normal lo utilizamos*/</span>
+
+					<span class="ye">--z-tooltip</span>:<span class="or">10</span>;<span class="gr">/*Para pequeños mensajes de ayuda que se sobreponen entre los elementos*/</span>
+
+					<span class="ye">--z-fixed</span>:<span class="or">100</span>;<span class="gr">/*Elementos fijos en el dom, con este yo se que va estar por encima de los demas*/</span>
+
+					<span class="ye">--z-modal</span>:<span class="or">1000</span>;<span class="gr">/*Es algo que tapara todo, ya sea un aviso, un mesaje o un elemento en particular.*/</span>
+				</div>
+				<p>Con esta estructura vasta y sobra para tener un muy buen manejo del z-index.</p>
+			</div>
+			<div class="box box-rer">
+				<h4>Ejemplo</h4>
+				<div class="dad">
+					<div class="son">1</div>
+					<div class="son">2</div>
+					<div class="son">3</div>
+				</div>
+				<p>Estos se ven así porque tienen position absolute y en ese orden van el el code.</p>
+				<div class="dad dad-2">
+					<div class="son">1</div>
+					<div class="son">2</div>
+					<div class="son">3</div>
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>z-index 2</h3>
+			<div class="box box-xl box-1">
+				<h4>Planteamiento:</h4>
+				<p>
+					Si queremos que un hijo este detrás de su papá que se debe de hacer?
+				</p>
+				<p>Simplemente el hijo tienen que tener una posición  declarada y un z-index mayor a 0.</p>
+				<div class="box box-sml">
+					<div class="dad dad-3">
+						<div class="son">1</div>
+						<div class="son">2</div>
+						<div class="son">3</div>
+						<div class="son">4</div>
+					</div>
+				</div>
+				<p>	Pero que tal que al papá le ponemos un x-index 1</p>
+				<div class="box box-sml">
+					<div class="dad dad-3 dad-4">
+						<div class="son">1</div>
+						<div class="son">2</div>
+						<div class="son">3</div>
+						<div class="son">4</div>
+					</div>
+				</div>
+				<p>
+					Ya no hay vuelta atrás, si intentamos ponerle a el papá un numero muy grande en positivo y al hijo uno muy negativo para intentar  hacer que se vean los hijos atrás del papá, esto pasa ya que si el papá tiene z-index declarado el hijo ya no puede ponerse atrás. La unica manera de que el hijo este atras del papá es que el padre no tenga un z-index declarado, ya que si lo tiene entra en la capa de apilamiento.
+				</p>
+				<p>
+					Esto funciona dicho de otra forma como si fuera una plataforma que tiene cajas una arriba de otra, en este caso la plataforma es el papá y las cajas los hijos, si la plataforma baja los hijos también, si el hijo baja detrás del papá no pasara nada porque el papá lo ignorara, pero si el papá le decimos que tiene que subir este llama a todos sus hijos si se vuelven a poner encima de este. Básicamente de primeras puede ignorar el apilamiento pero una vez le indiquemos que el papá forma parte de este apilamiento volverá a mandar sobre sus hijos.
+				</p>
+			</div>
+			<div class="box box-xl box-1">
+				<h4>Overflow:hidden</h4>
+				<p>
+					Con esta propiedad podemos indicarle como se deben de ver los elementos que se escapan. Al usar hidden le decimos que -lo que se escape del papá ocultado-. Esta es la base para muchos trucos.
+				</p>
+					<div class="box box-sml">
+						<div class="dad dad-3 dad-5">
+							<div class="son">1</div>
+							<div class="son">2</div>
+							<div class="son">3</div>
+							<div class="son">4</div>
+						</div>
+					</div>
+						<div class="box box-sml">
+						<div class="dad dad-3 dad-6">
+							<div class="son">1</div>
+							<div class="son">2</div>
+							<div class="son">3</div>
+							<div class="son"><img src="Media/3nzezj.png"></div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</section>
+	<span class="up" data-tooltip="subir"><a href="#titulo">^<span>Solo soy un span 😉</span></a></span>
+</body>
+</html>

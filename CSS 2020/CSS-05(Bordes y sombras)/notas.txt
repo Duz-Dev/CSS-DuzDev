@@ -1,0 +1,70 @@
+5.- Bordes y sombras.
+
+5.1 Bordes
+
+Un borde es una caja de propiedad de interna del contenedor, el unico que es externo a nuestro contenedor es el margin.
+Podemos atribuirle los balores de ancho de sus marcos y el color y forma de estos, pero algo a tener en cuenta es que esto hara que nuestra caja sea mas grande y este detalle al momento de hacer diseños mas extructurados o responsivos nos afectara; para esto esta la propiedad box-sizing: con su valor Border-box;, lo que esto atribuye es que los bordes se limiten a su contenedor sin que cresca el mismo, en otras palabras es que nada le sume tañano a la caja que el borde sea por dentro.
+
+5.2 Propiedades de Border.
+
+La propiedad en border:; es un shorthand, que que quiere decir que en si, la propia propiedad tiene mas de una variacion. por ejemplo:
+
+border: 2px solid black; es lo mismo que: border-width:2px; border-style:solid; border-color:black;
+y las propias actividades mencionadas son igual shorthands ya que por ejemplo border-style tiene border-top-style, border-right-style, border-bottom-style y border-left-style.
+
+5.3 Shorthands de shorthands border.
+
+esto es lo mismo que mencionamos en el subtema anterior, el border tiene propedades que estas mismas tienen otras propiedades mas acortadoras para escribir menos pero expresando lo mismo
+
+.box-2 {
+	color: green;
+/*	border-top: 150px solid blue;
+	border-bottom: 150px solid transparent;
+	border-right: 150px solid transparent;
+	border-left: 150px solid transparent;*/
+	border: 150px solid;
+	border-color: blue transparent transparent;
+}
+/*Como vemos esribir border-top: 150px solid blue;
+	border-bottom: 150px solid transparent;
+	border-right: 150px solid transparent;
+	border-left: 150px solid transparent; es lo mosmo que declarar border: 150px solid;
+	border-color: blue transparent transparent;. Esto da a resaltar el uso de los shorthands de un manera eficaz.*/
+
+5.4 Border radius.
+
+	cear como su termino lo dice un radio en las esquinas del borde de nuestra caja.
+	Border-radius en un shorthand, y sus propiedades son:
+	Border-top-left-radius:x y;
+	border-top-right-radius:;
+	border-bottom-right-radius:;
+	border-bottom-left-radius:;
+	y el que ya conocemos en si border-radius: x x x x/ y y y y;.
+	Es mas de lo mismo en cuestion de uso, podemos especificar todo con un shorthand o por separado y su orientacion va igual a sia las manecillas del reloj (top-left, top-right, bottom-right y bottom-left)
+
+5.5 Practica del border radius.
+
+Una cosa "Nunca pongas el valor 0 con una unidad de medida :v" ya que 0 es cero, de nada sirve especificar su medida ya que se es cero(Esto es algo evidente sobre todo para los novatos).
+Los porcentajes se calculan a partir de la forma de la figura.
+
+5.6 outline
+
+Casi no se usa y es como unn borde, pero no forma parte del modelo de caja, entonces se dibuja por fuera.
+Esto solo puede ser util para ver siertas cosas del diseño con inspeciones y tal y cual. Este basicamente es un borde per que se dibuja por fuera. En si solo podriamos utilizarlo para marcar el borde de siertas cajas cuando fueramos a inspecionar la página para esto.
+
+5.7 Box shadow
+
+Box shadow no es mas que una sombra para cajas la cual se puede ajustar dependiendo a que se lo queramos aplicar.
+Box shadow es una de las propiedades con mas trucos en css y esto es debido a sus volatiles valores.
+Sus valores son: box-shadow: h-offset v-offset blur spread color| inset
+h-offset: es en horizontal y dirije su movimiento.
+v-offset: es en vertical y dirige su movimiento (este se desplaza hacia abajo si es positivo, y si es negativo hacia arriba; esto se debe a que le sumo pixeles).
+blur: difuminado
+spread: que tanto se extiende
+color: el color :v
+inset: si la sombra va a ser interior o exterior.
+
+Una sombra en realidad es la copia de nuestro elemento.
+
+Para aclarar, valores negativos en h y v son arriba y  izquierda y en valores positivos es abajo y derecha,y si son inset es todo lo contrario.
+

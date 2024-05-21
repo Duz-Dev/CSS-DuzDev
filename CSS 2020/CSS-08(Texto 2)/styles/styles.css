@@ -1,0 +1,65 @@
+
+header h1 {
+	width: 90%;
+	background-color: yellow;
+	color: gray;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	padding: 35px 0;
+	border-radius: 20px;
+	border: 5px solid gray;
+	text-align: center;
+	font-size: 2.6em;
+	font-family: arial;
+	word-spacing: .18em;
+}
+
+section {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.big-box > h2 {
+	width: 100%; /*Descubri que con la propiedad display flex y grid esta wea se aregla xd, pero para que nuestro h2 no se reajuste en cuestion de ancho simplemente lo especificamos con width vaya.*/
+	background-color: #A6FFFF;
+	padding: 18px;
+	border: 8px solid gray;
+	margin-bottom: 20px;
+	font-family: arial;
+	font-weight: 1;
+	display:flex; /*No se porque se areglo usando flex o con grid ;-;*/
+}
+
+[class^="small-box-"] {
+	width: 45%;
+	height: 350px;
+	border: 5px solid #000;
+	display:block;
+	float: left;
+	margin-left: 2.4%;
+	margin-right: 2.4%;
+	margin-bottom: 35px;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+[class^="small-box-"] h3 {
+	text-align:center;
+	margin-top: 10px;
+	font-family: monospace;
+	font-size: 2em;
+	margin-bottom: 10px;
+}
+/*Textos ll*/
+.small-box-1_1 {
+font-family: monospace;
+}
+
+.small-box-2_1 {
+font-size: 2em;
+}
+
+.small-box-3_1 {
+font-weight: 900;
+}

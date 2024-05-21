@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--Compatible con edge-->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="../../Styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../../Styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="styles-page.css">
+	<title>CSS Desde 0 | CSS-19</title>
+</head>
+
+<body id="body">
+	<header>
+		<nav class="menu">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html"
+						class="menu__item--link menu__item--logo" target="_blank">
+						<img class=" menu__item--logo-img"
+							src="https://mygithome.000webhostapp.com/CSS-Desde%200/Media/logo-nav-2.png" alt=""></a>
+				</li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" class="menu__item--link"
+						target="_blank">Inicio</a>
+				</li>
+				<li class="menu__item"><a href="#" class="menu__item--link">HTML</a></li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" target="_blank"
+						class="menu__item--link">CSS-Básico</a>
+				</li>
+				<li class="menu__item"><a href="../../Index.html" class="menu__item--link">CSS-Avanzado</a></li>
+				<li class="menu__item"><a href="#footer" class="menu__item--link">Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!--sección con el vídeo del sitio-->
+	<section class="content">
+		<div class="container">
+			<div class="video">
+				<iframe class="video__iframe" src="https://www.youtube.com/embed/d1iv9iQEFf8" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+	<!--Sección de contenido-->
+	<section class="content">
+		<h1 class="content__title"><span class="content__title__text">Font-face</span></h1>
+		<div class="container">
+			<h2 class="container__title">@font-face</h2>
+			<div class="box">
+				<h2 class="box__title">¿Que es?</h2>
+				<div class="box__text">
+					<p class="paragraph">
+						<code>@font-face</code>es la at-rule que podemos usar para importar <span class="red">familias de fuentes</span> (y dentro de esta están las fuentes que usamos) para poder mostrarlas en nuestra página web. Es importante recordar que al momento de usar font-family le decimos al navegador que busque tal fuente en el equipo y si esta no esta pondrá la que le hayamos concatenado. Con ello esta el problema de que no todos los dispositivos tienen las mismas fuentes instaladas por lo que nosotros para evitar esto usamos esta regla para importar nuestras fuentes en lugar de que utilicemos las instaladas en el equipo.
+					</p>
+					<h2 class="box__title">¿Comó las importamos?</h2>
+					<p class="paragraph">
+						Simplemente es conseguir la fuente, esta la podemos insertar por medio de un link que pegaríamos en el html, un import de css o descargándolo.
+					</p>
+				</div>
+				<h2 class="box__title">Sintaxis:</h2>
+				<div class="console">
+					<span class="alert">!Sintaxis</span><br>
+					<span class="red-sb">@font-face</span>(
+						<span class="ye-sb">src</span>: <span class="blue-sb">url</span><span class="ve-sb">('Dirección de la feunte')</span>;
+						<span class="ye-sb">font-family</span>:	<span class="or">Cualquier nombre</span>;
+					}
+				</div><br>
+				<h2 class="box__title">Ejemplo</h2>
+				<div class="box box--fonts">
+					<h2 class="box__title--fonts">Title</h2>
+					<div class="box__text--fonts">
+						<p class="paragraph">texto con la familia open sans</p>
+						<p class="paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet minima, asperiores quae quibusdam voluptatem officiis molestiae pariatur animi mollitia laborum incidunt omnis. Exercitationem repudiandae sint ea perferendis quam nesciunt omnis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis reprehenderit ipsam architecto, iste perspiciatis laudantium aliquam quisquam aut tenetur, odit possimus tempora ipsum ducimus maxime a quo sit, dolore fugit.</p>
+					</div>
+					<div class="box__content__img"><img src="../../Media/ejemplo fonts.png" alt="" class="box__img"></div>
+				</div>
+				<h2 class="box__title">Usar fuentes descargadas</h2>
+				<div class="box__text">
+					<p class="paragraph">Para descargar las fuentes y luego utilizar podemos usar las páginas de <a href="https://www.dafont.com/es/">dafont</a>, <a href="https://fonts.google.com">Google fonts</a>  o <a href="https://www.1001fonts.com">1001fonts</a> por dar algunos ejemplos, después dentro de la carpeta donde guardamos todo lo img música y demás (que generalmente se llama <span class="red">assets</span>) las guardamos allí, y aquí podemos partir de dos métodos: El primero seria crear un css donde pongamos los @font-face de todas las fuentes que queramos y ya después usar el important dentro de nuestra hoja de estilos principal y llamar a la hoja de las fuentes con un @import, y el otro es directamente importar las fuentes al css. Evidentemente cada una tiene sus ventajas y desventajas que dependiendo del proyecto ya dependería si usar el primer método o el segundo.</p>
+				</div>
+				<h2 class="box__title">Ejemplo de @font-face directo</h2>
+				<div class="box--fonts box--fonts-2">
+					<h2 class="box__title box__title--fonts-2">Soy un titulo con una fuente descargada</h2>
+					<div class="box__text box__text--fonts-2">
+						<p class="paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet minima, asperiores quae quibusdam voluptatem officiis molestiae pariatur animi mollitia laborum incidunt omnis. Exercitationem repudiandae sint ea perferendis quam nesciunt omnis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis reprehenderit ipsam architecto, iste perspiciatis laudantium aliquam quisquam aut tenetur, odit possimus tempora ipsum ducimus maxime a quo sit, dolore fugit.</p>
+					</div>
+					<div class="box__content__img"><img src="../../Media/ejemplo fonts-2.png" alt="" class="box__img"></div>
+				</div>
+				<h2 class="box__title">Ejemplo de @import de fuentes</h2>
+				<div class="box--fonts box--fonts-3">
+					<h2 class="box__title box__title--fonts-3">Soy un titulo con una fuente descargada e importada</h2>
+					<div class="box__text box__text--fonts-3">
+						<p class="paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet minima, asperiores quae quibusdam voluptatem officiis molestiae pariatur animi mollitia laborum incidunt omnis. Exercitationem repudiandae sint ea perferendis quam nesciunt omnis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis reprehenderit ipsam architecto, iste perspiciatis laudantium aliquam quisquam aut tenetur, odit possimus tempora ipsum ducimus maxime a quo sit, dolore fugit.</p>
+					</div>
+					<div class="box__content__img"><img src="../../Media/ejemplo fonts-3.png" alt="" class="box__img"></div>
+				</div><br>
+				<a href="https://fonts.google.com" target="_blank" class="btn btn--box-google">
+					<span class="btn__text">Ir a Google fonts</span>
+					<span class="btn__icon btn__icon--box-google fab fa-google"></span>
+				</a>
+			</div>
+		</div>
+	</section>
+	<!--Pie de página-->
+	<footer class="footer" id="footer">
+		<div class="footer__content content">
+			<div class="col--md col--footer">
+				<a href="#body" class="btn btn--shadow btn--footer">
+					<span class="btn__text">Subir</span>
+				</a>
+			</div>
+		</div>
+	</footer>
+</body>
+<script src="https://kit.fontawesome.com/92b3da59fb.js" crossorigin="anonymous"></script>
+</html>

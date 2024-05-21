@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--Compatible con edge-->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="../../Styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../../Styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="styles-page.css">
+	<title>CSS Desde 0 | CSS-17</title>
+</head>
+
+<body id="body">
+	<header>
+		<nav class="menu">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html"
+						class="menu__item--link menu__item--logo" target="_blank">
+						<img class=" menu__item--logo-img"
+							src="https://mygithome.000webhostapp.com/CSS-Desde%200/Media/logo-nav-2.png" alt=""></a>
+				</li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" class="menu__item--link"
+						target="_blank">Inicio</a>
+				</li>
+				<li class="menu__item"><a href="#" class="menu__item--link">HTML</a></li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" target="_blank"
+						class="menu__item--link">CSS-Básico</a>
+				</li>
+				<li class="menu__item"><a href="../../Index.html" class="menu__item--link">CSS-Avanzado</a></li>
+				<li class="menu__item"><a href="#footer" class="menu__item--link">Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!--sección con el vídeo del sitio-->
+	<section class="content">
+		<div class="container">
+			<div class="video">
+				<iframe class="video__iframe" src="https://www.youtube.com/embed/ubIB6k9bg84" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+	<!--Sección de contenido-->
+	<section class="content">
+		<h1 class="content__title"><span class="content__title__text">Metodología BEM</span></h1>
+		<div class="container">
+			<h2 class="container__title">BEM</h2>
+			<div class="box">
+				<h2 class="box__title">¿Qué es una metodología?</h2>
+				<div class="box__text">
+					<p class="paragraph">
+						Una metodología en css es una serie de consejos para estructurar muestras clases de una forma
+						sencilla, escalable y reutilizable. Con escalable nos referimos a que si ya tenemos código css
+						hecho siguiendo esta metodología podremos incorporar nuevos elementos sin que alteren el layout
+						o que destruyan nuestra estructura.
+					</p>
+					<h2 class="box__title">y ¿qué es BEM?</h2>
+					<p class="paragraph">
+						BEM es una de las metodologías mas utilizadas en el mundo. Sus siglas provienen de Block,
+						element, modifier, esto significa que estructuraremos de tres formas distintas en función de el
+						comportamiento que tome los elementos.
+					</p>
+				</div>
+				<div class="list">
+					<ul class="list__container">
+						<li class="list__item">
+							<code>Bloques:</code>
+							<p class="list__item__text">Los bloques se suelen denominar con una sola palabra o con dos
+								palabras separadas con un guion si puede existir conflicto de estilos, estos son los
+								elementos que serán papás de una estructura con un orden por ejemplo un nav seria ya un
+								elemento bloque porque sabemos que dentro de este abra elementos. Estos como ya
+								mencionamos se escriben con un solo nombre <code>main</code> o con dos si sabemos que
+								tenemos mas de un bloque que empieza con este nombre como un main para el header y un
+								main para el footer, en este caso en el footer se llamaria <code>main-footer</code> por
+								dar un ejemplo.
+							</p>
+						</li>
+						<li class="list__item">
+							<code>Elementos:</code>
+							<p class="list__item__text">
+								Los elementos se nombran con el nombre del bloque al que pertenecen y su nombre con dos
+								guiones bajos __, ejemplo <code>main-gallery__img</code>.
+							</p>
+						</li>
+						<li class="list__item">
+							<code>Modificadores:</code>
+							<p class="list__item__text">
+								Los modificadores se nombran con el nombre del bloque al que pertenecen y su modificador
+								con dos guiones medios --. Estos para dar un ejemplo son bloques a los que les queremos
+								cambiar propiedad o asignarle otra, para ello usamos el nombre de dicho bloque más los
+								guiones medios y el nombre de dicha modificación, ejemplo
+								<code>.menu__item--active</code>
+							</p>
+						</li>
+					</ul>
+				</div>
+				<div class="console">
+					<span class="alert">!Ejemplos de nombre de bloque</span>
+					.menu / .main-menu
+					.gallery / .main-gallery<br>
+					<span class="alert">!Ejemplos de Elementos</span>
+					.menu__item / .main-menu__link
+					.gallery__img / .main-gallery__item<br>
+					<span class="alert">!Ejemplos de modificadores</span>
+					.menu__item--active
+					.gallery__item--special
+				</div>
+				<br>
+				<div class="box__text">
+					<p class="paragraph">
+						Algo con el que hay que saber si es la primera vez que usa BEM es que no se tienen que crear
+						nietos ya que esto es redundante, si ya sabes que es parte de dicho bloque ¿porque especificar
+						que esta dentro de otro elemento que ya sabemos que esta dentro del bloque?, en fin, para ello solo usamos el nombre del bloque más en
+						nombre de elemento y ya esta, da igual si este elemento esta dentro de otro elemento la regla
+						sigue siendo la misma.
+					</p>
+				</div>
+				<div class="box__content__img">
+					<img src="../../Media/ejemplo-bloque.png" alt="" class="box__img">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Pie de página-->
+	<footer class="footer" id="footer">
+		<div class="footer__content content">
+			<div class="col--md col--footer">
+				<a href="#body" class="btn btn--shadow btn--footer">
+					<span class="btn__text">Subir</span>
+				</a>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

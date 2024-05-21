@@ -1,0 +1,522 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--Compatible con edge-->
+	<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="Styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="Styles/styles.css">
+	<title>CSS Desde 0 | Inicio</title>
+</head>
+
+<body id="body">
+	<header>
+		<nav class="menu">
+			<ul class="menu__list">
+				<li class="menu__item"><a href="#" class="menu__item--link menu__item--logo"><img class=" menu__item--logo-img" src="Media/logo-nav-2.png" alt=""></a></li>
+				<li class="menu__item"><a href="#" class="menu__item--link">Inicio</a></li>
+				<li class="menu__item"><a href="#" class="menu__item--link">HTML</a></li>
+				<li class="menu__item"><a href="#" class="menu__item--link">CSS-Básico</a>
+					<ul class="menu__list sub--menu">
+						<li class="menu__item"><a href="CSS-01(Ejemplo)/index.html" class="menu__item--link">CSS 1</a></li>
+						<li class="menu__item"><a href="CSS-02(Sintaxis)/style(sintaxis de css).css" class="menu__item--link">CSS 2</a></li>
+						<li class="menu__item"><a href="CSS-03(Especialidad, herencia y cascada)/style(Especificidad, herencia y cascada).css" class="menu__item--link">CSS 3</a></li>
+						<li class="menu__item"><a href="CSS-04(Box Model)/index.html" class="menu__item--link">CSS 4</a></li>
+						<li class="menu__item"><a href="#" class="menu__item--link">CSS 5</a></li>
+						<li class="menu__item"><a href="#" class="menu__item--link">CSS 6</a></li>
+						<li class="menu__item"><a href="#" class="menu__item--link">CSS 7</a></li>
+						<li class="menu__item"><a href="#" class="menu__item--link">CSS 8</a></li>
+						<li class="menu__item"><a href="#" class="menu__item--link">CSS 9</a></li>
+						<li class="menu__item"><a href="#" class="menu__item--link">CSS 10</a></li>
+						<li class="menu__item"><a href="#" class="menu__item--link">CSS 11</a></li>
+						<li class="menu__item"><a href="#" class="menu__item--link">CSS 12</a></li>
+						<li class="menu__item"><a href="#" class="menu__item--link">CSS 13</a></li>
+						<li class="menu__item"><a href="#" class="menu__item--link">CSS 14</a>
+						</li>
+					</ul>
+				</li>
+				<li class="menu__item"><a href="#" class="menu__item--link">CSS-Avanzado</a></li>
+				<li class="menu__item"><a href="#" class="menu__item--link">Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section class="content">
+		<!--sección con el vídeo del sitio-->
+		<div class="container">
+			<div class="video">
+				<iframe class="video__iframe" src="https://www.youtube.com/embed/udhhaBrqK0A" frameborder="0"
+				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+	<section class="content">
+		<!--Sección de content y container-->
+		<h1 class="content__title"><span class="content__title__text">soy el titulo de la secciones</span></h1>
+		<div class="container">
+			<h2 class="container__title">Y yo el titulo del contenedores</h2>
+		</div>
+	</section>
+	<section class="content">
+		<!--Sección de bloques-->
+		<h1 class="content__title"><span class="content__title__text">elementos bloque</span></h1>
+		<div class="container">
+			<h1 class="container__title">box</h1>
+			<div class="box">
+				<h2 class="box__title">Soy el titulo del box</h2>
+				<p class="box__text">
+					Hola, soy el texto que va dentro del bloque box.
+				</p>
+				<p class="box__text">
+					Puedes usar el bloque box dentro de los demás elementos ya que su alto es del 100% del contenedor
+					padre y el alto es automático.
+				</p>
+				<p class="box__text">
+					Estos si o si se tienen que escribir dentro de un container, y si queremos que sigan el flojo
+					alineado de la pagina estos tendrán que estar dentro de un content.
+				</p>
+			</div>
+		</div>
+		<div class="container">
+			<h2 class="container__title">Card</h2>
+			<!--Bloque card-->
+			<div class="card">
+				<a href="#" class="card__thumbnail">
+					<img src="Media/logo-nav.png" alt="" class="card__thumbnail__img">
+					<div class="card__thumbnail__note">
+						<span class="card__thumbnail__note__head">Soy el encabezado de la nota</span>
+						<p class="card__thumbnail__note__text">
+							Soy el texto que aparece cuando pasas el cursos sobre la imagen.
+						</p>
+					</div>
+				</a>
+				<div class="card__text">
+					<h3 class="card__title">
+						<a href="#" class="card__link">Titulo del card</a>
+					</h3>
+					<p class="card__paragraph">
+						Soy un párrafo que esta adentro card.
+					</p>
+					<p class="card__paragraph">
+						Este bloque esta hecho por si se quiere adjuntar una descripción mas exacta sobre un elemento
+						para ponerle una imagen como tal.
+					</p>
+					<p class="card__paragraph">
+						Esta se coloca obligatoria-mente dentro de un container y se puede colocar igualmente dentro de
+						el bloque box.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h2 class="container__title">botones</h2>
+			<div class="box">
+				<h2 class="box__title">btn</h2>
+				<p class="box__text">
+					Se escriben con la clase btn y este tiene variaciones que podemos ver en el código css, solo basta
+					con ponerle a un link la clase btn mas la clase modificadora y tendríamos un botón personalizado.
+				</p>
+				<a href="#" class="btn">
+					<span class="btn__text">button</span>
+					<span class="btn_icon">🔎</span>
+				</a>
+				<span class="bg-dark-transparent">Este es un botón con la clase btn</span>
+				<a href="" class="btn btn--up">
+					<span class="btn__text">button</span>
+					<span class="btn_icon">🔎</span>
+				</a>
+				<span class="bg-dark-transparent">Este es un botón con la clase btn y btn--up</span>
+			</div>
+		</div>
+		<div class="container">
+			<h1 class="container__title">Consola</h1>
+			<div class="box">
+				<h2 class="box__title">console</h2>
+				<div class="box__text">
+					<p class="box__paragraph">
+						Este es el bloque que utilizo para mostrar el código CSS aplicado a ciertos elementos para
+						mostrar explícitamente que es lo que aplique exactamente. Este bloque tiene la característica
+						que respeta los saltos de linea lo que significa que con tan solo copiar y pegar el código ya se
+						ve ordenado.
+					</p>
+					<p>
+						Para complementar este mismo utilizo etiquetas span con clases que cambian el color para
+						resaltar los colores de cada palabra como si estuviera escrita en sublime.
+					</p>
+				</div>
+				<div class="console">
+					Selector {
+					propiedad:valor;}
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h1 class="container__title">listas</h1>
+			<div class="box">
+				<h2 class="box__title">list</h2>
+				<div class="box__text">
+					<p class="box__paragraph">
+						Las listas son importantes para enumerar o ordenar diferentes conceptos lo cual a la hora de organizar la información resultan muy útiles. Para ello cree un diseño de lista el cual se compone de la siguiente manera:
+					</p>
+					<div class="list">
+						<ul class="list__container">
+							<li class="list__item">Soy un li</li>
+							<li class="list__item">soy un li con la etiqueta <code>code</code>.</li>						
+							<li class="list__item">
+								<code>Soy un li</code>
+								<p class="list__item__text">
+									con la etiqueta <span class="red">code</span> y con un párrafo.
+								</p>
+							</li>
+						</ul>
+					</div>
+					<p class="box__paragraph">
+						Evidentemente cambia mas a la hora del código ya que la manera en que esta escrito sigue un orden de tal manera que pueda interactuar con cada elemento por separado y no por cascada (aunque a veces esto sera lo mejor).
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="content">
+		<!--Sección de modificadores-->
+		<h1 class="content__title"><span class="content__title__text">Modificadores</span></h1>
+		<div class="container">
+			<h2 class="container__title">Colores</h2>
+			<div class="box">
+				<h2 class="box__title">Colors</h2>
+				<div class="box__text">
+					<p class="box__paragraph">
+						Estos son <span class="red">clases</span> con colores fijos ya que los utilizo para darle color
+						el texto de el bloque consola con ayuda de la etiqueta span. A su vez, este ayuda a que el texto
+						importante sea mas resaltado.
+					</p>
+					<div class="list">
+						<ul class="list__container">
+							<li class="list__item">
+								<code class="ve-sb">ve-sb</code>
+								<p class="list__item__text">
+									Color verde inspirado en el tema de sublime text 3.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="red-sb">red-sb</code>
+								<p class="list__item__text">
+									Color rojo inspirado en el tema de sublime text 3.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="blue-sb">blue-sb</code>
+								<p class="list__item__text">
+									Color azul inspirado en el tema de sublime text 3.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="pu-sb">pu-sb</code>
+								<p class="list__item__text">
+									Color morado inspirado en el tema de sublime text 3.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="ye-sb bg-dark-transparent">ye-sb</code>
+								<p class="list__item__text">
+									Color amarillo inspirado en el tema de sublime text 3.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="alert bg-dark-transparent">alert</code>
+								<p class="list__item__text">
+									Da un borde y un color amarillo semitransparente para realzar un mensaje o una
+									advertencia.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="or">or</code>
+								<p class="list__item__text">
+									Color naranja usado para colorear los valores de css en el bloque
+									<code>.console</code>.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="gr">gr</code>
+								<p class="list__item__text">
+									Color gris usado para colorear los comentarios de css en el bloque
+									<code>.console</code>.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="red">red</code>
+								<p class="list__item__text">
+									Color rojo para resaltar palabras en un párrafo por dar un ejemplo.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="ve">ve</code>
+								<p class="list__item__text">
+									Color verde para resaltar cuadros.
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h2 class="container__title">Fondos</h2>
+			<div class="box">
+				<h2 class="box__title">bg</h2>
+				<div class="box__text">
+					<p class="box__paragraph">
+						Estos son <span class="red">clases</span> con fondos de colores fijos ya que los utilizo para
+						darle un fondo a elementos pequeños o mensajes. A su vez, este ayuda a que el texto importante
+						sea mas resaltado.
+					</p>
+					<div class="list">
+						<ul class="list__container">
+							<li class="list__item">
+								<code class="bg-dark">bg-dark</code>
+								<p class="list__item__text">
+									Color negro que esta basado en el valor de la variable <code>--color-primary</code>.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="bg-dark-transparent">bg-dark-transparent</code>
+								<p class="list__item__text">
+									Color negro con alpha que esta basado en el valor de la variable
+									<code>--color-primary-transparent</code>.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="bg-light">bg-light</code>
+								<p class="list__item__text">
+									Color ligero de la paleta de colores de azules de la pagina, este se consigue con la
+									variable<code>--color-D</code>.
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h1 class="container__title">Bordes</h1>
+			<div class="box">
+				<h2 class="box__title">border</h2>
+				<div class="box__text">
+					<p class="box__paragraph">
+						Dota solo utiliando la clase <code>.border</code> en el html de un borde de 1px solido y con el color del propio contenido, puesto ahora bien con ello hay modificadores los cuales cambian su color.
+					</p>
+					<div class="list">
+						<ul class="list__container">
+							<li class="list__item">
+								<code class="border-light">border-light</code>
+								<p class="list__item__text">
+									Color ligero de la paleta de colores de la página, específicamente es la variable <code>--color-C</code>.
+								</p>
+							</li>
+							<li class="list__item">
+								<code class="border-dark">border-light</code>
+								<p class="list__item__text">
+									Color más intenso de la paleta de colores de la página, específicamente es la variable <code>--color-A</code>.
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="content">
+		<h1 class="content__title">
+			<span class="content__title__text">Propiedades</span>
+		</h1>
+		<div class="container">
+			<h2 class="container__title">No visible</h2>
+			<div class="box">
+				<h2 class="box__title">not-visible</h2>
+				<div class="box__text">
+					<p class="box__paragraph">
+						Esta clase dota la propiedad de que el elemento no sea visible, pero sin eliminar su espacio. Esto se logra con la propiedad <code>visibility</code> con el valor hidden, esto especifica que el elemento no sera ni visible ni podrá interactuar con este (no sera sensible a clics).	
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="content">
+		<!--Sección de columnas-->
+		<h1 class="content__title">
+			<span class="content__title__text">Columnas</span>
+		</h1>
+		<div class="container">
+			<h1 class="container__title">Columnas medianas (col--md)</h1>
+			<div class="col--md">
+				<div class="box">
+					<h2 class="box__title">titulo de la caja</h2>
+					<div class="box__text border-light">
+						<p class="box__paragraph">Este tipo de columnas están calculadas para que al momento de poner
+							una columna con la clase <code>.col--md</code> se coloque con un ancho de casi 50% y al
+						momento de colocar otra columna del mismo tipo esta se separe con un margen.</p>
+					</div>
+				</div>
+				<div class="box">
+					<h2 class="box__title">titulo de la caja</h2>
+					<div class="box__text not-visible">
+						<p class="box__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+							eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col--md">
+				<div class="box">
+					<h2 class="box__title">titulo de la caja</h2>
+					<div class="box__text not-visible">
+						<p class="box__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+							eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						</p>
+					</div>
+				</div>
+				<div class="box">
+					<h2 class="box__title">titulo de la caja</h2>
+					<div class="box__text not-visible">
+						<p class="box__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+							eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h2 class="container__title">Columnas relative(rer y rel)</h2>
+			<div class="col--rel">
+				<div class="box">
+					<h2 class="box__title">Soy la columna rel</h2>
+					<div class="box__text">
+						<p class="box__paragraph">
+							Estas culumnas funcionan así:
+						</p>
+						<p class="box__paragraph">
+							La columna con la clase <code>col--rel</code> es la columna que va orientada a la izquierda principalmente, por ello el nombre (rel significa relative + left) ya que esta mide mide casi el doble que si hermano rer.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col--rer">
+				<div class="box">
+					<h2 class="box__title">Soy la columna rer</h2>
+					<div class="box__text">
+						<p class="box__paragraph">
+							La columna con la clase <code>col--rer</code> es la columna que va orientada a la derecha gracias a que se calcula la suma de los anchos de ambas columnas menos el 100% lo que da un margin-left que es utilizado para empujar la 2da columna (indiferentemente de que sea rer o rel) solo usando float.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col--rer">
+				<div class="box">
+					<h2 class="box__title">No importa el orden</h2>
+					<div class="box__text">
+						<p class="box__paragraph">
+							Puedes utilizar la columna rer o rel en el orden que ti quieras, da igual cual vaya en que dirección, solo ten en cuenta que rer mide casi la mitad que rel.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col--rel">
+				<div class="box">
+					<h2 class="box__title">Soy la columna rel</h2>
+					<div class="box__text">
+						<p class="box__paragraph"></p>
+					</div>
+					<div class="list">
+						<ul class="list__container">
+							<li class="list__item">
+								<code>col--re</code>
+								<p class="list__item__text">
+									es la clase que engloba esta dos columnas, podemos utilizarla para asignarle valores a ambas con una sola class.
+								</p>
+							</li>
+							<li class="list__item">
+								<code>col--rel</code>
+								<p class="list__item__text">
+									es la clase que especifica un ancho con la variable <code>--col-rel-width</code> que mide casi el doble que si hermano <span class="red">rer</span>.
+								</p>
+							</li>
+							<li class="list__item">
+								<code>col--rer</code>
+								<p class="list__item__text">
+									es la clase que especifica un ancho con la variable <code>--col-rer-width</code> el cual casi mide la mitad que si hermano  <span class="red">rel</span>.
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="content">
+		<h1 class="content__title">
+			<span class="content__title__text">Nueva sección</span>
+		</h1>
+		<div class="container">
+			<h2 class="container__title">Combinando todo</h2>
+			<div class="box">
+				<h2 class="box__title">soy un titulo</h2>
+				<div class="card">
+					<a href="#" class="card__thumbnail">
+						<img src="Media/logo-nav.png" class="card__thumbnail__img">
+						<div class="card__thumbnail__note">
+							<span class="card__thumbnail__note__head">Soy una nota</span>
+							<p class="card__thumbnail__note__text">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore 
+							</p>
+						</div>
+					</a>
+					<div class="card__text">
+						<h3 class="card__title">
+							<a href="#" class="card__link">Titulo del card</a>
+						</h3>
+						<p class="card__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<a href="#" class="btn btn--card">
+						<span class="btn__text">Ver más</span>
+						<span class="btn__icon">🔎</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="footer__content content">
+			<div class="col--md col--footer">
+				<div class="footer__text">
+					<span class="footer__author">Juan Rubén Chávez Turrubiartes.</span>
+					<div class="footer__contact">
+						<span class="footer__contact__text">Contacto: </span>
+						<a href="https://wwww.facebook.com/" target="_blank" class="footer__link icon-face"><span class="footer__link__text">F</span></a>
+					</div>
+				</div>
+				<a href="#body" class="btn btn--shadow btn--footer">
+					<span class="btn__text">Subir</span>
+				</a>
+			</div>
+		</footer>
+	</body>
+
+	</html>

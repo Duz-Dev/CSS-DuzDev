@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8"><!--Set de caracteres(comas, eñes etc)-->
+   		<meta http-equiv="X-UA-Compatible" content="ie=edge"> <!--Compatible con edge-->
+    	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para dispositivos moviles-->
+    	<link rel="stylesheet" type="text/css" href="styles/normalize.css">
+    	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+		<title>CSS-10</title>
+	</head>
+	<body>
+		<header>
+			<h1>Practicas de la clase 10</h1>
+		</header>
+		<section>
+			<div class="big-box">
+				<h3 class="titulo">10. Introducción a pseudoElementos</h3>
+				<h2>10.1 Introduccion:</h2>
+				<div class="small-box-1_1">
+					<h3>Definición:</h3>
+					Seudo es un prefijo que significa algo que aparenta pero no lo es, ej un doctor que presume serlo pero nunca estudio para ser uno. Con elementos ya nos referimos por ejemplo en web toda etiqueta html; para ponerlo sencillo, un h1 es un elemento si tiene un div hijo ya es otro elemento.
+				</div>
+				<div class="small-box-1_2"><h3>Propiedades:</h3>
+					::Fist-line | ::first-letter
+					::before ::after
+					(Lo correcto es escribirlos con :: al inicio ya que los que solo llevan : son los seudoclases)
+				</div>
+			</div>
+			<div class="big-box">
+				<h2>10.2 First line</h2>
+				<div class="small-box-1_2">
+					<h3>Definición:</h3>
+					Con first-line tomamos la primera linea de un elemento, como si pusiéramos un span y este lo manipuláramos, bueno es lo misma teoría pero sin usar el span en html solo usando la propiedad first-line.
+				</div>
+				<div class="small-box-1_1">
+					<h3>Ejemplo:</h3>
+					
+					<div class="baby-box first-line">
+						<h3>Tu futuro te esta esperando</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis totam at eaque unde magni numquam, ab recusandae.</p>
+					</div>
+
+				</div>
+			</div>
+			<div class="big-box">
+				<h2>10.3 First letter</h2>
+				<div class="small-box-1_3">
+					<h3>Definición:</h3>
+					Con first-letter es lo mismo pero con la primera letra.
+				</div>
+				<div class="small-box-1_4">
+					<h3>Ejemplo:</h3>
+					
+					<div class="baby-box first-letter">
+						<h3>Tu futuro te esta esperando</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis totam at eaque unde magni numquam, ab recusandae.</p>
+					</div>
+
+				</div>
+			</div>
+			<div class="big-box">
+				<h2>10.4 Before y after</h2>
+				<div class="small-box-1_5">
+					<h3>Definición:</h3>
+					<p>
+						Son similares a first-line y a first-letter, pero, before y after son dos elementos que no existen pero que son hijos del elemento; before seria el hijo al inicio del elemento y after seria el hijo al final del elemento.
+						Con first ya apuntabas a el contenido como lo son las letras, pero con before y after no apuntas a ningún contenido, por lo tanto tienes que generarlo, ya que si no hay tal contenido no cambiara nada. Con esto usaremos CSS para generar contenido. A diferencia de html y js css no genera un contenido tal cual, pero si lo que necesitamos para nuestra tarea de hoy.
+						<br> Usaremos la función 'Content()' de CSS
+						Solo hay dos puntos importantes: el primero que para manipular su contenido siempre tiene que llevar el content aunque sea vacío, y el 2do es que el elemento sera inline así que para manipularlo tienes que ponerlo en block u otro.
+					</p>
+				</div>
+				<div class="small-box-1_6">
+					<h3>Ejemplo:</h3>
+					<h4>Que es EDteam</h4>
+					<span>Efecto de hover con content:</span>
+				</div>
+			</div>
+			<div class="big-box">
+				<h2>10.5 Before y after e imprimir atributos</h2>
+				<div class="small-box-1_7">
+					<h3>Definición:</h3>
+					<p>
+						Podemos imprimir atributos con la función content con el atributo attr
+					</p>
+					<br><p>Content:attr();</p>
+				</div>
+				<div class="small-box-1_8">
+					<h3>Ejemplo:</h3>
+					<h4 class="soy-una-clase">Que es EDteam</h4>
+					<h5>Como estas</h5>
+				</div>
+			</div>
+			<div class="big-box">
+				<h2>10.6 Before y after e imprimir imágenes</h2>
+				<div class="small-box-1_9">
+					<h3>Definición:</h3>
+					<p>
+						Podemos imprimir imágenes con la función content con el atributo url
+					</p>
+					<br><p>Content:url();</p>
+					<p>No hay que subestimar a before y after ya que podemos imprimir contenido son necesidad de js u otros lenguajes. Por desgracia esto es algo que no se puede evitar el hecho de poder añadir y eliminar cosas de las páginas online con esta propiedad.</p>
+				</div>
+				<div class="small-box-1_10">
+					<h3>Ejemplo:</h3>
+					<div></div>
+				</div>
+			</div>
+			<div class="big-box">
+				<h2>10.7 Quotes</h2>
+				<div class="small-box-1_11">
+					<h3>Definición:</h3>
+					<p>
+						Con Quotes podemos manipular el contenido de before y after en una misma propiedad
+					</p>
+					<br><p>quotes:'' '';</p>
+					<div class="ejemplo-1"></div>
+				</div>
+				<div class="small-box-1_12">
+					<h3>Ejemplo:</h3>
+					<p>
+						Como ejemplo podemos cambiarle las comillas a una oración:
+					</p>
+					<h4></h4>
+					<p>
+						Como ves, en la palabra de arriba tiene comillas diferentes a su tipografía, esto se debe a que con la función quotes podemos definir que va al principio y al final de before y after. No importa que pongamos primero en las comillas ya que asignamos que va en before y after dentro de estos mismos con los atributos open-quote y close-quote.
+					</p>
+					<div>img we</div>
+				</div>
+			</div>
+			<div class="big-box">
+				<h2>10.8 Formatear moneda</h2>
+				<div class="small-box-2_13">
+					<h3>Ejemplo</h3>
+					<p class="usd two-decimals">42</p>
+					<p class="pen two-decimals">123</p>
+					<p class="cop two-decimals">100</p>
+					<p>Solo agregamos los signos de moneda y de los decimales con before y after :v</p>
+				</div>
+			</div>
+			<div class="big-box">
+				<h2>10.9 Ejercicio: subrayado animado</h2>
+				<div class="small-box-2_14">
+					<h3>Ejemplo</h3>
+					<p>
+						 Hola mundo!
+					</p>
+					<span class="prueba-2">Prueba dos</span>
+					<span class="prueba-3">Prueba tres</span>
+				</div>
+			</div>
+			<div class="big-box">
+				<h2>10.10 Ejercicio: aspect radio</h2>
+				<div class="small-box-2_15">
+					<h3>Definición:</h3>
+					<p>
+						Con aspect radio significa el aspecto, y en css no tenemos una forma de calcular el aspecto; ejemplo que una caja siempre se vea de 3 x 3 no hay forma de que se mantenga igual, lo mas cercano es con viewport pero no es igual. Pero hay hacks que igual ayudan a solucionar esto:
+						<br>
+						-uno seria con solo usar el padding-bottom con un 100% ya que este es relativo al papá para obtener un Cuadrado, pero si al hijo le establecemos un ancho este se se deformara y se convertirá en un rectángulo.
+						-otra opción y que tiene mas ventajas es usar ya sea before o after para plasmar el padding y con la caja que se convertirá ahora en papá ya solo le asignaríamos el ancho que queramos.
+					</p>
+				</div>
+				<div class="small-box-2_16">
+					<div class="baby-box-01"></div>
+					<div class="baby-box-02"></div>
+					<div class="cajita"><iframe src="https://www.youtube.com/embed/-qlU9j5LR7Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+				</div>
+			</div>
+			<div class="big-box">
+				<h2>10.11 Ejercicio: dibujar corazón</h2>
+				<div class="small-box-2_17">
+					<div class="kokoro"></div>
+				</div>
+			</div>
+			<div class="big-box">
+				<h2>Experimentos de google  xd</h2>
+				<div class="small-box-2_19">
+					<a href="https://www.youtube.com" class="quiero-info" data-tooltip="esto es un tooltip">quiero info</a>
+				</div>
+			</div>
+			<div class="big-box">
+				<div class="small-box-2_18 footer">
+					<h3>Conclusión:</h3>
+					<p>Me quedo chido el kokoro UwU</p>
+					<p>Usando variables puedes usar el atributo calc y con este sumar, restar, dividir etc a una medida establecida :o</p>
+					<p>el after y before esta mamalon xd</p>
+					<p>Y estos nos sirven para hacer arreglos por lo general pequeños o detalles sin usar html</p>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

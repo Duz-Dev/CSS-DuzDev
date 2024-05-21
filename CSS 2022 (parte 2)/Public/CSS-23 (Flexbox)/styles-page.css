@@ -1,0 +1,128 @@
+[class*="box__text--list"] .paragraph {
+    display: list-item;
+    margin-left: .5rem;
+    margin-bottom: .1525rem;
+}
+
+.box__img-content {
+    margin-bottom: var(--margin-b);
+}
+
+.box__text--list-2 .paragraph:first-of-type {
+    display: block;
+}
+
+[class*="flex-container"] {
+    background-color: lightcoral;
+    padding: 10px 0;
+    margin-bottom: var(--margin-b);
+    position: relative;
+}
+
+.flex__item {
+    width: 50px;
+    height: 50px;
+    background-color:lightgreen;
+    margin: 5px;
+    color:gray;
+    font-size: 1.1rem;
+    line-height: 50px;
+    text-align: center;
+}
+
+.flex-container--inline {
+    display: inline-flex;
+}
+
+.flex-container--inline::after {
+    content:'este contenedor tiene display inline-flex';
+    position: absolute;
+    top: 100%;
+}
+
+.flex-container--block {
+    display: flex;
+}
+
+.flex-container--block::after{
+    content: 'este div tiene display flex';
+    margin: 20px 0;
+}
+
+[class*="flex-container--direction"],[class*="flex-container--wrap"] {
+    display: flex;
+}
+
+[class*="flex-container--direction"]::after {
+    line-height: 60px;
+}
+
+.flex-container--direction::after{
+    content: 'flex direction row, este es el que esta por default';
+}
+
+.flex-container--direction-2 {
+    flex-direction: row-reverse;
+}
+
+.flex-container--direction-2::after {
+    content: 'flex direction row-reverse';
+}
+
+.flex-container--direction-3 {
+    flex-direction: column;
+}
+
+.flex-container--direction-3::before {
+    content: 'flex direction column';
+    text-align: center;
+}
+
+.flex-container--direction-4 {
+    flex-direction: column-reverse;
+}
+
+.flex-container--direction-4::after {
+    content: 'flex direction column-reverse';
+    text-align: center;
+    line-height: initial;
+}
+
+[class*="flex-container--wrap"]{
+    width: 50%;
+    position: relative;
+}
+
+.flex-container--wrap {
+    flex-wrap: nowrap;
+}
+
+.flex-container--wrap::after {
+    content: 'nowrap';
+    line-height: 60px;
+    /* position: absolute;
+    left: 101%; */
+}
+
+.flex-container--wrap-2 {
+    flex-wrap: wrap;
+}
+
+.flex-container--wrap-2::after {
+ content: 'wrap';
+ line-height: 60px;
+ margin-left: 12px;
+}
+
+.flex-container--wrap-3 {
+    flex-wrap: wrap-reverse;
+}
+
+.flex-container--wrap-3::after {
+    content: 'wrap-reverse';
+    line-height: 60px;
+    margin-left: 12px;
+}
+   
+
+

@@ -1,0 +1,147 @@
+header h1 {
+	width: 90%;
+	color: gray;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	margin-top: 3px;
+	padding: 35px 0;
+	border-radius: 10px;
+	border: 4px solid gray;
+	text-align: center;
+	font-size: 2.6em;
+	font-family: arial;
+	word-spacing: 2px;
+}
+
+header h1::after{
+	content: '';
+	display: block;
+	width: 90%;
+	height: 6px; /*nota: no es lo correcto colocar porcentajes como alto si no sabemos a que se compara*/
+	margin:0 auto;
+	background-color: red;
+	transform: scale(0,1);
+	transition: transform .23s;
+	transform-origin: center; /*este es el origen por default*/
+}/*si no especificamos un alto este automáticamente sera el 100% del ancho del papá o del espacio que pueda ocupar*/
+
+header h1:hover::after{
+	transform: scale(1,1);
+}
+
+section {
+	width: 95%;
+	margin: 0 auto;
+}
+
+section > h2 {
+	padding: 15px;
+	padding-left: 22px;
+	margin-bottom: 20px;
+	font-family: arial;
+	font-weight: 1;
+	font-size: 1.73em;
+	letter-spacing: 1.8	px;
+}
+
+section > h2::after {
+	content: '';
+	display: block;
+	width: 22rem;
+	height: 3px;
+	background-color: red;
+	margin-top: 3px;
+}
+
+.big-box > h3 {
+	width: 90%;
+	padding: 10px;
+	border-bottom: 2px solid #000;
+	margin-bottom: 50px;
+	font-family: arial;
+	font-weight: 1;
+	font-size: 1.4em;
+	margin-left: auto;
+	margin-right: auto;
+	display:flex; /*con flex el h3 se auto calcula y con su variante de flexibilidad esta se acopla a su 90% sin que cambie de estado, a diferencia de block que parecia que pasaba de relative a absolute.*/
+}
+
+.box {
+	--space:10px; /*declare la varible para manipular la ceparacion de arriba y abajo de las cajas con respecto a sus titulos*/
+	border: 2.1px solid orange;
+	float: left;
+	margin-bottom: 80px;
+	font-family: arial;
+	word-spacing:1.5px; /*el espacio entre cada palabra*/
+	letter-spacing: .5px; /*el espacio entre cada letra*/
+	font-size: 1.2em;
+	padding:var(--space);
+	box-shadow: 1px 4px 10px -1px gray;
+	line-height: 1.5rem; /*Es el interlineado de las palabras (es espacio entre cada linea de texto)*/
+}
+
+[class*="box-sml"] {
+	width: 45%;
+	height: 350px;/*Con height establecemos un alto estático, lo que significa que ahora el alto de la caja ya no depende de su contenido.*/
+	margin-left: 2.4%;
+	margin-right: 2.4%;
+	padding-top: var(--space);
+}
+
+[class*="box-sml"] h4 {
+	text-align:center;
+	font-family: monospace;
+	font-size: 1.96rem;
+	margin-bottom: var(--space);
+	font-weight: 2;
+}
+
+[class*="box-bb"] {
+	background-color: #1B2B34FF; /*es del mismo color que sublime xd*/
+	width: 90%;
+	margin-top: calc(var(--space) + 10px);
+	margin-right: auto;
+	margin-bottom: calc(var(--space) + 10px);
+	margin-left: auto;
+	font-family: Consolas, arial;
+	padding-left: 30px;
+	padding-bottom: 1.5rem;
+	color: #fff;
+	white-space: pre-line; /*con esta propiedad puedo indicarle a css que me respete también ya sea los espacios (o no) o saltos de lineas o ambos. En este caso puse que solo respete los saltos de linea*/
+	font-size: 1rem;	
+}
+
+.box-bb h4 {
+	margin-bottom: var(--space);
+}
+/*<div class="box-bb"> <!--Con las baby cajas o cajitas puedo mostrar código que se respeten las lineas--></div>*/
+
+
+.box-flex{
+	height: initial;
+}
+[class*="box-xl"] {
+	width: 100%;
+}
+/*coloretes xd*/
+
+.or {
+	color: orange;
+}
+
+.pu {
+	color: #BB7682FF;
+}
+
+.gr {
+	color: #BCBCBCFF;
+}
+
+.red {
+	color:red;
+}
+
+.azul {
+	color:#6699CCFF;
+}

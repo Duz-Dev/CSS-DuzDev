@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--Compatible con edge-->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="../../Styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../../Styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="styles-page.css">
+	<title>CSS Desde 0 | CSS-23</title>
+</head>
+
+<body id="body">
+	<header>
+		<nav class="menu">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html"
+						class="menu__item--link menu__item--logo" target="_blank">
+						<img class=" menu__item--logo-img"
+							src="https://mygithome.000webhostapp.com/CSS-Desde%200/Media/logo-nav-2.png" alt=""></a>
+				</li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" class="menu__item--link"
+						target="_blank">Inicio</a>
+				</li>
+				<li class="menu__item"><a href="#" class="menu__item--link">HTML</a></li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" target="_blank"
+						class="menu__item--link">CSS-Básico</a>
+				</li>
+				<li class="menu__item"><a href="../../Index.html" class="menu__item--link">CSS-Avanzado</a></li>
+				<li class="menu__item"><a href="#footer" class="menu__item--link">Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!--sección con el vídeo del sitio-->
+	<section class="content">
+		<div class="container">
+			<div class="video">
+				<iframe class="video__iframe" src="https://www.youtube.com/embed/k5jUHbhN9oo" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+	<!--Sección de contenido-->
+	<section class="content">
+		<h1 class="content__title"><span class="content__title__text">Flexbox</span></h1>
+		<div class="container">
+			<h2 class="container__title">Fundamentos</h2>
+			<div class="box">
+				<h2 class="box__title">Introducción</h2>
+				<div class="box__text box__text--list">
+					<p class="paragraph">
+						Flexbox es un modulo de css que permite que las cajas sea flexibles. Esta es un valor de la propiedad display al igual como lo es inline y block.
+					</p>
+					<p class="paragraph">
+						Existe display<code>flex</code>y<code>inline-flex</code>para que el contenedor sea de bloque o de linea respectivamente.
+					</p>
+					<p class="paragraph">
+						Se necesita un contenedor (flex-container) y al menos un hijo (flex-item). Con ello decimos que si el container no tiene hijos aunque sea uno no serviría de nada aplicar flex, ya que no tendría caso usarlo, en cualquier caso seria mas util usar block directamente.
+					</p>
+					<p class="paragraph">
+						Las cajas flexibles son los items, el contenedor es el contexto al que pertenecen los items. No porque a un contenedor le demos display flex significa que lo convierta en una caja flexible, lo que se hace flexible son sus hijos, si queremos hacer flexible por alguna razón al contenedor tendríamos que ponerle flex a el contenedor de dicho contenedor.
+					</p>
+					<p class="paragraph">
+						Y solo los hijos directos de el container serán flexibles, así que si dentro de uno de los hijos este tiene hijos entonces no le afectara el display flex.
+					</p>
+					<p class="paragraph">
+						El texto se considera un hijo del contenedor por lo que el texto se convierte en una caja flexible, y los after y before igual.
+					</p>
+				</div>
+				<div class="box__img-content"><img src="../../Media/flex1.png" alt="" class="box__img"></div>
+				<div class="box__text box__text--list-2">
+					<p class="paragraph red">
+						Cuando utilizamos display flex o inline-flex suceden cosas de tras de css como se menciona a continuación:
+					</p>
+					<p class="paragraph">
+						Se generan dos ejes para colocar y alinear los elementos
+					</p>
+					<p class="paragraph">
+						Por defecto el eje principal va en horizontal (de izquierda a derecha) y el eje secundario que da en vertical (de arriba hacia abajo)
+					</p>
+					<p class="paragraph">
+						se puede intercambiar los ejes y la dirección. Por ejemplo pódemos decir que el eje principal sea el vertical y que vaya de abajo hacia arriba.
+					</p>
+					<p class="paragraph">
+						Estos ejes reciben un nombre y se utilizan en la terminología a la hora de trabajar con Flexbox.
+					</p>
+				</div>
+				<div class="box__img-content"><img src="../../Media/Opera Instantánea_2020-06-23_150202_www.youtube.com.png" alt="" class="box__img"></div>
+			</div>
+		</div>
+		<div class="container">
+			<h2 class="container__title">Flexbox</h2>
+			<div class="box">
+				<h2 class="box__title">Flexbox</h2>
+				<div class="box__text">
+					<p class="paragraph">
+						De primeras tenemos que hacer a nuestro contenedor flexible, si lo queremos que se ponga en linea con otros elementos de linea como un span le asignaríamos display<code>inline-flex</code>y si queremos que este sa de tipo bloque pero que su contenido sea flexible se le pone display<code>flex</code>.
+					</p>
+				</div>
+				<span>Soy un span</span>
+				<div class="flex-container--inline">
+					<div class="flex__item">1</div>
+					<div class="flex__item">2</div>
+					<div class="flex__item">3</div>
+					<div class="flex__item">4</div>
+					<div class="flex__item">5</div>
+				</div>
+				<div class="flex-container--block">
+					<div class="flex__item">1</div>
+					<div class="flex__item">2</div>
+					<div class="flex__item">3</div>
+					<div class="flex__item">4</div>
+					<div class="flex__item">5</div>
+				</div>
+				<h2 class="box__title">flex-direction</h2>
+				<div class="box__text">
+					<p class="paragraph">Con esta propiedad podemos determinar que dirección tomara el <span class="red">Main axis</span>. Sus valores son:</p>
+				</div>
+				<div class="list__container">
+					<ul class="list">
+						<li class="list__item">
+							<code>row</code>
+							<p class="list__item__text">Es la dirección por defecto que toma el main axis, el que va de horizontal que inicia de derecha y termina en la izquierda.</p>
+						</li>
+						<li class="list__item">
+							<code>row-reverse</code>
+							<p class="list__item__text">Es la dirección opuesta entre el inicio y el final y se mantiene el eje horizontal.</p>
+						</li>
+						<li class="list__item">
+							<code>column</code>
+							<p class="list__item__text">Es la dirección que toma el main axis en vertical, y el cross axis tomaría el eje horizontal, y los flex-item irían de arriba hacia abajo.</p>
+						</li>
+						<li class="list__item">
+							<code>column-reverse</code>
+							<p class="list__item__text">Es la dirección que toma el main axis en vertical, y el cross axis tomaría el eje horizontal, y los flex-item irían de abajo hacia arriba.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="flex-container--direction">
+					<div class="flex__item">1</div>
+					<div class="flex__item">2</div>
+					<div class="flex__item">3</div>
+					<div class="flex__item">4</div>
+					<div class="flex__item">5</div>
+					<div class="flex__item">6</div>
+					<div class="flex__item">7</div>
+					<div class="flex__item">8</div>
+					<div class="flex__item">9</div>
+					<div class="flex__item">10</div>
+				</div>
+				<div class="flex-container--direction-2">
+					<div class="flex__item">1</div>
+					<div class="flex__item">2</div>
+					<div class="flex__item">3</div>
+					<div class="flex__item">4</div>
+					<div class="flex__item">5</div>
+					<div class="flex__item">6</div>
+					<div class="flex__item">7</div>
+					<div class="flex__item">8</div>
+					<div class="flex__item">9</div>
+					<div class="flex__item">10</div>
+				</div>
+				<div class="flex-container--direction-3">
+					<div class="flex__item">1</div>
+					<div class="flex__item">2</div>
+					<div class="flex__item">3</div>
+					<div class="flex__item">4</div>
+					<div class="flex__item">5</div>
+					<div class="flex__item">6</div>
+					<div class="flex__item">7</div>
+					<div class="flex__item">8</div>
+					<div class="flex__item">9</div>
+					<div class="flex__item">10</div>
+				</div>
+				<div class="flex-container--direction-4">
+					<div class="flex__item">1</div>
+					<div class="flex__item">2</div>
+					<div class="flex__item">3</div>
+					<div class="flex__item">4</div>
+					<div class="flex__item">5</div>
+					<div class="flex__item">6</div>
+					<div class="flex__item">7</div>
+					<div class="flex__item">8</div>
+					<div class="flex__item">9</div>
+					<div class="flex__item">10</div>
+				</div>
+				<h2 class="box__title">flex-wrap</h2>
+				<div class="box__text">
+					<p class="paragraph">Con esta propiedad podemos determinar que dirección tomaran los elementos cuando no quepan en s contenedor. Sus valores son:</p>
+				</div>
+				<div class="list__container">
+					<ul class="list">
+						<li class="list__item">
+							<code>nowrap</code>
+							<p class="list__item__text">Este es le valor por defecto que tiene flex, este indica que sus flex-items se acomoden solo en una linea, por lo que el ancho de dichos items se vera afectado para forzar el acomodo de los hijos.</p>
+						</li>
+						<li class="list__item">
+							<code>wrap</code>
+							<p class="list__item__text"> este indica que sus flex-items se acomoden dependiendo del ancho, asi que si el ancho de uno de los items topa con el ancho de el otro este se desplazara hacia abajo ya que sabe que ya no hay espacio en la primera linea (es como usar display block pero este varia).</p>
+						</li>
+						<li class="list__item">
+							<code>wrap-reverse</code>
+							<p class="list__item__text">Es lo mismo que wrap solo que en lugar de que los items fluyan hacia abajo lo aran hacia arriba. Este valor en particular casi no siempre se utiliza.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="flex-container--wrap">
+					<div class="flex__item">1</div>
+					<div class="flex__item">2</div>
+					<div class="flex__item">3</div>
+					<div class="flex__item">4</div>
+					<div class="flex__item">5</div>
+					<div class="flex__item">6</div>
+					<div class="flex__item">7</div>
+					<div class="flex__item">8</div>
+					<div class="flex__item">9</div>
+					<div class="flex__item">10</div>
+					<div class="flex__item">11</div>
+					<div class="flex__item">12</div>
+					<div class="flex__item">13</div>
+					<div class="flex__item">14</div>
+				</div>
+				<div class="flex-container--wrap-2">
+					<div class="flex__item">1</div>
+					<div class="flex__item">2</div>
+					<div class="flex__item">3</div>
+					<div class="flex__item">4</div>
+					<div class="flex__item">5</div>
+					<div class="flex__item">6</div>
+					<div class="flex__item">7</div>
+					<div class="flex__item">8</div>
+					<div class="flex__item">9</div>
+					<div class="flex__item">10</div>
+					<div class="flex__item">11</div>
+					<div class="flex__item">12</div>
+					<div class="flex__item">13</div>
+					<div class="flex__item">14</div>
+				</div>
+				<div class="flex-container--wrap-3">
+					<div class="flex__item">1</div>
+					<div class="flex__item">2</div>
+					<div class="flex__item">3</div>
+					<div class="flex__item">4</div>
+					<div class="flex__item">5</div>
+					<div class="flex__item">6</div>
+					<div class="flex__item">7</div>
+					<div class="flex__item">8</div>
+					<div class="flex__item">9</div>
+					<div class="flex__item">10</div>
+					<div class="flex__item">11</div>
+					<div class="flex__item">12</div>
+					<div class="flex__item">13</div>
+					<div class="flex__item">14</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h2 class="container__title">Alineamiento</h2>
+			<div class="col--rel">
+				<div class="box">
+					<h2 class="box__title">titulo</h2>
+					<div class="box__text">
+						<p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab odio ducimus itaque asperiores doloremque, inventore quidem, molestiae totam dignissimos possimus reprehenderit veniam eos repudiandae obcaecati earum. Quia aspernatur dolorum blanditiis!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Pie de página-->
+	<footer class="footer" id="footer">
+		<div class="footer__content content">
+			<div class="col--md col--footer">
+				<a href="#body" class="btn btn--shadow btn--footer">
+					<span class="btn__text">Subir</span>
+				</a>
+			</div>
+		</div>
+	</footer>
+</body>
+<script src="https://kit.fontawesome.com/92b3da59fb.js" crossorigin="anonymous"></script>
+
+</html>

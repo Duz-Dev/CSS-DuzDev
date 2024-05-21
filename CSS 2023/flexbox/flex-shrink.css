@@ -1,0 +1,14 @@
+/*Elimine los bordes par tener una mejor apreciacion de los tamaños*/
+.container-flex{
+    width: 400px;
+    /* border: none; */
+    overflow: hidden;
+}
+.item {
+    width: 200px;
+    /* border: none; */
+}
+/*flex-shrink*/
+.item:first-child{
+    flex-shrink: 0;
+}

@@ -1,0 +1,326 @@
+/*//Jugando con fixed---*/
+html {
+	--z-back:-10;
+	--z-normal:1;
+	--z-tooltip:10;
+	--z-fixed:100;
+	--z-modal:1000;
+
+	scroll-behavior: smooth;
+}
+
+body {
+	--header-height:140px;
+	--responsive-header-height:80px;
+	margin-top: var(--header-height);
+}
+
+:target { /*<--Indica que todo elemento que se tarjetea le sume 140px;*/
+	padding-top: var(--header-height);
+}
+
+#titulo:target {
+	margin-top: 0; /*Al tarjetear a el id titulo se le quitara el margin top*/
+}
+header {
+	position: fixed; /*el header quedara fijo*/
+	width: 100%;
+	background-color: #fff;
+	top: 0; /*y estará arriba del todo*/
+	z-index: var(--z-fixed);
+}
+
+header h1 {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+header h1::after {
+	content: 'Efecto hecho con fixed';
+	font-size: .5em;
+}
+
+header::after { /*<--pequeño experimento de seudoelementos con fixed*/
+	content: 'hola';
+	display: block;
+	font-size: 2em;
+	color: red;
+	position:absolute;
+	bottom: 0;
+	border:1px solid red;
+}
+
+header:hover::after {
+	color: blue;
+	top: 0;
+	right: 0;
+	bottom: initial;
+}
+
+.up { /*<--Botón para subir a arriba del todo*/
+	display: flex;
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	bottom: 2px;
+	right: 2px;
+	font-size: 3.5em;
+	justify-content: center;
+	border-radius: 10px;
+	border:2px solid red;
+	background-color: #fff;
+	color: red;
+}
+
+.up::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	bottom: 135%;
+	right: 0;
+	background-color: red;
+	color:#fff;
+	border-radius: 5px;
+	font-size: 1.27rem;
+	padding:2.5px;
+	transition: all .4s ease;
+	font-family: arial;
+	opacity: 0;
+}
+
+.up::before {
+	content: '';
+	position: absolute;
+	border-top: 12px solid currentColor; /* currentColor significa que toma el color del propiedad color del papá*/
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	transition: all 0.4s ease;
+	left:11px; /*para centrarlo se toma los 50px del ancho del papá, a eso se divide entre 2, que da 25, a eso se le resta los 15px de border de nuestro hijo, nos quedan 10 y esos 10 les restamos los 2px del border de papá (1px de left y 1px del right)*/
+	bottom: 111%;
+	opacity: 0;
+}
+
+.up:hover {
+	box-shadow: 0 0 5px 0 red inset;
+}
+.up:hover::after {
+	bottom: 130%;
+}
+.up:hover::before {
+	bottom: 111%;
+}
+
+.up:hover::after,.up:hover::before{
+	opacity: 1;
+}
+
+
+.up span { /*<--hijo del botón*/
+	font-size: .3em;
+	position: absolute;
+	color: #fff;
+	right: 110%; /*separa 10% mas del ancho del papá*/
+	bottom: 0;
+	transform: scale(1,0);
+	transition: transform .2s;
+	transform-origin: bottom;
+	background: rgba(0,0,0,.7);
+	padding: 5px;
+	width: 155px;
+}
+
+.up a {
+	color:red;
+}
+
+.up:hover span { /*al hacer hover en el botón quiero que se le apliquen los siguientes estilos*/
+	transform: scale(1,1);
+}
+/*Efecto con sticky*/
+
+.article {
+	width: 50%;
+	margin: 20px auto;
+}
+
+.article__title {
+	margin-bottom: 20px;
+}
+
+.article__subtitle {
+	margin: 10px 0;
+	position: sticky;
+	top: calc(var(--header-height) - 9px);
+	background-color: #fff;
+	z-index: var(--z-normal);
+}
+
+.article__texto-sintaxis {
+	margin: 10px 0 0;
+	width: 100%;
+}
+
+/*z index*/
+
+.dad {
+	background: hsla(60,100%,50%,.5);
+	height: 320px;
+	position: relative;
+	margin:10px 0;
+}
+.son {
+	--size: calc(320px / 3);
+	width: var(--size);
+	height: var(--size);
+	text-align: center;
+	font-size: 3em;
+	line-height: var(--size);
+	position: absolute;
+}
+
+.son:first-child {
+	background: hsla(300,100%,50%,.7);
+}
+
+.son:nth-child(2) {
+	background: hsla(200,100%,50%,.7);
+	top: 20%;
+	left: 18%;
+}
+
+.son:last-child {
+	background: hsla(100,100%,50%,.7);
+	top: 40%;
+	left: 37%;
+}
+
+.dad-2 .son:first-child {
+	background: hsla(300,100%,50%,.7);
+}
+
+.dad-2 .son:nth-child(2) {
+	--color-son:hsla(200,100%,50%,.7);
+	background: var(--color-son);
+	top: 20%;
+	left: 18%;
+	z-index: 1;
+}
+
+.dad-2 .son:nth-child(2)::after {
+	content: 'z-index: 1;';
+	font-size: 1.4rem;
+	display:block;
+	position: absolute;
+	background-color: var(--color-son);
+	top: 0;
+	left: 100%;
+	width: 110%;
+	opacity: 0;
+}
+
+.dad-2 .son:nth-child(2):hover::after {
+	opacity: 1;
+}
+
+.dad-2 .son:last-child {
+	background: hsla(100,100%,50%,.7);
+	top: 40%;
+	left: 37%;
+}
+
+.box-1, .box-1 h4 {
+	text-align: center;
+}
+
+.box-1 .box-sml {
+	float: none;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	padding:0;
+}
+
+.dad-3 {
+	height: 100%;
+	margin: 0;
+}
+
+.dad-3 .son{
+	z-index: -1;
+}
+
+
+.dad-3 .son:nth-child(3){
+	background: hsla(180,100%,50%,.6);
+	top: 60%;
+	left: 49%;
+	z-index: 0;
+}
+
+.dad-4 {
+	z-index: 1;
+}
+
+.dad-5 {
+	overflow: hidden;
+}
+
+.dad-5:hover {
+	overflow: initial;
+}
+
+.dad-5 .son:last-child {
+	top: 85%;
+	left: 0;
+}
+
+.dad-6 {
+	overflow: hidden;
+}
+
+.dad-6 .son:last-child {
+	top: 130%;
+	transition: all .5s ease-out .5s;
+}
+
+.dad-6 img {
+	width: 100%;
+	height: 100%;
+}
+
+.dad-6:hover .son:last-child {
+	top: 25%;
+	z-index: 1;
+}
+
+@media (max-width: 420px) {
+	
+	body {
+		margin-top: var(--responsive-header-height);
+	}	
+
+	:target { /*<--Indica que todo elemento que se tarjetea le sume 140px;*/
+		padding-top: var(--responsive-header-height);
+	}
+
+	header::after {
+		display: none;
+	}
+
+	.up {
+		width: 40px;
+		height: 40px;
+		font-size: 3em;
+	}
+
+	.up span {
+		width: 135px;
+	}
+
+	.article {
+		width: 100%;
+	}
+
+	.article__subtitle {
+		top: calc(var(--responsive-header-height) + 8px);
+	}
+
+}

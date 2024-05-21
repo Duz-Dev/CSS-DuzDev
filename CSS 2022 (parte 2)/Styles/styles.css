@@ -1,0 +1,992 @@
+
+
+/*-----------------------------------raíz----------------------------------------*/
+
+:root {
+  /*ES lo mismo que la etiqueta html pero tiene mas especificidad*/
+  scroll-behavior: smooth; /*El deslizamiento del scroll sera más suave*/
+
+  /*fuentes*/
+  --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Open Sans", sans-serif;
+  --body-font: Lato, sans-serif;
+  --font-family-consola: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+
+  /*medidas de z-index*/
+  --z-back: -10;
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+
+  /*Colores principales*/
+  --color-primary: #343a40;
+  --color-primary-transparent: #343a40bb;
+  --color-secondary: #505962;
+
+  /*Colores de degradado para lineas o contornos*/
+  --color-A: #0747a6;
+  --color-B: #0065ff;
+  --color-C: #4c9aff;
+  --color-D: #b3d4ff;
+  --color-E: #deebff;
+
+  /*Colores para texto*/
+  --color_nav-text: #fff;
+  --color-title: #2a3b47;
+  --color-text-item: #fff;
+  --color-box-text: #000;
+
+  /*Porcentajes*/
+  --height_nav: 50px;
+  --margin-b: 20px; /*Margin para poner a los contenedores grandes como el section por ejemplo*/
+
+  /*Tamaños de fuentes*/
+  --big-font-size: 3.5rem;
+  --h1-size: 2.25rem;
+  --h2-size: 1.75rem;
+  --h3-size: 1.25rem;
+  --h4-size: 1rem;
+  /*	--normal-font-size: .9375rem;*/
+  --normal-font-size: 1.05rem;
+  /*--small-font-size: .8125rem;*/
+  --small-font-size: 0.92rem;
+  --note-font-size: 1.1rem;
+}
+
+/*-------------------------------------------------------------------------------*/
+/*La solución a conservar el espacio del menú se puede usar position sticky pero actualmente no todos los navegadores lo incorporan totalmente.*/
+#body {
+  --separation-ma-top: calc(var(--height_nav) + 16px + var(--margin-b));
+  font-family: var(--body-font);
+  letter-spacing: 0.015rem; /*el espacio entre cada letra*/
+  margin-top: var(
+    --separation-ma-top
+  ); /*calculamos que el margin top del body sea la suma de la altura de el menú mas los 8px de top y 8 de bottom de el margin del los items internos + el tamaño de separación que queremos con respecto a los demás elementos para que se vean, en este caso seria la variable --margin-b*/
+}
+
+:target {
+  /*al tarjetear a un elemento este se le sumara el espacio del menú para que no termine tapando dicho elemento*/
+  padding-top: calc(var(--separation-ma-top) - 10px);
+}
+
+#body:target {
+  /*solo si se tarjetea a el body se le restara el margin.*/
+  margin-top: 0;
+}
+
+#footer:target {
+  padding-top: 0;
+}
+
+/*----------------------------Menú de navegación---------------------------------*/
+
+.menu {
+  /*el menú (nav)*/
+  background-color: var(--color-primary);
+  font-family: var(--font-family-sans);
+  font-weight: 500;
+  position: fixed; /*ponemos el menú fijo con respecto al viewport de la pantalla*/
+  width: 100%; /*aplicando fixed al tener un ancho automático se resetea por lo que ahora es importante especificar que queremos un ancho del 100%*/
+  top: 0; /*lo ponemos arriba del todo*/
+  z-index: var(
+    --z-fixed
+  ); /*con este le indicamos que va a ser el elemento que se encuentre arriba del todo por 100 niveles de z*/
+  padding-left: 20px;
+}
+
+.menu__list {
+  /*la lista (ul)*/
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex; /*El flex indica que los hijos se pongan unos alados de otros*/
+}
+
+.menu__item {
+  /*los contenedores de los botones (li)*/
+  width: 140px;
+  /*	height: var(--height-nav); Es mejor tener el height automático*/
+  position: relative;
+  background-color: var(--color-primary);
+}
+
+.menu__item:hover > .sub--menu {
+  /*al hacer hover en el cualquiera de los ítem el sub--menú aparecerá*/
+  display: block;
+}
+
+.menu__item--link {
+  /*los links (a)*/
+  display: flex; /*pongo display flex para manipular el contenido*/
+  justify-content: center; /*justifico el contenido al centro en un eje x (funciona con flex)*/
+  align-items: center; /* alineo el contenido en un eje y (funciona con flex)*/
+  text-decoration: none;
+  height: var(--height_nav);
+  color: var(--color_nav-text);
+  margin: 8px 0;
+  position: relative;
+}
+
+.menu__item--link:not(.menu__item--logo):hover {
+  background-color: var(--color-secondary);
+}
+
+/*--menu de abajo--*/
+
+.sub--menu {
+  /*el menú que esta dentro del menú*/
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: -1px;
+}
+
+.sub--menu .sub--menu {
+  left: 100%;
+  top: 0;
+}
+
+.sub--menu .menu__item {
+  width: 150px;
+  min-height: 40px;
+  max-height: 120px;
+  padding: 10px 0;
+}
+.sub--menu .menu__item--link {
+  width: 90%; /*le pongo 90% para centrarlo con margin*/
+  height: auto;
+  max-height: 100px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--color-C);
+  justify-content: initial; /*Solo le indico que el texto en lugar de que este centrado se vaya a donde estaba inicialmente que es hacia la izquierda*/
+  overflow: hidden; /*lo que se salga de la caja se oculte*/
+  word-break: break-word; /*rompe las palabras si se salen de la caja para que no se distoricione tanto*/
+}
+
+.sub--menu .menu__item:hover {
+  background-color: var(--color-secondary);
+}
+
+.sub--menu .sub--menu .menu__item--link {
+  border-color: transparent;
+  justify-content: center;
+}
+
+/*Ocultar los sub--menu*/
+
+.menu__item:hover > .sub--menu {
+  display: block;
+}
+
+/*--menu de arriba-*/
+.menu__item--link:not(.menu__item--logo)::after {
+  /*Seleccionamos los links con excepción de el logo (li) para crear un hijo(after)*/
+  content: "";
+  display: block;
+  position: absolute;
+  width: 79%;
+  height: 3px;
+  background-color: var(--color-B);
+  bottom: 10px;
+  transform: scale(0, 1);
+  transition: all 0.2s linear;
+  transform-origin: left;
+}
+
+.menu__item--link:hover::after {
+  /*Escalamos el ancho del hijo cuando pasemos el ratón sobre un link*/
+  transform: scale(1, 1);
+}
+
+.menu__item--logo-img {
+  /*Seleccionamos el logo (img)*/
+  height: calc(var(--height_nav) * 1.1);
+  width: 90%;
+  border-radius: 3px;
+}
+
+.sub--menu .menu__item--link::after {
+  /*evito que aparezca el subrayado para los items del sub menú.*/
+  display: none;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*-----------------------------Bloque: Content-----------------------------------*/
+
+.content {
+  /*es la etiqueta section del html*/
+  width: 90%;
+  margin: 0 auto calc(var(--margin-b) * 2);
+}
+
+.content__title {
+  margin-bottom: calc(var(--margin-b) + 5px);
+  clear: both; /*elimina espacios flotantes vacíos antes de este elemento y lo desplaza hacia abajo. Esta clase es auxiliar para que al poner elementos que no están flotando abajo de los que si flotan sigan un flojo "normal" */
+}
+
+.content__title__text {
+  font-size: var(--big-font-size);
+  color: var(--color-B);
+  border-bottom: 5px solid currentcolor;
+}
+
+[class*="title"]::first-letter {
+  /*selecciono la primera letra del texto del titulo*/
+  text-transform: uppercase; /*trasformo que el texto sea todo en mayúsculas*/
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*----------------------------Bloque: Container----------------------------------*/
+
+.container {
+  width: 100%;
+}
+
+.container__title {
+  font-weight: 800;
+  color: var(--color-title);
+  letter-spacing: 0.015em;
+  font-size: var(--h1-size);
+  margin-left: 10px;
+  margin-bottom: calc(var(--margin-b) / 2);
+  clear: both; /*limpia los espacios flotantes antes de este elemento y lo desplaza hacia abajo*/
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*-----------------------------Bloque: vídeo------------------------------------*/
+.video {
+  width: 90%;
+  height: 649px;
+  background-color: var(--color-secondary);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video__iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*--------------------------------Bloque: box------------------------------------*/
+
+.box {
+  width: 100%;
+  padding: 20px;
+  box-shadow: 4px 3px 12px 0 rgb(66, 64, 64);
+  margin-bottom: var(--margin-b);
+  border-left: 5px solid var(--color-B);
+}
+
+.box__title {
+  color: var(--color-title);
+  font-size: var(--h2-size);
+  margin-bottom: var(--margin-b);
+  margin-top:calc(var(--margin-b) / 2 );
+}
+
+.box__text {
+  line-height: 1.5rem; /*Es el interlineado de las palabras (es espacio entre cada linea de texto)*/
+  word-spacing: 1.5px; /*el espacio entre cada palabra*/
+  font-size: var(--normal-font-size);
+  margin-bottom: calc(var(--margin-b) / 2);
+  color: var(--color-box-text);
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*--------------------Bloque: Columnas Medianas (col--md)------------------------*/
+
+[class*="col--md"] {
+  --width-md: 48%;
+  width: var(--width-md);
+  float: left;
+}
+
+[class*="col--md"]:nth-of-type(even) {
+  /*Búscame en el html donde esta col--md, después quiero que cuentes cuantos hay de este tipo en su contenedor, posteriormente quiero que solo selecciones los pares(pares es igual a even)*/
+  margin-left: calc( (50% - var(--width-md)) * 2 ); /*Podría usar float right para empujar la 2da columna, pero la desventaja es que el al tener cajas de bajo de las columnas estas  se ordenaran correctamente en el flojo, es decir, no dejara que la caja izquierda y derecha estén al mismo nivel, lo que originaria que las cajas dentro de las columnas si o si deberían medir lo mismo lo cual es un hecho que no siempre se puede lograr esto. */
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*--------------------Bloque: Columna rel y rer (col--re)------------------------*/
+
+[class*="col--re"] {
+  float: left;
+  --col-rel-width: 64%;
+  --col-rer-width: 34%;
+}
+
+[class*="col--rel"] {
+  width: var(--col-rel-width);
+}
+
+[class*="col--rer"] {
+  width: var(--col-rer-width);
+}
+
+[class*="col--re"]:nth-of-type(even) {
+  margin-left: calc(
+    100% - (var(--col-rel-width) + var(--col-rer-width))
+  ); /*Calculo que sume el ancho del rer y rel para después restarlo a 100% del ancho del contenedor padre para así saber que cuanto es el sobrante y ponerlo en el margin left de la columna que este en una posición par.*/
+}
+/*Podría usar float right para empujar la 2da columna, pero la desventaja es que el al tener cajas de bajo de las columnas estas  se ordenaran correctamente en el flojo, es decir, no dejara que la caja izquierda y derecha estén al mismo nivel, lo que originaria que las cajas dentro de las columnas si o si deberían medir lo mismo lo cual es un hecho que no siempre se puede lograr esto. */
+
+/*-------------------------------------------------------------------------------*/
+
+/*-----------------------------Bloque: card--------------------------------*/
+.card {
+  border: 2px solid var(--color-A);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: var(--margin-b);
+}
+
+.box .card {
+  margin-bottom: 0;
+}
+
+/*--Imagen del card---*/
+.card__thumbnail {
+  min-width: 300px; /*al poner que el elemento tendrá un mínimo de ancho de 300px sus hermanos lo respetan, ojo, si coloco width solamente no lo respetan*/
+  height: 300px;
+  overflow: hidden; /*Oculta los elementos que se salen del contenedor*/
+  margin-right: 20px;
+  position: relative;
+  transition: all 0.5s;
+  border-radius: 10px;
+}
+
+.card__thumbnail__img {
+  width: 100%;
+  height: 100%;
+  transition: inherit; /*obligo a que acepten los valores de tradición de su papá*/
+}
+
+.card__thumbnail__note {
+  background-color: var(--color-primary-transparent);
+  color: var(--color-text-item);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 90%;
+  padding: 0 20px;
+  transition: inherit; /*obligo a que acepten los valores de tradición de su papá*/
+}
+
+.card__thumbnail__note__head {
+  display: block;
+  font-family: var(--font-family-title);
+  font-weight: 550;
+  margin: 2.5% 0 20px;
+  text-align: center;
+}
+
+.card__thumbnail__note__text {
+  font-size: var(--note-font-size);
+  line-height: 1.4rem;
+  word-spacing: 0.2rem;
+  letter-spacing: 0.025rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 4px 6px;
+  border-radius: 5px;
+  text-align: center;
+  height: 80%;
+}
+
+.card__thumbnail:hover .card__thumbnail__img {
+  transform: scale(0.8);
+}
+
+.card__thumbnail:hover .card__thumbnail__note {
+  top: 0;
+}
+/*--------------------*/
+
+.card__title {
+  font-size: var(--h2-size);
+  font-family: var(--font-family-sans);
+  margin-bottom: 0;
+  position: absolute;
+  top: 50px;
+}
+
+.card__link {
+  color: var(--color-title);
+  text-decoration: none;
+}
+
+.card__paragraph {
+  line-height: 28px;
+  font-size: var(--normal-font-size);
+  /* 	margin-bottom:calc(var(--margin-b)*3);*/
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*-----------------------------Bloque: botón (btn)-------------------------------*/
+
+.btn {
+  background-color: var(--color-B);
+  display: inline-flex;
+  min-width: 170px;
+  height: 50px;
+  padding: 0 30px;
+  color: var(--color-text-item);
+  border-radius: 100px;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+}
+
+.btn:hover {
+  background-color: var(--color-A);
+}
+
+.btn--card {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+}
+
+.btn--card:hover {
+  bottom: 50px;
+}
+
+.btn--card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: gray;
+  width: 90%;
+  height: 15px;
+  top: 120%;
+  left: 5%;
+  border-radius: 50%;
+  transition: inherit; /*lo obligo a heredar las mismos efectos de transición del papá*/
+}
+
+.btn--card:hover::after {
+  width: 60%;
+  left: 20%;
+}
+/*---------------*/
+
+.btn--shadow {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+}
+
+.btn--shadow:hover {
+  bottom: 50px;
+}
+
+.btn--shadow::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: gray;
+  width: 90%;
+  height: 15px;
+  top: 120%;
+  left: 5%;
+  border-radius: 50%;
+  transition: inherit; /*lo obligo a heredar las mismos efectos de transición del papá*/
+}
+
+.btn--shadow:hover::after {
+  width: 60%;
+  left: 20%;
+}
+
+/*----btn--up----*/
+.btn--up {
+  background-color: hsl(130, 85%, 60%);
+  padding: 0 30px;
+  min-width: 150px;
+}
+
+.btn--up:hover {
+  background-color: hsl(130, 90%, 35%);
+}
+/*--------------*/
+
+/*-------------------------------------------------------------------------------*/
+
+/*----------------------------Bloque: Consola-----------------------------------*/
+
+.console {
+  width: 100%;
+  background-color: #1b2b34ff; /*es del mismo color que sublime xd*/
+  font-family: var(--font-family-consola);
+  padding: 0 30px;
+  font-size: var(--normal-font-size);
+  padding-bottom: var(--normal-font-size);
+  white-space: pre-line; /*con esta propiedad puedo indicarle a css que me respete también ya sea los espacios (o no) o saltos de lineas o ambos. En este caso puse que solo respete los saltos de linea(pre-line)*/
+  color: var(--color-text-item);
+}
+
+/*code: para palabras que hagan alusión a un código, es independiente de console pero para tenerlo ubicado lo adjunto a este*/
+code {
+  font-size: var(--small-font-size);
+  font-family: var(--font-family-consola);
+  background: #eff3f5;
+  border: 1px solid #eff3f5;
+  color: #eb5656;
+  padding: 0 0.2em;
+  margin: 0 0.1em;
+  word-break: break-all;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*-------------------------Modificadores: colors--------------------------------*/
+
+.b {
+  color: #fff !important;
+}
+
+.or {
+  color: orange !important;
+}
+
+.gr {
+  color: #65737e !important;
+}
+
+.red {
+  color: red !important;
+}
+
+.ve {
+  color: lime !important;
+}
+
+.alert {
+  /*para textos que quieran resaltar algo o advertir algo.*/
+  color: hsla(60, 100%, 50%, 0.8) !important;
+  border-bottom: 1px solid;
+}
+
+/*--Colores de sublime--*/
+
+.ve-sb {
+  color: #60b394 !important;
+}
+
+.red-sb {
+  color: #eb514b !important;
+}
+
+.blue-sb {
+  color: #6699cc !important;
+}
+
+.pu-sb {
+  color: #bb80a8 !important;
+}
+
+.ye-sb {
+  color: #fac863 !important;
+}
+
+/*----------------------*/
+
+/*-------------------------------------------------------------------------------*/
+
+/*------------------------Modificadores: background------------------------------*/
+
+.bg-dark {
+  background-color: var(--color-primary);
+}
+
+.bg-dark-transparent {
+  background: var(--color-primary-transparent);
+}
+
+.bg-light {
+  background-color: var(--color-D);
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*--------------------------Modificadores: border--------------------------------*/
+
+[class*="border"] {
+  border: 1px solid;
+}
+
+.border-light {
+  border-color: var(--color-C);
+}
+
+.border-dark {
+  border-color: var(--color-A);
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*------------------------------bloque: list-------------------------------------*/
+
+.list__item__text {
+  display: inline;
+  line-height: 1.5rem;
+  word-spacing: 1.5px;
+  font-size: var(--small-font-size);
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*-----------------------------Propiedades---------------------------------------*/
+
+.not-visible {
+  visibility: hidden;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*--------------------------------footer-----------------------------------------*/
+
+.footer {
+  background-image: linear-gradient(#343a40, #505962);
+  height: 110px;
+  position: relative;
+  clear: both; /** Si hay cajas en sima de el footer con float para que el footer se vaya para abajo le ponemos both, ya que borra espacios vacíos y lo desplaza hacia abajo*/
+}
+
+.footer__content {
+  margin-bottom: 0;
+  height: 100%;
+}
+
+.col--footer {
+  padding: 20px 10px 0;
+}
+
+.footer__text {
+  color: var(--color-text-item);
+  font-size: var(--note-font-size);
+  letter-spacing: 0.2rem;
+  word-spacing: 0.025rem;
+  font-weight: 600;
+}
+
+.footer__author {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer__author::before {
+  content: "Autor del sitio: ";
+  color: #7f868c;
+}
+
+.footer__contact__text {
+  color: #7f868c;
+}
+
+.footer__link {
+  color: var(--color-text);
+  text-decoration: none;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
+  padding-left: 10px;
+  border-radius: 50%;
+  transform: scale(1.5);
+  background-color: gray;
+}
+
+.icon-face:hover {
+  background-color: var(--color-B);
+}
+
+.icon-face:active {
+  background-color: var(--color-A);
+  transform: scale(1.4);
+}
+
+/*btn--footer*/
+
+.btn--footer {
+  background-color: var(--color-secondary);
+  transform: scale(0.85);
+  border: 1px solid var(--color-D);
+  justify-content: center;
+}
+
+.btn--footer:hover {
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-C);
+}
+
+.btn--footer .btn__text {
+  font-weight: 600;
+  font-size: var(--note-font-size);
+}
+
+.btn--footer::after {
+  background-color: var(--color-secondary);
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*-------------------------Columnas: sml (col--sml)------------------------------*/
+
+[class*="col--sml"] {
+  --width-sml: 24%;
+  width: var(--width-sml);
+  float: left;
+}
+
+[class*="col--sml"]:not(:first-of-type) {
+  margin-left: calc(25% - var(--width-sml));
+}
+/*-------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------*/
+
+.box--card {
+  min-height: 350px;
+  height: 500px;
+  max-height: 500px;
+  overflow: hidden;
+  border-color: var(--color-C);
+  box-shadow: 3px 4px 4px 4px rgba(66, 64, 64, 0.42);
+  margin-bottom: calc(var(--margin-b) * 2);
+  border-top: 0.02px solid var(--color-primary-transparent);
+  position:relative;
+}
+
+.box--card .box__title {
+  margin-bottom: calc(var(--margin-b) / 4);
+}
+
+.box__thumbnail {
+  margin-bottom: 10px;
+  overflow: hidden;
+  border-radius: 5px;
+  display: block;
+}
+
+.box__thumbnail__content {
+  height: 160px;
+  position: relative;
+  transition: all 0.4s;
+}
+
+.box__thumbnail__img {
+  width: 100%;
+  height: 100%;
+  transition: inherit;
+}
+
+.box__thumbnail__note {
+  background-color: var(--color-primary-transparent);
+  color: var(--color-text-item);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 90%;
+  padding: 0 20px;
+  transition: inherit; /*obligo a que acepten los valores de tradición de su papá*/
+}
+
+.box__thumbnail__note__head {
+  display: block;
+  font-family: var(--font-family-title);
+  font-weight: 550;
+  text-align: center;
+}
+
+.box__thumbnail__note__text {
+  font-size: var(--note-font-size);
+  line-height: 1.4rem;
+  word-spacing: 0.2rem;
+  letter-spacing: 0.025rem;
+  padding: 4px 6px;
+  border-radius: 5px;
+  text-align: center;
+  height: 80%;
+}
+
+.box__thumbnail:hover .box__thumbnail__img {
+  transform: scale(0.9);
+}
+
+.box__thumbnail:hover .box__thumbnail__note {
+  top: 0;
+}
+
+.box__subtitle {
+  color: var(--color-C);
+  margin-bottom: 5px;
+}
+
+.box__text {
+  padding: 2px 5px;
+}
+
+.box__links--item {
+  display: block;
+  padding: 3px 10px;
+  margin-bottom: 5px;
+  color: var(--color-B);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-secondary);
+  width: 100%;
+  height: 1.5em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.modal {
+  /* le damos estilos al modal, este es el que contendrá todos los elementos*/
+  background-color: rgba(0, 0, 0, 0.75);
+  color: var(--color-text-item);
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: var(--z-modal);
+  transition: all 0.35s ease;
+}
+
+.modal__content {
+  /*Este sera el menú que estará adentro del modal*/
+  background-color: var(--color-secondary);
+  width: 30%;
+  height: 50%;
+  position: absolute;
+  top: var(
+    --height_nav
+  ); /*todo: es importante mantener el left y el right ya que que si le indicamos que estos están en 0 podemos centrar el elemento con margin*/
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: var(--z-modal);
+}
+
+.modal__header {
+  /*La cabecera del menú__content*/
+  background: var(--color_nav-text);
+  width: 102%;
+  position: relative;
+  left: -1.2%;
+  padding: 5px 10px;
+  border-left: 4px solid var(--color-B);
+  border-radius: 5px;
+  margin-bottom: var(--margin-b);
+}
+
+.modal__header__title {
+  /*El titulo que esta dentro del menu__content*/
+  font-weight: 500;
+  color: var(--color-title);
+}
+
+.box--modal {
+  /*la caja que esta dentro del modal, que asu ves esta dentro el menu__content*/
+  background-color: var(--color-text-item);
+  border: none;
+  width: 95%;
+  height: 80%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+/** Uso las clases de tipo atributo ya que de esta manera puedo aplicarle los mismos estilos acada uno de las ids. Esto me es util ya que utilizo básicamente la misma id pero añadiéndole el numero de modal que es, ejemplo al modal uno le puse moda-1, al segundo modal-2 y así sucesivamente; de esta manera puedo indicarle que al dar click a los radio no habrán el mismo modal si no el modal que les corresponde dependiendo del numero, ya que el css respeta el código del html para saber a que modal tarjetear.*/
+
+[id^="open-modal"],
+[id^="close-modal"] {
+  /*Con este hacemos que el círculos (radio) no se vea.*/
+  display: none;
+}
+
+[id^="open-modal"] + label {
+  /*Cambia el estilo del label que le corresponde en el html con for y con el + a su ves indica como si el elemento radio y el label fueran uno.*/
+  background: var(--color-B);
+  display: block;
+  width: 195px;
+  margin: 0 auto;
+  color: var(--color-text-item);
+  line-height: 3em;
+  padding: 0 1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  position: absolute;
+  bottom:20px;
+  left:14%;
+}
+
+[id^="open-modal"] + label:hover {
+  /*al pasar el ratón aplica los siguientes estilos.*/
+  background-color: var(--color-A);
+}
+
+[id^="open-modal"]:checked ~ [id^="modal"] {
+  /*Al car click al open (radio) aplicara los siguientes estilos al modal*/
+  top: 0;
+  transition: all 0.35s ease;
+}
+
+[id^="close-modal"] + label {
+  /*sucede lo mismo que en el open solo que para el close aplicamos otros estilos*/
+  position: fixed;
+  top: -100vh;
+  right: 35%;
+  color: var(--color-text-item);
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--color-primary);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  z-index: calc(var(--z-modal) + 1);
+  transition: all 0.35s ease;
+}
+
+[id^="open-modal"]:checked ~ [id^="close-modal"] + label {
+  /*al dal click al open queremos que el label tome los siguientes estilos.*/
+  top: calc(var(--height_nav) + 4px);
+}
+/*------------------------------------------------------*/
+
+.box__content__img {
+  width: 90%;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.box__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}

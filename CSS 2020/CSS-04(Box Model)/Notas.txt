@@ -1,0 +1,95 @@
+4.-Box Modal
+
+4.1 Layout
+
+El layout(diseño) es la geometriade los elementos que define como, con que tamaño, con qué separacion respecto a los elementos adyacentes y en qué posicion se van a dibujar en la pantalla; cuanto mide cada elemento, su alto, su ancho etc. 
+Si sumas la geometria de cada elemento obtienes toda la página.
+
+4.2 Inline y de bloque
+
+inline: 
+.-No crean nuevas lineas para cada elemento. Basicamente es que cada elemento que se cree se adjuntaran en forma horizontal, y no saltara a la siguiente fila.
+
+.-Tinen ancho pero no tienen alto. Si tienen alto pero no se les puede definir.
+
+.-Se ajustan a su contenido.
+
+Bloque:
+
+.-Crean una nueva linea para cada elemento.
+
+.-Ocupan todo el espacio horizontal disponible. Todo el tamaño que puedan ocupar lo abarcaran.
+
+.-Tienen ancho y alto.
+
+inline-block:
+
+.-Combina lo mejor de los dos mundos puede acomodarse a la par en horizontal y tambien podemos modificar su alto y ancho.
+
+none:
+
+.-Indica que el elemento no se vea.
+
+4.3 Box Model 
+
+Es el algoritmo por el cual el navegador dibuja las cajas en pantalla. Algo a recalcar es que solo los elementos en bloque siguen este parametro.
+
+En este modelo tenemos 3 cajas el de contenido, el padding, border y una caja imvisible "margin".
+
+!Contenido(content box)
+!Padding Box(padding box):
+.-Es la separacion entre el contenido y el borde 
+!Border(Border box)
+!Margin(Separacion de la caja con las cajas adyacentes):
+
+4.4 Margin 
+
+La caja invisible.
+Tiene 4 propiedades y un shorthand margin(es una propiedad que agrupa a varias )
+	/*margin-top: 50px;
+	margin-right: 100px;
+	margin-bottom: 200px;
+	margin-left: 30px;*/
+	margin: 50px 100px 200px 30px; /*esto es lo mismo que lo anterior y se denomina shorthand*/
+	tabien funciona
+	mmargin:50px 100px; y repite arriba y abajo 50 y a los costados 100px.
+	Tambien se pueden declarar tamaños en porcentajes los cuales se ponen en comparacion al contenedor en donde esta(el papá en otras palabras).
+
+4.5 Colapsado de margenes verticales
+
+El colapsado de margenes solo sucede de manera vertical y lo que sucede es que los margenes verticales se colapsan, se juntan; esto es raro pero existe. Se puede solucionar añadiendo un padding a nuestro contenedor, o eliminando el maring top de nuestro hx.
+
+Algo a tener en cuenta es que en cuestion de sintaxis los margins no se suman, es decir, si tu pones ejemplo:
+
+p {
+	margin-bottom:100px;
+}
+
+y después declaras 
+
+p2 {
+	margin-top:100px;
+}
+Solo veremos que en la página se ve que se desplazo no 200px, si no 100px; esto es porque el navegador solo leé como correcto al margin con mayor numero de pixeles, en nuestro caso ambos margins miden lo mismo mas si uno idiera 200px y el otro 100px veriamos que el que se motraria es el de 200px.
+Si agregaramos un margen negativo si se reduciria, pero si hablamos de margenes positivos vemos que se colapzan.
+
+No existe una manera directa para solucionar este fenomeno, pero las buenas practicas dicen que lo correcto es trabajar con margenes en una sola direccion en lugar de arriba y abajo a su vez, y lo recomendable es trabajar con margin bottom ya que si usamos margin top generariamos comportamientos inesperados por ejemplo que el primero se separara de la parte superior de nuestra pantalla.
+
+4.6 Padding
+
+Sabemos que margin es la separacion de la caja con lo que hay afuera, mientras que el padding es la separacion de la caja con lo que esta adentro. (Magin(afuera) padding(adentro)).
+
+Si trabajamos con porcentajes en padding este sera relativo al width del papá; en margin en margin-top podia ser relativo al ancho del papá, el padding vertical es relativo al ancho, Una locura :v.
+
+4.7 Dimensiones
+
+Partimos de dos tipos Las declaradas y las automaticas.
+
+Declaradas: es la que definimos con width y height.
+ Si es un -tamaño fijo- utilizamos width y height y ya, pero recuerda declarar box-sizing ya que si no el padding y el border van a sumarse con el width y al height, es por ello que es recomendable utilizar siempre con el selector universal box-sizing:border-box;, asi el width y el height que escribamos no se van a modificar.
+
+ Si es por porcentaje dependen del papá, y height solo para tamaños definidos,no automaticos.
+
+Automatico: este lo vemos mas en los contenedores que tienen texto o elementos que se adecuan automaticamente a este, como ya se meciono estos si se pueden declarar con un width definido pero no con height diferente al que se le proporsiona por defecto.
+
+

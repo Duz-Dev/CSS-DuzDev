@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<meta charset="UTF-8"><!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> <!--Compatible con edge-->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> <!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="Styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="Styles/styles-default.css">
+	<link rel="stylesheet" type="text/css" href="Styles/styles.css">
+	<title>CSS-13</title>
+</head>
+<body>
+	<header>
+		<h1>Practicas de la clase 13</h1>
+	</header>
+	<section>
+		<h2>Position 1</h2>
+		<div class="big-box">
+			<h3>Espacio reservado y flujo</h3>
+			<div class="box box-xl">
+				<h4>¿Qué es position?</h4>
+				<p>
+					Position es un modulo de css, un tipo de display que nos permite poner cualquier elemento del layout donde se nos de la gana, claro esto implica que si no lo hacemos bien terminaremos con elementos en lugares donde no queremos que este.				
+				</p>
+				<p>
+					Veremos unos conceptos para comprender ya todo lo que implica esta propiedad ya que como nos permite manipular el elemento con toda libertad tiene sus reglas.
+				</p>
+				<br>
+				<p>
+					<b>Flujo:</b>Se refiere a el orden que siguen los elementos como lo vamos escribiendo en el código. Explicando, si ponemos un h1 primero este ira en esa posición y si después ponemos un párrafo este ira después del h1 y asi sucesivamente.
+				</p>
+				<br>
+				<div class="box box-sml-2">
+					<h1>Title</h1>
+					<br>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis nostrum a voluptatibus illum accusantium distinctio culpa ratione recusandae consectetur ipsum sint corporis quaerat enim repudiandae, non iusto, cupiditate, id deserunt.
+					</p>
+					<br>			
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis nostrum a voluptatibus illum accusantium distinctio culpa ratione recusandae consectetur ipsum sint corporis quaerat enim repudiandae, non iusto, cupiditate, id deserunt.
+					</p>		
+					<br> 
+					<span class="gr">//ejemplo del flujo</span>
+				</div>
+				<div class="box box-sml-3">
+					<p style="text-align: center;">
+						Ya con CSS podemos manipular esto.
+					</p>
+					<br>
+					<div class="box box-xl-1">
+						<h1>Title</h1>
+						<p class="p1">
+							(Este Parrafo estaria arriba) dolor sit amet, consectetur adipisicing elit. Omnis nostrum a voluptatibus illum accusantium distinctio culpa ratione recusandae consectetur ipsum sint corporis quaerat enim repudiandae, non iusto, cupiditate, id deserunt.
+						</p>			
+						<p class="p2">
+							(Y este abajo)rem ipsum dolor sit amet, consectetur adipisicing elit. Omnis nostrum a voluptatibus illum accusantium distinctio culpa ratione recusandae consectetur ipsum sint corporis quaerat enim repudiandae, non iusto, cupiditate, id deserunt.
+						</p>		
+					</div>
+				</div>
+				<p>
+					<b>Espacio reservado:</b> Con este nos referimos a el espacio que guarda el navegador para cada elemento, el navegador cuando lee el código dibuja todo los elementos y calcula donde va cada elemento. Al igual hay casos en que el memento tiene un espacio reservado y lo va a conservar aun que lo movamos.
+				</p>
+				<div class="box box-xl-4">
+					<h1>Title</h1>
+					<p class="p1">
+						Arriba de este parrafo hay un h1 pero no le podemos ver por opacity ni a su vez seleccionar, aun y así conserva su espacio.
+					</p>			
+					<h2>Title</h2>
+					<p class="p2">
+						Arriba esta un h2 pero este no se ve por el display none, por que le indicamos que el elemento no se muestre pero aun y asi el espacio ya no lo conserva.
+					</p>		
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Propiedad Offset</h3>
+			<div class="box box-xl">
+				<h4>Position:</h4>
+				<p>
+					Es una propiedad de CSS que puede ser static, relative, absolute, fixed o sticky (este ultimo es el mas nuevo) y según el tipo de valor que le apliquemos a esta propiedad el elemento se va acomodar de manera diferente. Generalmente cuando hablamos de display entendemos como funciona por lo simple que es, le indicamos que se muestre como bloque o como linea o ambos o que no se muestre, pero con position la cosa cambia ya que cada valor es un mundo.
+				</p>
+				<p>
+					Comenzamos sabiendo que todos los elementos por default son position: static, ¿qué significa static? este indica que los elementos sigan su flujo normal como viene en el código; y dicho lo anterior es tanto así que solo se considera elementos posicionados a los demás valores con excepción de static. Ahora para comprender primero estos valores tenemos que ver primero <span class="red">offset</span> .
+				</p>
+				<h4>Offset:</h4>
+				<p>
+					las propiedad offset son los valores que mueven un elemento posicionado. Sus valores son: <b>Top, right, bottom, left</b>, y esos los podemos aplicar solo a los que ya mencionamos que solo se consideran posicionados (relative, absolute, fixed o sticky/ static NO).<br>Ejemplo:
+				</p>
+				<br>
+				<div class="box box-sml">
+					<div class="box-bb">
+						<span class="pu">.title</span> {
+						/*position: relative*/
+						top: 100px;
+						<span class="gr">//Esto no cambio nada ya que esta en static.</span>
+					</div>
+					<h4>Title</h4>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum eius reprehenderit accusantium, maxime nemo, porro voluptatibus. 
+					</p>
+				</div>
+				<div class="box box-sml">
+					<div class="box-bb">
+						<span class="pu">.title</span> {
+						<span class="ye">position</span>:<span class="or">relative</span>
+						<span class="ye">top</span>: <span class="or">100px</span>;
+						<span class="gr">//Esto cambio ya que tiene la posición en relativo.</span>
+					</div>
+					<h4 class="titulillo">Title</h4>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum eius reprehenderit accusantium, maxime nemo, porro voluptatibus.
+					</p>
+				</div>
+				<p>
+					Estos cuatro valores mueven el elemento según el borde indicado 
+				</p>
+				<br>
+				<div class="box box-xl border-top">
+					<h4 >Title</h4>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat dolor quasi similique officiis, ex repellat neque ab magnam facere eos sit totam veniam ratione iure beatae consequatur, a, provident ea. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi iusto ea at amet mollitia accusantium ut voluptatum adipisci, quia suscipit porro fugit animi rerum asperiores. Consequatur fugiat perspiciatis esse tempore.
+					</p>
+					<div class="box-bb">
+						h4 {
+						border-top: 2px solid red;
+						position: relative;
+						bottom: 40px;}
+					</div>
+				</div>
+				<p>
+					Lo importante a entender es que <b>top, bottom, left y right</b> son el lado que se toma de referencia para mover un elemento, y otra cosa importante es que todos los elementos van a tener una referencia desde la cual se van a mover, por ejemplo no es lo mismo un top 100px relative a uno de 100px absolute, ¿Cuál es esa referencia? esta ya depende de el position que usemos.
+				</p>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Position relative</h3>
+			<div class="box box-rel">
+				<h4>Definición:</h4>
+				<p>Sus características son:</p>
+				<br>
+				<p>Su referencia en este caso es su posición inicial.</p>
+				<p>El valor de relative por si solo no altera el layout (geometría) del elemento al que se le aplica.</p>
+				<p>Al usarlo con las propiedades offset su espacio se reserva.</p>
+				<p>
+					Las ventajas de relative son muchas ya que podemos alterar el lugar del elemento de una forma limpia a diferencia del primer ejemplo de margin el cual tuvimos que calcular poco a poco como se veía para que se viera bien, ya que con margin se altera todo el layout y con relative no.
+				</p>
+			</div>
+			<div class="box box-rer">
+				<h4>ejemplo</h4>
+				<span class="or relative">estoy aplicando el relative con top 20px y conservo mi espacio.</span>
+				<br><br>
+				<p>Lorem  tempora nulla lorem dadsadasasdsdsdasd, sisdsdasd, sisdsdasd, sisdsdasd, sisdsdasd, sisdsdasd, sit officiis neque.</p>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Position absolute</h3>
+			<div class="box box-sml flex">
+				<h4>Definición</h4>
+				<p>Pierde su posición el el flujo y no reserva su espacio</p>
+				<p>Si tenia dimensiones fijas estas se mantienen (que el width y tal estén especificados), pero si este tiene dimensiones automáticas se ajustara a su contenido, por ejemplo los elementos bloques tienen un width del 100% por automático pero con absolute esto se cambia a un width que se ajusta a su mismo contenido si es que no se a declarado un width.<br><br> Al igual indicando el ultimo punto del texto es que si el elemento es inline este pasa a ser un elemento sin display definido, una especie de inline-block seria lo mas similar ya que se ajusta sus dimensiones, al fin de acabo se altera su flujo.</p>
+				<p>
+					Su referencia es su ancestro posicionado mas cercano. Con ancestro significa al papá o abuelo o tatarabuelo etc así sucesivamente hasta encontrar un contenedor que tenga una position. El anterior punto es el mas importante ya que nos da el punto del cual parte nuestro absolute, y algo a recalcar es que su referencia no forzosamente tiene que ser un relative también puede ser un absolute o cualquier otro position.
+				</p>
+			</div>
+			<div class="box box-sml flex">
+				<h4>Ejemplo</h4>
+				<div class="boxi">
+					<span class="letter-1">♥</span>
+					<span class="letter-2">○</span>
+				</div>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Ejercicio Menú desplegable</h3>
+			<div class="box box-xl container-nav">
+				<nav class="navbar">
+					<ul class="menu">
+						<li class="list-item"><a  class="menu-link" href="">Nosotros</a></li>
+						<li class="list-item"><a  class="menu-link" href="">Cursos</a>
+							<ul class="menu submenu">
+								<li class="list-item"><a  class="menu-link" href="">Programación</a></li>
+								<li class="list-item"><a  class="menu-link" href="">Diseño</a></li>
+								<li class="list-item"><a  class="menu-link" href="">Emprender</a>
+									<ul class="menu submenu">
+										<li class="list-item"><a href="" class="menu-link">Gestión de proyectos web</a>
+											<ul class="menu submenu">
+												<li class="list-item"><a href="" class="menu-link">Página web</a></li>
+											</ul>
+										</li>
+										<li class="list-item"><a href="" class="menu-link">Taller de Emprendimiento</a></li>
+									</ul>
+								</li>								
+							</ul>
+						</li>
+						<li class="list-item"><a  class="menu-link" href="">Blog</a></li>
+						<li class="list-item"><a  class="menu-link" href="">Contactamos</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="big-box">
+			<h3>Ejercicio Cart</h3>
+			<div class="box box-xl">
+				<div class="card">
+					<img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/45563229856031.5611fc1811e24.png" alt="imagen future funk" class="card-img">
+					<p class="card-title">Future funk</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>	

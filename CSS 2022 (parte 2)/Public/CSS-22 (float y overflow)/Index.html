@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<!--Set de caracteres(comas, eñes etc)-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--Compatible con edge-->
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<!--Para dispositivos móviles-->
+	<link rel="stylesheet" type="text/css" href="../../Styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../../Styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="styles-page.css">
+	<title>CSS Desde 0 | CSS-21</title>
+</head>
+
+<body id="body">
+	<header>
+		<nav class="menu">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html"
+						class="menu__item--link menu__item--logo" target="_blank">
+						<img class=" menu__item--logo-img"
+							src="https://mygithome.000webhostapp.com/CSS-Desde%200/Media/logo-nav-2.png" alt=""></a>
+				</li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" class="menu__item--link"
+						target="_blank">Inicio</a>
+				</li>
+				<li class="menu__item"><a href="#" class="menu__item--link">HTML</a></li>
+				<li class="menu__item">
+					<a href="https://mygithome.000webhostapp.com/CSS-Desde%200/Index.html" target="_blank"
+						class="menu__item--link">CSS-Básico</a>
+				</li>
+				<li class="menu__item"><a href="../../Index.html" class="menu__item--link">CSS-Avanzado</a></li>
+				<li class="menu__item"><a href="#footer" class="menu__item--link">Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!--sección con el vídeo del sitio-->
+	<section class="content">
+		<div class="container">
+			<div class="video">
+				<iframe class="video__iframe" src="https://www.youtube.com/embed/ErVyEDHKVM4" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+	<!--Sección de contenido-->
+	<section class="content">
+		<h1 class="content__title"><span class="content__title__text">Overflow y float</span></h1>
+		<div class="container">
+			<h2 class="container__title">Overflow</h2>
+			<div class="box">
+				<h2 class="box__title">Propiedad:</h2>
+				<div class="box__text">
+					<p class="paragraph">
+						Esta propiedad va de la mano de el modelo de caja se podría decir, ya que esta sirve para indicar que todo lo que se desborde (salga) de su contenedor se oculte o se creé un scroll, esto ultimo ya dependerá de el valor que le asignemos.
+					</p>
+					<h2 class="box__title">Sintaxis</h2>
+					<p class="paragraph">
+						Se escribe como<code>overflow</code>y esta se puede aplicar a todos los contenedores, y sus valores son:
+					</p>
+				</div>
+				<div class="list">
+					<ul class="list__container">
+						<li class="list__item"><code>auto</code>
+							<p class="list__item__text">Crea un scroll en la parte derecha de la caja para poder desplazarnos dentro de su contenido</p>
+						</li>
+						<li class="list__item"><code>scroll</code>
+							<p class="list__item__text">lo mismo que que auto solo que muestra igualmente el scroll horizontal aunque no haya elementos que se desborden hacia dicha dirección.</p>
+						</li>
+						<li class="list__item"><code>hidden</code>
+							<p class="list__item__text">
+								Todos los elementos que se salgan del contenedor no se visualizaran.
+							</p>
+						</li>
+					</ul>
+				</div>
+				<h2 class="box__title">Ejemplo</h2>
+				<article>
+					<h3>article sin overflow</h3>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!
+				</article>
+				<article>
+					<h3>article con overflow auto</h3>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!
+				</article>
+				<article>
+					<h3>article con overflow scroll</h3>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!
+				</article>
+				<article>
+					<h3>article con overflow hidden</h3>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, perspiciatis recusandae delectus magni optio, a odit, odio minima obcaecati voluptatem rem. Unde quam aliquid nobis distinctio laborum et voluptate suscipit.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae quia aspernatur nihil beatae consequuntur illo, voluptatibus nostrum eius cum deserunt eveniet a odio fuga, numquam nulla, iusto recusandae dignissimos!
+				</article>
+			</div>
+		</div>
+		<div class="container">
+			<h2 class="container__title">Float</h2>
+			<div class="box">
+				<h2 class="box__title">Propiedad</h2>
+				<div class="box__text">
+					<p class="paragraph">Esta propiedad se usaba antes para todo ya que era la unica manera de poder orientar los elementos de una página web. Actualmente existe el modulo de flexbox y grid que son con lo que Actualmente se maqueta.</p>
+					<p class="paragraph">Float aun y asi sigue siendo util pero con lo anterior dicho este ya no relevante, es, mas este no se deberia de usar ya que este genera muchos problemas que se pueden evitar sabiendo los dos modulos antes mencionados.</p>
+					<p class="paragraph">Pero no todo es malo con float, con el podemos mandar a flotar a elementos bloque y con ello poder generar efectos curiosos que solo es posible con float, por ejemplo mandar a flotar una imagen a la derecha para que el texto que tenia debajo se recorra a la izquierda y a si vez si dicho texto sobre pasa el tamaño del texto pues texto tomara el tamaño del 100% nuevamente ahora que la imagen no le estorba. Como vemos se auto calcula y esto solo sucede con float.</p>
+					<p class="paragraph">Float es un tema muy extenso debido a su uso anteriormente, y como este tiene varios fallos pues era comun recurrir a trucos para repararlos. <span class="gr">(como dato este sitio usa float para el acomodo de el layout .__.)</p></span>
+				</div>
+				<h2 class="box__title">Ejemplos</h2>
+				<div class="box box--float-example">
+					<img src="../../Media/object-example.png" alt="" class="float">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit modi quod recusandae libero in ullam accusantium hic inventore aliquid blanditiis, exercitationem, quae architecto reprehenderit repellendus et nobis, aliquam excepturi eaque?
+					</p>
+				</div>
+				<br><br><br><br><br>
+				<div class="box__text">
+					<p class="paragraph">
+						Al usar float podemos ver el como el elemento flota hacia la izquierda pero este como literalmente flota su padre es como si lo ignorara pero al seguir en el flojo este conserva su espacio, algo dificil de definir con pocas palabras. Esto se puede ereglar de con diferentes trucos pero la manera mas facil es usando<code>overflow</code>hidden.
+					</p>
+				</div>
+				<div class="box box--float-example-2">
+					<img src="../../Media/object-example.png" alt="" class="float">
+					<p>
+						<span class="red">aplique overflow hidden a el padre para que respete el cuerpo completo de el hijo</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio dicta blanditiis, debitis corrupti, perferendis sequi voluptatum libero doloribus reiciendis consequuntur inventore, architecto autem eos optio ipsam at eaque veniam doloremque! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat magnam voluptatum eum doloribus soluta eveniet quos quas enim tempora nesciunt quae officia praesentium iure esse, quisquam sint perspiciatis quod fuga. Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi voluptas minus fuga nobis blanditiis ratione tenetur, dolore quos, nemo voluptatum sunt porro molestias sapiente expedita atque magnam modi animi ad. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus dolore laborum et, harum itaque vel quae, soluta qui recusandae ea, officiis debitis numquam. Consectetur tempore, rerum rem cupiditate deleniti autem! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem totam tempore pariatur iure inventore, veritatis, ut reiciendis sapiente accusamus fugiat, eum eos atque itaque exercitationem in illum eligendi! Et, quasi?
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Pie de página-->
+	<footer class="footer" id="footer">
+		<div class="footer__content content">
+			<div class="col--md col--footer">
+				<a href="#body" class="btn btn--shadow btn--footer">
+					<span class="btn__text">Subir</span>
+				</a>
+			</div>
+		</div>
+	</footer>
+</body>
+<script src="https://kit.fontawesome.com/92b3da59fb.js" crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,88 @@
+/*Esto es la buenas bases de Css*/
+
+/*Especificidad*/
+
+Qué es?
+
+Por predeterminado el navegador aplica estilos de css en nuestras paginas y cuando nosotros le aplicamos otros estilos existe un algoritmo que busca determinar que estilo aplicar.
+por ejemplo en la linea uno le ponemos red a un texto y en la linea 100 le aplicamos green, en este caso el navegador tiene un mecanismo que se llama "Especificidad" el cual decide que regla es mas especifica, y la especificidad es a nivel de selectores.
+los tags valen 1 y se suman y el elemento que sume mas gana.
+etiquetas(tags) =  1
+clases = 10
+id = 100
+inline = 1000
+
+!important = el poderoso bill xd
+
+por ejemplo body#one {} vale 101 y body p {} vale 2 en este caso el body#one vale mas y este se apliocara en lugar del body p.
+
+Esto es util pero genera malos conflictos de orden en el mismo codigo, es importante saberlo pero no es lo optimo, para ello estan las clases lo cual especifica directamente un elemento.
+ /*Nota: La arquitectura orientada a pelear con la especificidad es ITCSS */
+
+ /*Cascada(El hermano de la especialidad)*/
+
+ La cascada menciona "Lo que viene después sobreescribe a lo que está antes"
+ ejemplo:
+<p class="post">Texto de ejemplo</p>
+
+p {
+	color: red;
+}
+
+p {
+	color: green;
+}
+
+Si lo vemos en el navegador este pequeño código veremos que el segundo p{color: green;} se aplicara a pesar que ya antes se coloco el color red y esto es debido a la regla de la cascada, y esta se cumplira siempre y cuando el selectores sean del mismo valor/especificidad, de lo contrario el que mandara sera la especificidad como en el siguiente caso.-
+p.post {
+	color: red;
+}
+
+p {
+	color: green;
+}
+es este caso el que mandara sera p.post de color red.
+Una cosa a recalcar es que el primer caso tal vez no se refleje en pequeños proyectos pero si en uno de mayor magnitud para ello es tenerlo en cuenta. Y si nos sucediera que en caso de que queramos que ya sea en el caso 1 o 2 una regla sea la que mande ya sea por la regla de la especificidad o la de la cascada solo aplicamos !important dentro del valor de la declaracion.
+
+ p.post {
+	color: red;
+}
+
+p {
+	color: green !important;
+}
+Utilizar Important se considera una mala practica pero aveces no queda de otra, ya que esto en futuro puede crear conflictos.
+
+/*Estilos computados por el navegador*/
+Es de ayuda entendrer utilizar y interpretar los elementos en la pagina web con ayuda del navegar utilizando el inspector de elementos.
+Gracias a ello podemos ver que es lo que el navegador declara como principal y que cosa ignora. Utilizando el inspector podemos ver claro los estilos y ver a su ves los computed la pestaña que nos especifica que se ignoro y por que.
+
+/*Herencia*/
+
+Significa que los decendientes heredan propiedades de sus padres, pero no heredan todas las existentes, solo algunas. Ejemplo:
+<h1>Hola<span>mundo</span></h1>
+En la hoja de estilos del propio navegador estos dos se veran igual gracias a la heredacion que el h1 le da al espan y no solo el h1 si no tambien puede ser el body y hasta el html.
+
+/*Initial y inherit*/
+
+
+Initial: Resetea un elemento a su valor inicial.
+
+inherit: obliga a un elemento herede una propiedad.
+
+<p>Hola mundo
+<a href="#">Visita mi web</a></p>
+
+a {
+	color: red;
+}
+
+En este caso el p le hereda el tamaño a el "a" y el color lo especificamos asi que este no heredara el color del p, pero si queremos que el a se vean como en su forma por defecto solo aplicamos
+el initial.
+
+p {
+	font-size:initial;
+}
+
+y se vera mas pequeño ya que no heredara el tamaño del p si no como su tamaño inicial.
+

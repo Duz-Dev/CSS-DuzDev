@@ -1,0 +1,39 @@
+texto ll
+
+8.1 Font family 
+
+entendamos cuando hablamos de font nos referimos al tipo de letra, a sus características y tal. y con texto nos referimos al contenido de este mismo.
+
+sabiendo esto sabemos que font family es la familia tipográfica hay miles de de fuentes y variantes entre ellas.
+Las mas comunes son por dar un ejemplo serif, sans-serif, monospece(monoespaciado, todas las letras se separan por igual), display.
+
+Bueno la propiedad font-familiy pone a disposision el tipo de fuente como primer atributo y despues de este un segundo por si el primero no llega a cargar. font-family:monospece,'open-serif';
+
+La fuentes que coloquemos como genéricas ya el dispositivo sabra que poner en este caso,ej en win10 la serif por defaut es time new roman pero en mac es georgia.
+
+Como ultimo, siempre poner como confortback la tipografía genérica y los names de tipografías con espacios van entre comillas ya sean simples o dobles.
+
+8.2 Font size
+
+Ya la conocemos,no hay mayor misterio en este. como dato podemos decir que hay palabras claves como small y tal pero no se recomienda usar.
+
+8.3 Font weight y font style
+
+font weight es el grosor de los trazos. Es importante saber que no esta bien forzar a que cierta fuente tenga valores que no existen, si la fuente no tiene bold no lo pongas. Y también hay palabras claves pero evitemos usarlos, usemos numeros que van de 100 en 100 hasta 900.
+
+8.4 - Tip: combinación de fuentes tipográficas
+Esto ya se va aprendiendo con la experiencia de uso de combinaciones de fuentes, pero al igual hay guias y pagínas que recomiendan unas. Por ej usar serif como titulo y sans-serif como contenido.
+
+8.5 - Shorthand font y proveedores de fuentes
+
+Con todo lo que ya vimos podemos hacerlo mas corto con un shorthand font y su orden es font:size/line-head family;.
+
+@fontface es un add-roll el cual indica que podemos agregar cualquier fuente externa que el navegador acepte como wolff o woff2
+su estructura seria 
+@fontface {
+	font-family:Nombre;
+	font-weight:valor;
+	font-style:italic;
+	src:local(font) url(path) format(wolff2)
+}
+con local le decimos al navegador que busque la fuente en el dispositivo,si falla que la busque en la web con la url

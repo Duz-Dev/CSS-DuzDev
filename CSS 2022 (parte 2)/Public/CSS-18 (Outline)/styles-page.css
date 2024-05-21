@@ -1,0 +1,33 @@
+.box__content__img--outline {
+ background: var(--color-primary);
+ border-radius: 10px;
+ width: 80%;
+ height: 420px;
+ margin-bottom: calc(var(--margin-b) / 2);
+}
+
+.box__img--outline {
+    width: 60%;
+}
+
+.box-img--ejemplo {
+    background-color:var(--color-C);
+    width: 50%;
+    height: 300px;
+    margin:0 auto;
+    outline:5px solid red;
+    outline-offset: 10px;
+    border: 10px solid lime;
+}
+
+/* .content__title {
+    background-color: var(--color-primary-transparent);
+    position: sticky;
+    top:calc(var(--height_nav) + 16.2px);
+    z-index:var(--z-fixed);
+}
+
+.content__title__text {
+    color: #fff;
+    border-color:var(--color-B);
+} */
