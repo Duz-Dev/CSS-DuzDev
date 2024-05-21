@@ -1,8 +1,8 @@
-<img align="right" src = "https://visitor-badge.laobi.icu/badge?page_id=jeremyrossell.jeremyrossell"/>
+<img align="right" src = "https://visitor-badge.laobi.icu/badge?page_id=Duz-Dev.CSS-DuzDev"/>
 
 <!--- Header -->
 <div align="center">
-  <h1>Welcome to <a href="/assets/kiwi.gif">JR Pablo</a> profile! <img src="/assets/pato.gif" width="25px"></h1>
+  <h1>Welcome to <a href="#">JR Pablo</a> profile! </h1>
   <!--- Education -->
   <!--- <img src="https://custom-icon-badges.demolab.com/badge/-B.E. Computer Engineering-171515?style=for-the-badge&logo=itesm">--> <img src="https://custom-icon-badges.demolab.com/badge/-B.S. Computer Science-171515?style=for-the-badge&logo=uanl">
 </div>
