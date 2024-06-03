@@ -87,7 +87,7 @@
   /*el menú (nav)*/
   background-color: var(--color-primary);
   font-family: var(--font-family-sans);
-  font-weight: 500;
+  font-weight: 600;
   position: fixed; /*ponemos el menú fijo con respecto al viewport de la pantalla*/
   width: 100%; /*aplicando fixed al tener un ancho automático se resetea por lo que ahora es importante especificar que queremos un ancho del 100%*/
   top: 0; /*lo ponemos arriba del todo*/
@@ -185,16 +185,16 @@
 /*--menu de arriba-*/
 .menu__item--link:not(.menu__item--logo)::after {
   /*Seleccionamos los links con excepción de el logo (li) para crear un hijo(after)*/
-  content: "";
+  /* content: "";
   display: block;
   position: absolute;
   width: 79%;
   height: 3px;
-  background-color: var(--color-B);
+  background-color: red;
   bottom: 10px;
   transform: scale(0, 1);
   transition: all 0.2s linear;
-  transform-origin: left;
+  transform-origin: left; */
 }
 
 .menu__item--link:hover::after {
@@ -205,8 +205,15 @@
 .menu__item--logo-img {
   /*Seleccionamos el logo (img)*/
   height: calc(var(--height_nav) * 1.1);
-  width: 90%;
-  border-radius: 3px;
+  width: 40%;
+  filter: drop-shadow(-2px 2px 15px rgba(0,0,0,.6));
+  transition: all 0.5s;
+
+  &:hover {
+    filter: drop-shadow(-2px 2px 15px gray);
+    transform: scale(1.1);
+    transition: all 0.5s;
+  }
 }
 
 .sub--menu .menu__item--link::after {

@@ -1,4 +1,5 @@
 # NOTA PARA MI (Mi diario en css)
+
 1. Recuerda que empezamos a estudiar css en 2do de preparatoria por cerca del 2018-2019.
 Aprendimos nada y no apuntamos nada. Creamos proyectos como la pasteleria o un sitio al presentable.
 
@@ -13,7 +14,7 @@ Hicimos apuntes en la carpeta ahora llamada "CSS DESDE 0 (PARTE 1 2020)", pero m
 creabamos un proyecto y basicamente dentro del css y html comentabamos todo xd.
 Para separar un poco la teoria de la practica, mejor opte por estructurar y mostrar informacion como si fuera un sitio y mostrar ejemplos de la sitaxis de las propiedades y ejemplos de la aplicacion.
 
-3. Despues, mis recuerdos no son claros, no recuerdo si fue antes o despues de durian, vimos el curso de CSS desde 0 de 
+3. Despues, mis recuerdos no son claros, no recuerdo si fue antes o despues de durian, vimos el curso de CSS desde 0 de
 ED.TEAM. el cual era gratis, el cual aprendimos cosas que creo que en durian no, pero solo enseñaron hasta la parte de position. (Creo, mis recuerdos son muy difusos entre el punto 2 y 3.) Por lo que tuvimos que buscar en donde aprender mas.
 
     3.1 Aprendimos igualmente en el camino de otras personas como falcom masters el cual nos enseño lo mas basico y era facil de entender.
@@ -23,9 +24,9 @@ ED.TEAM. el cual era gratis, el cual aprendimos cosas que creo que en durian no,
 5. Por algun motivo que desconozco, volvio un poco de motivación por aprender otra vez en el 2022. Quise retomar
 CSS y aprender JS, PYTHON,GIT, mucho mas (posiblemente a causa de querer sobre salir en la UNI. pero creo que ya estaba en Joyson cuando empece otra vez, asi que XD).
 Esto llevo a que creara la carpeta "CSS DESDE 0 (Parte 2 2022)" la cual es la continuacion de la primera parte (obvio).
-En esta intentaba repasar temas basicos que olvide, como selectores y demas, pero me dio weba volver a empezar. asi que 
+En esta intentaba repasar temas basicos que olvide, como selectores y demas, pero me dio weba volver a empezar. asi que
 fui de grano con flexbox y Grid. Ese era el objetivo, una vez adquirido esos nos grandes pilares del diseño en CSS, mas un frame work (En este punto ya sabia algo de boostrap), y un pre pross como sass o less (creo tengo un curso de sass).
-Y con eso ya iba a ser un usuario avanzado en CSS. Me hubiera faltado el diseño resposivo, pero supongo que me iba acordar :p 
+Y con eso ya iba a ser un usuario avanzado en CSS. Me hubiera faltado el diseño resposivo, pero supongo que me iba acordar :p
 
     5.1 Recordemos que estaba repasando temas importantes y que me dio weba, dichos temas eran mas avanzados y por ello iba de la mano de flex, creando asi la carpeta "CSS DESDE 0 (PARTE 2.1 2022). Esta era la verdadera continuacion de lo que vi en el 2020 por lo que cronologicamente este va antes de la parte 2, pero mee, da weba :p
 
